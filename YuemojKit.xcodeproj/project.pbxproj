@@ -1,0 +1,708 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B4658E32BE8BFB900FBD494 /* YJDataFillerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4658E22BE8BFB900FBD494 /* YJDataFillerProtocol.h */; };
+		5B4658E62BE8C43000FBD494 /* YJDataFillNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4658E52BE8C43000FBD494 /* YJDataFillNamespace.m */; };
+		5B4658E72BE8C43000FBD494 /* YJDataFillNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4658E42BE8C43000FBD494 /* YJDataFillNamespace.h */; };
+		5BBA664C2BE0E60A00979548 /* YJLayouterProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBA664B2BE0E60A00979548 /* YJLayouterProtocol.h */; };
+		5BBA664E2BE0EDC200979548 /* YJLayoutDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBA664D2BE0EDC200979548 /* YJLayoutDelegate.h */; };
+		5BC57DB42BF7055100E4CA42 /* YuemojMetamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BC57DB32BF7055100E4CA42 /* YuemojMetamacros.h */; };
+		5BC57DB82BF7546E00E4CA42 /* YJArrayNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC57DB62BF7546E00E4CA42 /* YJArrayNamespace.m */; };
+		5BC57DBB2BF756D700E4CA42 /* Component+Yuemoj.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BC57DB92BF756D700E4CA42 /* Component+Yuemoj.h */; };
+		5BC57DBC2BF756D700E4CA42 /* Component+Yuemoj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC57DBA2BF756D700E4CA42 /* Component+Yuemoj.m */; };
+		5BD888822BF4566700034AB0 /* YJEventBuildNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD888802BF4566700034AB0 /* YJEventBuildNamespace.h */; };
+		5BD888832BF4566700034AB0 /* YJEventBuildNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD888812BF4566700034AB0 /* YJEventBuildNamespace.m */; };
+		5BD888852BF456B500034AB0 /* YJEventBuildDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD888842BF456B500034AB0 /* YJEventBuildDelegate.h */; };
+		5BD888872BF456C100034AB0 /* YJEventBuildDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD888862BF456C100034AB0 /* YJEventBuildDataSource.h */; };
+		5BD888892BF456D400034AB0 /* YJEventBuilderProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD888882BF456D400034AB0 /* YJEventBuilderProtocol.h */; };
+		5BD888A62BF4B10300034AB0 /* YuemojUIAbilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD888A52BF4B10300034AB0 /* YuemojUIAbilities.h */; };
+		5BD888AA2BF4B76A00034AB0 /* YJActionNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD888A82BF4B76A00034AB0 /* YJActionNamespace.m */; };
+		5BD888AE2BF4B77B00034AB0 /* YJFrameNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD888AC2BF4B77B00034AB0 /* YJFrameNamespace.m */; };
+		5BD888B22BF4B78700034AB0 /* YJArrangeNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD888B02BF4B78700034AB0 /* YJArrangeNamespace.m */; };
+		5BD888B52BF4D3FD00034AB0 /* UIKit+Yuemoj.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD888B32BF4D3FD00034AB0 /* UIKit+Yuemoj.h */; };
+		5BD888B62BF4D3FD00034AB0 /* UIKit+Yuemoj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD888B42BF4D3FD00034AB0 /* UIKit+Yuemoj.m */; };
+		5BECA1122BDE3BD600B95DF0 /* YuemojKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA1112BDE3BD600B95DF0 /* YuemojKit.docc */; };
+		5BECA1132BDE3BD600B95DF0 /* YuemojKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1102BDE3BD600B95DF0 /* YuemojKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BECA11B2BDE3C9C00B95DF0 /* Yuemoj.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1192BDE3C9B00B95DF0 /* Yuemoj.h */; };
+		5BECA11C2BDE3C9C00B95DF0 /* Yuemoj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA11A2BDE3C9C00B95DF0 /* Yuemoj.m */; };
+		5BECA1202BDE40A100B95DF0 /* YJLayoutModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA11E2BDE40A100B95DF0 /* YJLayoutModels.h */; };
+		5BECA1212BDE40A100B95DF0 /* YJLayoutModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA11F2BDE40A100B95DF0 /* YJLayoutModels.m */; };
+		5BECA1242BDE411300B95DF0 /* YJComponentWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1222BDE411300B95DF0 /* YJComponentWrapper.h */; };
+		5BECA1252BDE411300B95DF0 /* YJComponentWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA1232BDE411300B95DF0 /* YJComponentWrapper.m */; };
+		5BECA12C2BDE412E00B95DF0 /* YJLayouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA1262BDE412E00B95DF0 /* YJLayouter.m */; };
+		5BECA12E2BDE412E00B95DF0 /* YJLayoutDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1282BDE412E00B95DF0 /* YJLayoutDataSource.h */; };
+		5BECA12F2BDE412E00B95DF0 /* YJLayouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1292BDE412E00B95DF0 /* YJLayouter.h */; };
+		5BECA1302BDE412E00B95DF0 /* YJComponentDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA12A2BDE412E00B95DF0 /* YJComponentDelegate.h */; };
+		5BECA1312BDE412E00B95DF0 /* YJComponentDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA12B2BDE412E00B95DF0 /* YJComponentDataSource.h */; };
+		5BECA1332BDE41BC00B95DF0 /* YJComponentEnum.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1322BDE41BC00B95DF0 /* YJComponentEnum.h */; };
+		5BECA1362BDE42C800B95DF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BECA1352BDE42C800B95DF0 /* UIKit.framework */; };
+		5BECA13D2BDE453300B95DF0 /* YJDataFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA1392BDE453200B95DF0 /* YJDataFiller.m */; };
+		5BECA13E2BDE453300B95DF0 /* YJDataFiller.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA13A2BDE453200B95DF0 /* YJDataFiller.h */; };
+		5BECA13F2BDE453300B95DF0 /* YJDataFillDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA13B2BDE453300B95DF0 /* YJDataFillDataSource.h */; };
+		5BECA1402BDE453300B95DF0 /* YJDataFillDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA13C2BDE453300B95DF0 /* YJDataFillDelegate.h */; };
+		5BECA1452BDE45EA00B95DF0 /* YJEventBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA1422BDE45EA00B95DF0 /* YJEventBuilder.m */; };
+		5BECA1462BDE45EA00B95DF0 /* YJEventBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1432BDE45EA00B95DF0 /* YJEventBuilder.h */; };
+		5BECA1502BDE62A500B95DF0 /* YJGroupModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA14B2BDE62A500B95DF0 /* YJGroupModel.h */; };
+		5BECA1512BDE62A500B95DF0 /* YJDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA14C2BDE62A500B95DF0 /* YJDataSource.m */; };
+		5BECA1522BDE62A500B95DF0 /* YJGroupDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA14D2BDE62A500B95DF0 /* YJGroupDataSource.m */; };
+		5BECA1532BDE62A500B95DF0 /* YJDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA14E2BDE62A500B95DF0 /* YJDataSource.h */; };
+		5BECA1542BDE62A500B95DF0 /* YJGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA14F2BDE62A500B95DF0 /* YJGroupModel.m */; };
+		5BECA1582BDE687700B95DF0 /* YJLayoutNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA1572BDE687700B95DF0 /* YJLayoutNamespace.m */; };
+		5BECA1592BDE687700B95DF0 /* YJLayoutNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1562BDE687700B95DF0 /* YJLayoutNamespace.h */; };
+		5BF073372BF5A8FB0071EAB4 /* YJExtraNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF073352BF5A8FB0071EAB4 /* YJExtraNamespace.m */; };
+		5BF0733A2BF5ADB30071EAB4 /* YJUIKitNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BF073382BF5ADB30071EAB4 /* YJUIKitNamespace.h */; };
+		5BF0733B2BF5ADB30071EAB4 /* YJUIKitNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF073392BF5ADB30071EAB4 /* YJUIKitNamespace.m */; };
+		5BF0733F2BF5E82A0071EAB4 /* YJHyperlinkNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0733D2BF5E82A0071EAB4 /* YJHyperlinkNamespace.m */; };
+		5BF073452BF5FF420071EAB4 /* YuemojFoundationAbilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BF073442BF5FF420071EAB4 /* YuemojFoundationAbilities.h */; };
+		5BF073482BF60A9B0071EAB4 /* Foundation+Yuemoj.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BF073462BF60A9B0071EAB4 /* Foundation+Yuemoj.h */; };
+		5BF073492BF60A9B0071EAB4 /* Foundation+Yuemoj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF073472BF60A9B0071EAB4 /* Foundation+Yuemoj.m */; };
+		5BF0734C2BF60B440071EAB4 /* YJFoundationNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BF0734A2BF60B440071EAB4 /* YJFoundationNamespace.h */; };
+		5BF0734D2BF60B440071EAB4 /* YJFoundationNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0734B2BF60B440071EAB4 /* YJFoundationNamespace.m */; };
+		5BF073512BF60B660071EAB4 /* YJStringNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0734F2BF60B660071EAB4 /* YJStringNamespace.m */; };
+		91857AF52A2CF9B1D5F019D1 /* Pods_YuemojKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 859F124C8DCCB24BB679C1B8 /* Pods_YuemojKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		39A382E92446090AAB573E50 /* Pods-YuemojKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YuemojKit.debug.xcconfig"; path = "Target Support Files/Pods-YuemojKit/Pods-YuemojKit.debug.xcconfig"; sourceTree = "<group>"; };
+		5B4658E22BE8BFB900FBD494 /* YJDataFillerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJDataFillerProtocol.h; sourceTree = "<group>"; };
+		5B4658E42BE8C43000FBD494 /* YJDataFillNamespace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJDataFillNamespace.h; sourceTree = "<group>"; };
+		5B4658E52BE8C43000FBD494 /* YJDataFillNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJDataFillNamespace.m; sourceTree = "<group>"; };
+		5BBA664B2BE0E60A00979548 /* YJLayouterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJLayouterProtocol.h; sourceTree = "<group>"; };
+		5BBA664D2BE0EDC200979548 /* YJLayoutDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJLayoutDelegate.h; sourceTree = "<group>"; };
+		5BC57DB32BF7055100E4CA42 /* YuemojMetamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuemojMetamacros.h; sourceTree = "<group>"; };
+		5BC57DB62BF7546E00E4CA42 /* YJArrayNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJArrayNamespace.m; sourceTree = "<group>"; };
+		5BC57DB92BF756D700E4CA42 /* Component+Yuemoj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Component+Yuemoj.h"; sourceTree = "<group>"; };
+		5BC57DBA2BF756D700E4CA42 /* Component+Yuemoj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Component+Yuemoj.m"; sourceTree = "<group>"; };
+		5BD888802BF4566700034AB0 /* YJEventBuildNamespace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJEventBuildNamespace.h; sourceTree = "<group>"; };
+		5BD888812BF4566700034AB0 /* YJEventBuildNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJEventBuildNamespace.m; sourceTree = "<group>"; };
+		5BD888842BF456B500034AB0 /* YJEventBuildDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJEventBuildDelegate.h; sourceTree = "<group>"; };
+		5BD888862BF456C100034AB0 /* YJEventBuildDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJEventBuildDataSource.h; sourceTree = "<group>"; };
+		5BD888882BF456D400034AB0 /* YJEventBuilderProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJEventBuilderProtocol.h; sourceTree = "<group>"; };
+		5BD888A52BF4B10300034AB0 /* YuemojUIAbilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YuemojUIAbilities.h; sourceTree = "<group>"; };
+		5BD888A82BF4B76A00034AB0 /* YJActionNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJActionNamespace.m; sourceTree = "<group>"; };
+		5BD888AC2BF4B77B00034AB0 /* YJFrameNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJFrameNamespace.m; sourceTree = "<group>"; };
+		5BD888B02BF4B78700034AB0 /* YJArrangeNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJArrangeNamespace.m; sourceTree = "<group>"; };
+		5BD888B32BF4D3FD00034AB0 /* UIKit+Yuemoj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIKit+Yuemoj.h"; sourceTree = "<group>"; };
+		5BD888B42BF4D3FD00034AB0 /* UIKit+Yuemoj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIKit+Yuemoj.m"; sourceTree = "<group>"; };
+		5BECA10D2BDE3BD600B95DF0 /* YuemojKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YuemojKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BECA1102BDE3BD600B95DF0 /* YuemojKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YuemojKit.h; sourceTree = "<group>"; };
+		5BECA1112BDE3BD600B95DF0 /* YuemojKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = YuemojKit.docc; sourceTree = "<group>"; };
+		5BECA1192BDE3C9B00B95DF0 /* Yuemoj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yuemoj.h; sourceTree = "<group>"; };
+		5BECA11A2BDE3C9C00B95DF0 /* Yuemoj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Yuemoj.m; sourceTree = "<group>"; };
+		5BECA11E2BDE40A100B95DF0 /* YJLayoutModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutModels.h; sourceTree = "<group>"; };
+		5BECA11F2BDE40A100B95DF0 /* YJLayoutModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayoutModels.m; sourceTree = "<group>"; };
+		5BECA1222BDE411300B95DF0 /* YJComponentWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJComponentWrapper.h; sourceTree = "<group>"; };
+		5BECA1232BDE411300B95DF0 /* YJComponentWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJComponentWrapper.m; sourceTree = "<group>"; };
+		5BECA1262BDE412E00B95DF0 /* YJLayouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayouter.m; sourceTree = "<group>"; };
+		5BECA1282BDE412E00B95DF0 /* YJLayoutDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutDataSource.h; sourceTree = "<group>"; };
+		5BECA1292BDE412E00B95DF0 /* YJLayouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayouter.h; sourceTree = "<group>"; };
+		5BECA12A2BDE412E00B95DF0 /* YJComponentDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJComponentDelegate.h; sourceTree = "<group>"; };
+		5BECA12B2BDE412E00B95DF0 /* YJComponentDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJComponentDataSource.h; sourceTree = "<group>"; };
+		5BECA1322BDE41BC00B95DF0 /* YJComponentEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJComponentEnum.h; sourceTree = "<group>"; };
+		5BECA1352BDE42C800B95DF0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		5BECA1392BDE453200B95DF0 /* YJDataFiller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJDataFiller.m; sourceTree = "<group>"; };
+		5BECA13A2BDE453200B95DF0 /* YJDataFiller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFiller.h; sourceTree = "<group>"; };
+		5BECA13B2BDE453300B95DF0 /* YJDataFillDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFillDataSource.h; sourceTree = "<group>"; };
+		5BECA13C2BDE453300B95DF0 /* YJDataFillDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFillDelegate.h; sourceTree = "<group>"; };
+		5BECA1422BDE45EA00B95DF0 /* YJEventBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJEventBuilder.m; sourceTree = "<group>"; };
+		5BECA1432BDE45EA00B95DF0 /* YJEventBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJEventBuilder.h; sourceTree = "<group>"; };
+		5BECA14B2BDE62A500B95DF0 /* YJGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJGroupModel.h; sourceTree = "<group>"; };
+		5BECA14C2BDE62A500B95DF0 /* YJDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJDataSource.m; sourceTree = "<group>"; };
+		5BECA14D2BDE62A500B95DF0 /* YJGroupDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJGroupDataSource.m; sourceTree = "<group>"; };
+		5BECA14E2BDE62A500B95DF0 /* YJDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataSource.h; sourceTree = "<group>"; };
+		5BECA14F2BDE62A500B95DF0 /* YJGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJGroupModel.m; sourceTree = "<group>"; };
+		5BECA1552BDE642500B95DF0 /* YuemojMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YuemojMacros.h; sourceTree = "<group>"; };
+		5BECA1562BDE687700B95DF0 /* YJLayoutNamespace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJLayoutNamespace.h; sourceTree = "<group>"; };
+		5BECA1572BDE687700B95DF0 /* YJLayoutNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJLayoutNamespace.m; sourceTree = "<group>"; };
+		5BF073352BF5A8FB0071EAB4 /* YJExtraNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJExtraNamespace.m; sourceTree = "<group>"; };
+		5BF073382BF5ADB30071EAB4 /* YJUIKitNamespace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJUIKitNamespace.h; sourceTree = "<group>"; };
+		5BF073392BF5ADB30071EAB4 /* YJUIKitNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJUIKitNamespace.m; sourceTree = "<group>"; };
+		5BF0733D2BF5E82A0071EAB4 /* YJHyperlinkNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJHyperlinkNamespace.m; sourceTree = "<group>"; };
+		5BF073442BF5FF420071EAB4 /* YuemojFoundationAbilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YuemojFoundationAbilities.h; sourceTree = "<group>"; };
+		5BF073462BF60A9B0071EAB4 /* Foundation+Yuemoj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Foundation+Yuemoj.h"; sourceTree = "<group>"; };
+		5BF073472BF60A9B0071EAB4 /* Foundation+Yuemoj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Yuemoj.m"; sourceTree = "<group>"; };
+		5BF0734A2BF60B440071EAB4 /* YJFoundationNamespace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJFoundationNamespace.h; sourceTree = "<group>"; };
+		5BF0734B2BF60B440071EAB4 /* YJFoundationNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJFoundationNamespace.m; sourceTree = "<group>"; };
+		5BF0734F2BF60B660071EAB4 /* YJStringNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJStringNamespace.m; sourceTree = "<group>"; };
+		859F124C8DCCB24BB679C1B8 /* Pods_YuemojKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YuemojKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E59EA9D907CFFDA82875B96A /* Pods-YuemojKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YuemojKit.release.xcconfig"; path = "Target Support Files/Pods-YuemojKit/Pods-YuemojKit.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5BECA10A2BDE3BD600B95DF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BECA1362BDE42C800B95DF0 /* UIKit.framework in Frameworks */,
+				91857AF52A2CF9B1D5F019D1 /* Pods_YuemojKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5BD888972BF4AB3600034AB0 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				5BD888A52BF4B10300034AB0 /* YuemojUIAbilities.h */,
+				5BF073382BF5ADB30071EAB4 /* YJUIKitNamespace.h */,
+				5BF073392BF5ADB30071EAB4 /* YJUIKitNamespace.m */,
+				5BF073402BF5F9A20071EAB4 /* View */,
+				5BF073412BF5F9B70071EAB4 /* Button */,
+				5BF073422BF5F9C00071EAB4 /* Label */,
+				5BD888B32BF4D3FD00034AB0 /* UIKit+Yuemoj.h */,
+				5BD888B42BF4D3FD00034AB0 /* UIKit+Yuemoj.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		5BECA1032BDE3BD600B95DF0 = {
+			isa = PBXGroup;
+			children = (
+				5BECA10F2BDE3BD600B95DF0 /* YuemojKit */,
+				5BECA10E2BDE3BD600B95DF0 /* Products */,
+				5BECA1342BDE42C800B95DF0 /* Frameworks */,
+				A867060D791066BC924936F4 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		5BECA10E2BDE3BD600B95DF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BECA10D2BDE3BD600B95DF0 /* YuemojKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5BECA10F2BDE3BD600B95DF0 /* YuemojKit */ = {
+			isa = PBXGroup;
+			children = (
+				5BECA1192BDE3C9B00B95DF0 /* Yuemoj.h */,
+				5BECA11A2BDE3C9C00B95DF0 /* Yuemoj.m */,
+				5BECA1552BDE642500B95DF0 /* YuemojMacros.h */,
+				5BC57DB32BF7055100E4CA42 /* YuemojMetamacros.h */,
+				5BF073432BF5FEE70071EAB4 /* Foundation */,
+				5BD888972BF4AB3600034AB0 /* UIKit */,
+				5BECA14A2BDE627B00B95DF0 /* YJDataSource */,
+				5BECA1482BDE47EB00B95DF0 /* YJComponent */,
+				5BECA1102BDE3BD600B95DF0 /* YuemojKit.h */,
+				5BECA1112BDE3BD600B95DF0 /* YuemojKit.docc */,
+			);
+			path = YuemojKit;
+			sourceTree = "<group>";
+		};
+		5BECA11D2BDE3CEC00B95DF0 /* YJLayouter */ = {
+			isa = PBXGroup;
+			children = (
+				5BECA1562BDE687700B95DF0 /* YJLayoutNamespace.h */,
+				5BECA1572BDE687700B95DF0 /* YJLayoutNamespace.m */,
+				5BECA1292BDE412E00B95DF0 /* YJLayouter.h */,
+				5BECA1262BDE412E00B95DF0 /* YJLayouter.m */,
+				5BECA11E2BDE40A100B95DF0 /* YJLayoutModels.h */,
+				5BECA11F2BDE40A100B95DF0 /* YJLayoutModels.m */,
+				5BBA664D2BE0EDC200979548 /* YJLayoutDelegate.h */,
+				5BECA1282BDE412E00B95DF0 /* YJLayoutDataSource.h */,
+				5BBA664B2BE0E60A00979548 /* YJLayouterProtocol.h */,
+			);
+			path = YJLayouter;
+			sourceTree = "<group>";
+		};
+		5BECA1342BDE42C800B95DF0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BECA1352BDE42C800B95DF0 /* UIKit.framework */,
+				859F124C8DCCB24BB679C1B8 /* Pods_YuemojKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5BECA1382BDE44EE00B95DF0 /* YJFiller */ = {
+			isa = PBXGroup;
+			children = (
+				5B4658E42BE8C43000FBD494 /* YJDataFillNamespace.h */,
+				5B4658E52BE8C43000FBD494 /* YJDataFillNamespace.m */,
+				5BECA13A2BDE453200B95DF0 /* YJDataFiller.h */,
+				5BECA1392BDE453200B95DF0 /* YJDataFiller.m */,
+				5BECA13C2BDE453300B95DF0 /* YJDataFillDelegate.h */,
+				5BECA13B2BDE453300B95DF0 /* YJDataFillDataSource.h */,
+				5B4658E22BE8BFB900FBD494 /* YJDataFillerProtocol.h */,
+			);
+			path = YJFiller;
+			sourceTree = "<group>";
+		};
+		5BECA1412BDE45D100B95DF0 /* YJEventBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				5BD888802BF4566700034AB0 /* YJEventBuildNamespace.h */,
+				5BD888812BF4566700034AB0 /* YJEventBuildNamespace.m */,
+				5BECA1432BDE45EA00B95DF0 /* YJEventBuilder.h */,
+				5BECA1422BDE45EA00B95DF0 /* YJEventBuilder.m */,
+				5BD888842BF456B500034AB0 /* YJEventBuildDelegate.h */,
+				5BD888862BF456C100034AB0 /* YJEventBuildDataSource.h */,
+				5BD888882BF456D400034AB0 /* YJEventBuilderProtocol.h */,
+			);
+			path = YJEventBuilder;
+			sourceTree = "<group>";
+		};
+		5BECA1482BDE47EB00B95DF0 /* YJComponent */ = {
+			isa = PBXGroup;
+			children = (
+				5BECA1222BDE411300B95DF0 /* YJComponentWrapper.h */,
+				5BECA1232BDE411300B95DF0 /* YJComponentWrapper.m */,
+				5BECA1322BDE41BC00B95DF0 /* YJComponentEnum.h */,
+				5BECA12A2BDE412E00B95DF0 /* YJComponentDelegate.h */,
+				5BECA12B2BDE412E00B95DF0 /* YJComponentDataSource.h */,
+				5BECA1382BDE44EE00B95DF0 /* YJFiller */,
+				5BECA11D2BDE3CEC00B95DF0 /* YJLayouter */,
+				5BECA1412BDE45D100B95DF0 /* YJEventBuilder */,
+				5BC57DB92BF756D700E4CA42 /* Component+Yuemoj.h */,
+				5BC57DBA2BF756D700E4CA42 /* Component+Yuemoj.m */,
+			);
+			path = YJComponent;
+			sourceTree = "<group>";
+		};
+		5BECA14A2BDE627B00B95DF0 /* YJDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				5BECA14B2BDE62A500B95DF0 /* YJGroupModel.h */,
+				5BECA14F2BDE62A500B95DF0 /* YJGroupModel.m */,
+				5BECA14E2BDE62A500B95DF0 /* YJDataSource.h */,
+				5BECA14C2BDE62A500B95DF0 /* YJDataSource.m */,
+				5BECA14D2BDE62A500B95DF0 /* YJGroupDataSource.m */,
+			);
+			path = YJDataSource;
+			sourceTree = "<group>";
+		};
+		5BF073402BF5F9A20071EAB4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5BF073352BF5A8FB0071EAB4 /* YJExtraNamespace.m */,
+				5BD888A82BF4B76A00034AB0 /* YJActionNamespace.m */,
+				5BD888AC2BF4B77B00034AB0 /* YJFrameNamespace.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5BF073412BF5F9B70071EAB4 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				5BD888B02BF4B78700034AB0 /* YJArrangeNamespace.m */,
+			);
+			name = Button;
+			sourceTree = "<group>";
+		};
+		5BF073422BF5F9C00071EAB4 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				5BF0733D2BF5E82A0071EAB4 /* YJHyperlinkNamespace.m */,
+			);
+			name = Label;
+			sourceTree = "<group>";
+		};
+		5BF073432BF5FEE70071EAB4 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				5BF073442BF5FF420071EAB4 /* YuemojFoundationAbilities.h */,
+				5BF0734A2BF60B440071EAB4 /* YJFoundationNamespace.h */,
+				5BF0734B2BF60B440071EAB4 /* YJFoundationNamespace.m */,
+				5BF0734F2BF60B660071EAB4 /* YJStringNamespace.m */,
+				5BC57DB62BF7546E00E4CA42 /* YJArrayNamespace.m */,
+				5BF073462BF60A9B0071EAB4 /* Foundation+Yuemoj.h */,
+				5BF073472BF60A9B0071EAB4 /* Foundation+Yuemoj.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		A867060D791066BC924936F4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39A382E92446090AAB573E50 /* Pods-YuemojKit.debug.xcconfig */,
+				E59EA9D907CFFDA82875B96A /* Pods-YuemojKit.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5BECA1082BDE3BD600B95DF0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BF0733A2BF5ADB30071EAB4 /* YJUIKitNamespace.h in Headers */,
+				5BECA1132BDE3BD600B95DF0 /* YuemojKit.h in Headers */,
+				5BBA664E2BE0EDC200979548 /* YJLayoutDelegate.h in Headers */,
+				5BD888B52BF4D3FD00034AB0 /* UIKit+Yuemoj.h in Headers */,
+				5BECA1502BDE62A500B95DF0 /* YJGroupModel.h in Headers */,
+				5BECA13F2BDE453300B95DF0 /* YJDataFillDataSource.h in Headers */,
+				5BECA1332BDE41BC00B95DF0 /* YJComponentEnum.h in Headers */,
+				5BECA1312BDE412E00B95DF0 /* YJComponentDataSource.h in Headers */,
+				5BD888872BF456C100034AB0 /* YJEventBuildDataSource.h in Headers */,
+				5B4658E72BE8C43000FBD494 /* YJDataFillNamespace.h in Headers */,
+				5BECA13E2BDE453300B95DF0 /* YJDataFiller.h in Headers */,
+				5BECA1242BDE411300B95DF0 /* YJComponentWrapper.h in Headers */,
+				5B4658E32BE8BFB900FBD494 /* YJDataFillerProtocol.h in Headers */,
+				5BECA11B2BDE3C9C00B95DF0 /* Yuemoj.h in Headers */,
+				5BECA1402BDE453300B95DF0 /* YJDataFillDelegate.h in Headers */,
+				5BF073452BF5FF420071EAB4 /* YuemojFoundationAbilities.h in Headers */,
+				5BC57DB42BF7055100E4CA42 /* YuemojMetamacros.h in Headers */,
+				5BF0734C2BF60B440071EAB4 /* YJFoundationNamespace.h in Headers */,
+				5BECA1202BDE40A100B95DF0 /* YJLayoutModels.h in Headers */,
+				5BD888852BF456B500034AB0 /* YJEventBuildDelegate.h in Headers */,
+				5BF073482BF60A9B0071EAB4 /* Foundation+Yuemoj.h in Headers */,
+				5BBA664C2BE0E60A00979548 /* YJLayouterProtocol.h in Headers */,
+				5BD888A62BF4B10300034AB0 /* YuemojUIAbilities.h in Headers */,
+				5BECA1532BDE62A500B95DF0 /* YJDataSource.h in Headers */,
+				5BECA12E2BDE412E00B95DF0 /* YJLayoutDataSource.h in Headers */,
+				5BECA1302BDE412E00B95DF0 /* YJComponentDelegate.h in Headers */,
+				5BD888892BF456D400034AB0 /* YJEventBuilderProtocol.h in Headers */,
+				5BECA1462BDE45EA00B95DF0 /* YJEventBuilder.h in Headers */,
+				5BECA1592BDE687700B95DF0 /* YJLayoutNamespace.h in Headers */,
+				5BECA12F2BDE412E00B95DF0 /* YJLayouter.h in Headers */,
+				5BD888822BF4566700034AB0 /* YJEventBuildNamespace.h in Headers */,
+				5BC57DBB2BF756D700E4CA42 /* Component+Yuemoj.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5BECA10C2BDE3BD600B95DF0 /* YuemojKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BECA1162BDE3BD600B95DF0 /* Build configuration list for PBXNativeTarget "YuemojKit" */;
+			buildPhases = (
+				517F5ECD259B07004AFC0F27 /* [CP] Check Pods Manifest.lock */,
+				5BECA1082BDE3BD600B95DF0 /* Headers */,
+				5BECA1092BDE3BD600B95DF0 /* Sources */,
+				5BECA10A2BDE3BD600B95DF0 /* Frameworks */,
+				5BECA10B2BDE3BD600B95DF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YuemojKit;
+			productName = YuemojKit;
+			productReference = 5BECA10D2BDE3BD600B95DF0 /* YuemojKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5BECA1042BDE3BD600B95DF0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					5BECA10C2BDE3BD600B95DF0 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = 5BECA1072BDE3BD600B95DF0 /* Build configuration list for PBXProject "YuemojKit" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5BECA1032BDE3BD600B95DF0;
+			productRefGroup = 5BECA10E2BDE3BD600B95DF0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5BECA10C2BDE3BD600B95DF0 /* YuemojKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5BECA10B2BDE3BD600B95DF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		517F5ECD259B07004AFC0F27 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YuemojKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5BECA1092BDE3BD600B95DF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BECA13D2BDE453300B95DF0 /* YJDataFiller.m in Sources */,
+				5BD888AA2BF4B76A00034AB0 /* YJActionNamespace.m in Sources */,
+				5BECA11C2BDE3C9C00B95DF0 /* Yuemoj.m in Sources */,
+				5BF0734D2BF60B440071EAB4 /* YJFoundationNamespace.m in Sources */,
+				5BECA1122BDE3BD600B95DF0 /* YuemojKit.docc in Sources */,
+				5BD888AE2BF4B77B00034AB0 /* YJFrameNamespace.m in Sources */,
+				5BECA1252BDE411300B95DF0 /* YJComponentWrapper.m in Sources */,
+				5BD888B22BF4B78700034AB0 /* YJArrangeNamespace.m in Sources */,
+				5BF0733F2BF5E82A0071EAB4 /* YJHyperlinkNamespace.m in Sources */,
+				5BC57DBC2BF756D700E4CA42 /* Component+Yuemoj.m in Sources */,
+				5BF0733B2BF5ADB30071EAB4 /* YJUIKitNamespace.m in Sources */,
+				5BD888832BF4566700034AB0 /* YJEventBuildNamespace.m in Sources */,
+				5BECA1542BDE62A500B95DF0 /* YJGroupModel.m in Sources */,
+				5BF073372BF5A8FB0071EAB4 /* YJExtraNamespace.m in Sources */,
+				5BECA1212BDE40A100B95DF0 /* YJLayoutModels.m in Sources */,
+				5BD888B62BF4D3FD00034AB0 /* UIKit+Yuemoj.m in Sources */,
+				5BF073492BF60A9B0071EAB4 /* Foundation+Yuemoj.m in Sources */,
+				5BECA12C2BDE412E00B95DF0 /* YJLayouter.m in Sources */,
+				5BECA1522BDE62A500B95DF0 /* YJGroupDataSource.m in Sources */,
+				5BECA1452BDE45EA00B95DF0 /* YJEventBuilder.m in Sources */,
+				5BF073512BF60B660071EAB4 /* YJStringNamespace.m in Sources */,
+				5BC57DB82BF7546E00E4CA42 /* YJArrayNamespace.m in Sources */,
+				5B4658E62BE8C43000FBD494 /* YJDataFillNamespace.m in Sources */,
+				5BECA1512BDE62A500B95DF0 /* YJDataSource.m in Sources */,
+				5BECA1582BDE687700B95DF0 /* YJLayoutNamespace.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5BECA1142BDE3BD600B95DF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5BECA1152BDE3BD600B95DF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5BECA1172BDE3BD600B95DF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39A382E92446090AAB573E50 /* Pods-YuemojKit.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = RUKZ98YF29;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yuemoj.YuemojKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5BECA1182BDE3BD600B95DF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E59EA9D907CFFDA82875B96A /* Pods-YuemojKit.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = RUKZ98YF29;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yuemoj.YuemojKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5BECA1072BDE3BD600B95DF0 /* Build configuration list for PBXProject "YuemojKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BECA1142BDE3BD600B95DF0 /* Debug */,
+				5BECA1152BDE3BD600B95DF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BECA1162BDE3BD600B95DF0 /* Build configuration list for PBXNativeTarget "YuemojKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BECA1172BDE3BD600B95DF0 /* Debug */,
+				5BECA1182BDE3BD600B95DF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5BECA1042BDE3BD600B95DF0 /* Project object */;
+}
