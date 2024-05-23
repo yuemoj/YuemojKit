@@ -174,7 +174,7 @@
 }
 
 - (UIColor *)colorForScene:(NSInteger)scene purpose:(YJColorPurpose)purpose inSection:(NSInteger)section {
-    return UIColor.lightTextColor;
+    return UIColor.redColor;
 }
 
 /// MARK: cell

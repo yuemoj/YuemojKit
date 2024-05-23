@@ -7,7 +7,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIControl.h>
-#import "YJComponentEnum.h"
+//#import "YuemojCoreTypes.h"
+#import "YuemojMacros.h"
+#import "YJDataFillTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -109,4 +111,8 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol YJDataFillAbility <NSObject>
 @property (nonatomic, copy, readonly) void(^fillComponent)(void(NS_NOESCAPE^)(id<YJDataFillerProtocol> filler));
 @end
+
+@YJNamespaceInstanceDeclaration(UIView, NSObject, yj_dataFill, YJDataFillAbility)
+@end
+
 NS_ASSUME_NONNULL_END

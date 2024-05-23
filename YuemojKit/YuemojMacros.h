@@ -14,7 +14,7 @@
 /// class + instance declaration
 #define YJNamespaceDeclarationCI(OwnerClass, OwnerConformProtocol, NamespaceObj, YJClassProtocol, YJInstanceProtocol)\
 YJNamespaceClassDeclaration(OwnerClass, NamespaceObj, YJClassProtocol) @end\
-@YJNamespaceInstanceDeclaration(OwnerClass, OwnerConformProtocol, NamespaceObj, YJInstanceProtocol) 
+@YJNamespaceInstanceDeclaration(OwnerClass, OwnerConformProtocol, NamespaceObj, YJInstanceProtocol)
 
 /// class + instance implementation
 #define YJNamespaceImplementationCI(OwnerClass, NamespaceClass, NamespaceObj, YJClassProtocol, YJInstanceProtocol)\
@@ -71,3 +71,15 @@ implementation OwnerClass (CatagoryName)\
 
 #endif /* YuemojMacros_h */
 
+
+#ifndef YJLog
+#define YJLog(format, ...) NSLog(@"%@", [NSString stringWithFormat:@"<%@ %s:(%d)>\n\t%@\n", NSThread.currentThread, __FUNCTION__, __LINE__ , [NSString stringWithFormat:(format), ##__VA_ARGS__]]);
+#endif
+
+#ifndef YJProtocolAssert
+#define YJProtocolAssert(object, protocol) NSAssert([object conformsToProtocol:protocol], @"%@ should conforms to protocol '%@'", [object class], NSStringFromProtocol(protocol))
+#endif
+
+#ifndef YJSelectorAssert
+#define YJSelectorAssert(object, aSelector) NSAssert([object respondsToSelector:aSelector], @"%@ should responds to selector '%@'", [object class], NSStringFromSelector(aSelector))
+#endif

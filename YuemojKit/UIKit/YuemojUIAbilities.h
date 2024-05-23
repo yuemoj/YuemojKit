@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "YJComponentEnum.h"
+#import "YuemojCoreTypes.h"
 @class UIView, UIGestureRecognizer;
 NS_ASSUME_NONNULL_BEGIN
 

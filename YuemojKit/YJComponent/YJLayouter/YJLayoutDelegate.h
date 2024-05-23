@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIGeometry.h>
-#import "YJComponentEnum.h"
+#import "YuemojCoreTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @class YJLayoutItemConstraintDescription;

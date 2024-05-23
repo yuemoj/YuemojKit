@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "YuemojMacros.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,5 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol YJEventBuildAbility <NSObject>
 @property (nonatomic, readonly) void(^buildEvent)(void(^)(id<YJEventBuilderProtocol> builder));
 
+@end
+
+@YJNamespaceInstanceDeclaration(UIView, NSObject, yj_eventBuild, YJEventBuildAbility)
 @end
 NS_ASSUME_NONNULL_END

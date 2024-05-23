@@ -32,7 +32,6 @@
 		5B9E5A272BFC3CB9005DF0E9 /* YJLayouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E59FC2BFC3CB9005DF0E9 /* YJLayouter.m */; };
 		5B9E5A282BFC3CB9005DF0E9 /* YJLayoutModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E59FF2BFC3CB9005DF0E9 /* YJLayoutModels.m */; };
 		5B9E5A292BFC3CB9005DF0E9 /* YJLayoutNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E5A012BFC3CB9005DF0E9 /* YJLayoutNamespace.m */; };
-		5B9E5A2A2BFC3CB9005DF0E9 /* Component+Yuemoj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E5A042BFC3CB9005DF0E9 /* Component+Yuemoj.m */; };
 		5B9E5A2B2BFC3CB9005DF0E9 /* YJComponentWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E5A092BFC3CB9005DF0E9 /* YJComponentWrapper.m */; };
 		5B9E5A2C2BFC3CB9005DF0E9 /* YJDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E5A0C2BFC3CB9005DF0E9 /* YJDataSource.m */; };
 		5B9E5A2D2BFC3CB9005DF0E9 /* YJGroupDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E5A0D2BFC3CB9005DF0E9 /* YJGroupDataSource.m */; };
@@ -45,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		083D973C4B70804D7D125EE0 /* Pods_YuemojKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YuemojKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B4376C62BFF44C00089C879 /* YJDataFillTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJDataFillTypes.h; sourceTree = "<group>"; };
 		5B7DAA422BFDCA8000578A05 /* TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		5B7DAA432BFDCA8000578A05 /* TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		5B9E590F2BFC36D0005DF0E9 /* YuemojKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YuemojKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +74,6 @@
 		5B9E59E52BFC3CB9005DF0E9 /* YJUIKitNamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIKitNamespace.h; sourceTree = "<group>"; };
 		5B9E59E62BFC3CB9005DF0E9 /* YJUIKitNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIKitNamespace.m; sourceTree = "<group>"; };
 		5B9E59E72BFC3CB9005DF0E9 /* YuemojUIAbilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuemojUIAbilities.h; sourceTree = "<group>"; };
-		5B9E59E92BFC3CB9005DF0E9 /* YJEventBuildDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJEventBuildDataSource.h; sourceTree = "<group>"; };
 		5B9E59EA2BFC3CB9005DF0E9 /* YJEventBuildDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJEventBuildDelegate.h; sourceTree = "<group>"; };
 		5B9E59EB2BFC3CB9005DF0E9 /* YJEventBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJEventBuilder.h; sourceTree = "<group>"; };
 		5B9E59EC2BFC3CB9005DF0E9 /* YJEventBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJEventBuilder.m; sourceTree = "<group>"; };
@@ -97,10 +96,8 @@
 		5B9E59FF2BFC3CB9005DF0E9 /* YJLayoutModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayoutModels.m; sourceTree = "<group>"; };
 		5B9E5A002BFC3CB9005DF0E9 /* YJLayoutNamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutNamespace.h; sourceTree = "<group>"; };
 		5B9E5A012BFC3CB9005DF0E9 /* YJLayoutNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayoutNamespace.m; sourceTree = "<group>"; };
-		5B9E5A032BFC3CB9005DF0E9 /* Component+Yuemoj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Component+Yuemoj.h"; sourceTree = "<group>"; };
-		5B9E5A042BFC3CB9005DF0E9 /* Component+Yuemoj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Component+Yuemoj.m"; sourceTree = "<group>"; };
 		5B9E5A052BFC3CB9005DF0E9 /* YJComponentDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJComponentDataSource.h; sourceTree = "<group>"; };
-		5B9E5A072BFC3CB9005DF0E9 /* YJComponentEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJComponentEnum.h; sourceTree = "<group>"; };
+		5B9E5A072BFC3CB9005DF0E9 /* YuemojCoreTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuemojCoreTypes.h; sourceTree = "<group>"; };
 		5B9E5A082BFC3CB9005DF0E9 /* YJComponentWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJComponentWrapper.h; sourceTree = "<group>"; };
 		5B9E5A092BFC3CB9005DF0E9 /* YJComponentWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJComponentWrapper.m; sourceTree = "<group>"; };
 		5B9E5A0B2BFC3CB9005DF0E9 /* YJDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataSource.h; sourceTree = "<group>"; };
@@ -214,7 +211,6 @@
 		5B9E59F02BFC3CB9005DF0E9 /* YJEventBuilder */ = {
 			isa = PBXGroup;
 			children = (
-				5B9E59E92BFC3CB9005DF0E9 /* YJEventBuildDataSource.h */,
 				5B9E59EA2BFC3CB9005DF0E9 /* YJEventBuildDelegate.h */,
 				5B9E59EB2BFC3CB9005DF0E9 /* YJEventBuilder.h */,
 				5B9E59EC2BFC3CB9005DF0E9 /* YJEventBuilder.m */,
@@ -233,6 +229,7 @@
 				5B9E59F32BFC3CB9005DF0E9 /* YJDataFiller.h */,
 				5B9E59F42BFC3CB9005DF0E9 /* YJDataFiller.m */,
 				5B9E59F52BFC3CB9005DF0E9 /* YJDataFillerProtocol.h */,
+				5B4376C62BFF44C00089C879 /* YJDataFillTypes.h */,
 				5B9E59F62BFC3CB9005DF0E9 /* YJDataFillNamespace.h */,
 				5B9E59F72BFC3CB9005DF0E9 /* YJDataFillNamespace.m */,
 			);
@@ -261,10 +258,7 @@
 				5B9E59F02BFC3CB9005DF0E9 /* YJEventBuilder */,
 				5B9E59F82BFC3CB9005DF0E9 /* YJFiller */,
 				5B9E5A022BFC3CB9005DF0E9 /* YJLayouter */,
-				5B9E5A032BFC3CB9005DF0E9 /* Component+Yuemoj.h */,
-				5B9E5A042BFC3CB9005DF0E9 /* Component+Yuemoj.m */,
 				5B9E5A052BFC3CB9005DF0E9 /* YJComponentDataSource.h */,
-				5B9E5A072BFC3CB9005DF0E9 /* YJComponentEnum.h */,
 				5B9E5A082BFC3CB9005DF0E9 /* YJComponentWrapper.h */,
 				5B9E5A092BFC3CB9005DF0E9 /* YJComponentWrapper.m */,
 			);
@@ -294,6 +288,7 @@
 				5B9E5A122BFC3CB9005DF0E9 /* Yuemoj.m */,
 				5B9E5A132BFC3CB9005DF0E9 /* YuemojKit.docc */,
 				5B9E5A142BFC3CB9005DF0E9 /* YuemojKit.h */,
+				5B9E5A072BFC3CB9005DF0E9 /* YuemojCoreTypes.h */,
 				5B9E5A152BFC3CB9005DF0E9 /* YuemojMacros.h */,
 				5B9E5A162BFC3CB9005DF0E9 /* YuemojMetamacros.h */,
 			);
@@ -425,7 +420,6 @@
 			files = (
 				5B9E5A242BFC3CB9005DF0E9 /* YJEventBuildNamespace.m in Sources */,
 				5B9E5A202BFC3CB9005DF0E9 /* YJFrameNamespace.m in Sources */,
-				5B9E5A2A2BFC3CB9005DF0E9 /* Component+Yuemoj.m in Sources */,
 				5B9E591A2BFC36D0005DF0E9 /* ViewController.m in Sources */,
 				5B9E5A2E2BFC3CB9005DF0E9 /* YJGroupModel.m in Sources */,
 				5B9E5A262BFC3CB9005DF0E9 /* YJDataFillNamespace.m in Sources */,

@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YJComponentEnum.h"
+#import "YuemojCoreTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

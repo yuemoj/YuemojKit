@@ -49,14 +49,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *text = [dataSource textForScene:nextScene purpose:purpose];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillTextSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithTextDataSource:forPurpose:));
-                    [(id<YJDataFillTextSubDelegate>)customComponent fillWithTextDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose];
         };
         if (scene == nil) {
@@ -85,14 +78,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *text = [dataSource textForScene:nextScene purpose:purpose inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillTextSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithTextDataSource:forPurpose:));
-                    [(id<YJDataFillTextSubDelegate>)customComponent fillWithTextDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose];
         };
         if (scene == nil) {
@@ -121,14 +107,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *text = [dataSource textForScene:nextScene purpose:purpose indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillTextSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithTextDataSource:forPurpose:));
-                    [(id<YJDataFillTextSubDelegate>)customComponent fillWithTextDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose];
         };
         if (scene == nil) {
@@ -157,14 +136,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *text = [dataSource textForScene:nextScene purpose:purpose state:state];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillTextSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithTextDataSource:forPurpose:state:));
-                    [(id<YJDataFillTextSubDelegate>)customComponent fillWithTextDataSource:subDataSource forPurpose:purpose state:state];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose state:state];
         };
         if (scene == nil) {
@@ -224,14 +196,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *text = [dataSource textForScene:nextScene purpose:purpose state:state indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillTextSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithTextDataSource:forPurpose:state:));
-                    [(id<YJDataFillTextSubDelegate>)customComponent fillWithTextDataSource:subDataSource forPurpose:purpose state:state];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose state:state];
         };
         if (scene == nil) {
@@ -260,14 +225,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSAttributedString *attributeString = [dataSource attributeTextForScene:nextScene purpose:purpose];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillTextSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithAttributeTextDataSource:forPurpose:));
-                    [(id<YJDataFillTextSubDelegate>)customComponent fillWithAttributeTextDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributedText:attributeString forPurpose:purpose];
         };
         if (scene == nil) {
@@ -296,14 +254,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSAttributedString *attributeString = [dataSource attributeTextForScene:nextScene purpose:purpose inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillTextSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithAttributeTextDataSource:forPurpose:));
-                    [(id<YJDataFillTextSubDelegate>)customComponent fillWithAttributeTextDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributedText:attributeString forPurpose:purpose];
         };
         if (scene == nil) {
@@ -332,14 +283,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSAttributedString *attributeString = [dataSource attributeTextForScene:nextScene purpose:purpose indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillTextSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithAttributeTextDataSource:forPurpose:));
-                    [(id<YJDataFillTextSubDelegate>)customComponent fillWithAttributeTextDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributedText:attributeString forPurpose:purpose];
         };
         if (scene == nil) {
@@ -368,14 +312,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSAttributedString *attributeString = [dataSource attributeTextForScene:nextScene purpose:purpose state:state];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillTextSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithAttributeTextDataSource:forPurpose:state:));
-                    [(id<YJDataFillTextSubDelegate>)customComponent fillWithAttributeTextDataSource:subDataSource forPurpose:purpose state:state];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributeText:attributeString forPurpose:purpose state:state];
         };
         if (scene == nil) {
@@ -404,14 +341,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSAttributedString *attributeString = [dataSource attributeTextForScene:nextScene purpose:purpose state:state inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillTextSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithAttributeTextDataSource:forPurpose:state:));
-                    [(id<YJDataFillTextSubDelegate>)customComponent fillWithAttributeTextDataSource:subDataSource forPurpose:purpose state:state];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributeText:attributeString forPurpose:purpose state:state];
         };
         if (scene == nil) {
@@ -440,14 +370,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSAttributedString *attributeString = [dataSource attributeTextForScene:nextScene purpose:purpose state:state indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillTextSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithAttributeTextDataSource:forPurpose:state:));
-                    [(id<YJDataFillTextSubDelegate>)customComponent fillWithAttributeTextDataSource:subDataSource forPurpose:purpose state:state];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributeText:attributeString forPurpose:purpose state:state];
         };
         if (scene == nil) {
@@ -477,14 +400,7 @@
         void(^action)(int) = ^(int nextScene) {
             [dataSource textForScene:nextScene purpose:purpose async:^(NSString * _Nonnull text) {
                 YJComponentType type = [dataSource componentTypeForScene:nextScene];
-                if (type == YJComponentTypeCustom) {
-                    /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                        YJProtocolAssert(customComponent, @protocol(YJDataFillTextSubDelegate));
-                        YJSelectorAssert(customComponent, @selector(fillWithAttributeTextDataSource:forPurpose:));
-                        [(id<YJDataFillTextSubDelegate>)customComponent fillWithAttributeTextDataSource:subDataSource forPurpose:purpose];
-                    }];*/
-                    return;
-                }
+                if (type == YJComponentTypeCustom) return;
                 [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose];
             }];
         };
@@ -519,14 +435,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIFont *font = [dataSource fontForScene:nextScene];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillFontSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithFontDataSource:));
-                    [(id<YJDataFillFontSubDelegate>)customComponent fillWithFontDataSource:subDataSource];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withFont:font];
         };
         if (scene == nil) {
@@ -558,14 +467,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIFont *font = [dataSource fontForScene:nextScene inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillFontSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithFontDataSource:));
-                    [(id<YJDataFillFontSubDelegate>)customComponent fillWithFontDataSource:subDataSource];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withFont:font];
         };
         if (scene == nil) {
@@ -597,14 +499,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIFont *font = [dataSource fontForScene:nextScene indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillFontSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithFontDataSource:));
-                    [(id<YJDataFillFontSubDelegate>)customComponent fillWithFontDataSource:subDataSource];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withFont:font];
         };
         if (scene == nil) {
@@ -635,14 +530,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIColor *color = [dataSource colorForScene:nextScene purpose:purpose];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillColorSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithColorDataSource:forPurpose:));
-                    [(id<YJDataFillColorSubDelegate>)customComponent fillWithColorDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose];
         };
         if (scene == nil) {
@@ -673,14 +561,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIColor *color = [dataSource colorForScene:nextScene purpose:purpose inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillColorSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithColorDataSource:forPurpose:));
-                    [(id<YJDataFillColorSubDelegate>)customComponent fillWithColorDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose];
         };
         if (scene == nil) {
@@ -710,14 +591,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIColor *color = [dataSource colorForScene:nextScene purpose:purpose indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillColorSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithColorDataSource:forPurpose:));
-                    [(id<YJDataFillColorSubDelegate>)customComponent fillWithColorDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose];
         };
         if (scene == nil) {
@@ -734,8 +608,6 @@
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillColorDataSource, YJComponentDataSource>, YJColorPurpose, UIControlState, NSNumber * _Nullable, ...))fillColorForState {
     return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, UIControlState state, NSNumber * _Nullable scene, ...) {
         if (![dataSource conformsToProtocol:@protocol(YJDataFillColorDataSource)] || ![dataSource respondsToSelector:@selector(colorForScene:purpose:state:)]) return self;
-//        YJProtocolAssert(dataSource, @protocol(YJDataFillColorDataSource));
-//        YJSelectorAssert(dataSource, @selector(colorForScene:purpose:state:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
         YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillColorDelegate));
@@ -749,14 +621,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIColor *color = [dataSource colorForScene:nextScene purpose:purpose state:state];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillColorSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithColorDataSource:forPurpose:state:));
-                    [(id<YJDataFillColorSubDelegate>)customComponent fillWithColorDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose state:state];
         };
         if (scene == nil) {
@@ -786,14 +651,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIColor *color = [dataSource colorForScene:nextScene purpose:purpose inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillColorSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithColorDataSource:forPurpose:state:));
-                    [(id<YJDataFillColorSubDelegate>)customComponent fillWithColorDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose state:state];
         };
         if (scene == nil) {
@@ -823,14 +681,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIColor *color = [dataSource colorForScene:nextScene purpose:purpose state:state indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillColorSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithColorDataSource:forPurpose:state:));
-                    [(id<YJDataFillColorSubDelegate>)customComponent fillWithColorDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose state:state];
         };
         if (scene == nil) {
@@ -862,14 +713,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *imageName = [dataSource imageNameForScene:nextScene purpose:purpose];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillImageSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithImageNameDataSource:forPurpose:));
-                    [(id<YJDataFillImageSubDelegate>)customComponent fillWithImageNameDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose];
         };
         if (scene == nil) {
@@ -900,14 +744,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *imageName = [dataSource imageNameForScene:nextScene purpose:purpose inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillImageSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithImageNameDataSource:forPurpose:));
-                    [(id<YJDataFillImageSubDelegate>)customComponent fillWithImageNameDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose];
         };
         if (scene == nil) {
@@ -938,14 +775,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *imageName = [dataSource imageNameForScene:nextScene purpose:purpose indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillImageSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithImageNameDataSource:forPurpose:));
-                    [(id<YJDataFillImageSubDelegate>)customComponent fillWithImageNameDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose];
         };
         if (scene == nil) {
@@ -976,14 +806,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *imageName = [dataSource imageNameForScene:nextScene purpose:purpose state:state];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillImageSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithImageNameDataSource:forPurpose:state:));
-                    [(id<YJDataFillImageSubDelegate>)customComponent fillWithImageNameDataSource:subDataSource forPurpose:purpose state:state];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose state:state];
         };
         if (scene == nil) {
@@ -1014,14 +837,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *imageName = [dataSource imageNameForScene:nextScene purpose:purpose state:state inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillImageSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithImageNameDataSource:forPurpose:state:));
-                    [(id<YJDataFillImageSubDelegate>)customComponent fillWithImageNameDataSource:subDataSource forPurpose:purpose state:state];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose state:state];
         };
         if (scene == nil) {
@@ -1052,14 +868,7 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *imageName = [dataSource imageNameForScene:nextScene purpose:purpose state:state indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillImageSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithImageNameDataSource:forPurpose:state:));
-                    [(id<YJDataFillImageSubDelegate>)customComponent fillWithImageNameDataSource:subDataSource forPurpose:purpose state:state];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose state:state];
         };
         if (scene == nil) {
@@ -1090,14 +899,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIImage *image = [dataSource imageForScene:nextScene purpose:purpose];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillImageSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithImageDataSource:forPurpose:));
-                    [(id<YJDataFillImageSubDelegate>)customComponent fillWithImageDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose];
         };
         if (scene == nil) {
@@ -1128,14 +930,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIImage *image = [dataSource imageForScene:nextScene purpose:purpose inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillImageSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithImageDataSource:forPurpose:));
-                    [(id<YJDataFillImageSubDelegate>)customComponent fillWithImageDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose];
         };
         if (scene == nil) {
@@ -1166,14 +961,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIImage *image = [dataSource imageForScene:nextScene purpose:purpose indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillImageSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithImageDataSource:forPurpose:));
-                    [(id<YJDataFillImageSubDelegate>)customComponent fillWithImageDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose];
         };
         if (scene == nil) {
@@ -1203,14 +991,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIImage *image = [dataSource imageForScene:nextScene purpose:purpose state:state];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillImageSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithImageDataSource:forPurpose:state:));
-                    [(id<YJDataFillImageSubDelegate>)customComponent fillWithImageDataSource:subDataSource forPurpose:purpose state:state];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [(id<YJDataFillImageDelegate>)self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose state:state];
         };
         if (scene == nil) {
@@ -1241,14 +1022,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIImage *image = [dataSource imageForScene:nextScene purpose:purpose state:state inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillImageSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithImageDataSource:forPurpose:state:));
-                    [(id<YJDataFillImageSubDelegate>)customComponent fillWithImageDataSource:subDataSource forPurpose:purpose state:state];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose state:state];
         };
         if (scene == nil) {
@@ -1279,14 +1053,7 @@
         void(^action)(int) = ^(int nextScene) {
             UIImage *image = [dataSource imageForScene:nextScene purpose:purpose state:state indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillImageSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithImageDataSource:forPurpose:state:));
-                    [(id<YJDataFillImageSubDelegate>)customComponent fillWithImageDataSource:subDataSource forPurpose:purpose state:state];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose state:state];
         };
         if (scene == nil) {
@@ -1318,14 +1085,7 @@
         void(^action)(int) = ^(int nextScene) {
             BOOL pon = [dataSource ponForScene:nextScene purpose:purpose];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillPoNSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithPoNDataSource:forPurpose:));
-                    [(id<YJDataFillPoNSubDelegate>)customComponent fillWithPoNDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withPoN:pon forPurpose:purpose];
         };
         if (scene == nil) {
@@ -1356,14 +1116,7 @@
         void(^action)(int) = ^(int nextScene) {
             BOOL pon = [dataSource ponForScene:nextScene purpose:purpose inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillPoNSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithPoNDataSource:forPurpose:));
-                    [(id<YJDataFillPoNSubDelegate>)customComponent fillWithPoNDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withPoN:pon forPurpose:purpose];
         };
         if (scene == nil) {
@@ -1394,14 +1147,7 @@
         void(^action)(int) = ^(int nextScene) {
             BOOL pon = [dataSource ponForScene:nextScene purpose:purpose indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) {
-                /*[self customComponentHandleForScene:nextScene dataSource:dataSource handler:^(id subDataSource, id customComponent) {
-                    YJProtocolAssert(customComponent, @protocol(YJDataFillPoNSubDelegate));
-                    YJSelectorAssert(customComponent, @selector(fillWithPoNDataSource:forPurpose:));
-                    [(id<YJDataFillPoNSubDelegate>)customComponent fillWithPoNDataSource:subDataSource forPurpose:purpose];
-                }];*/
-                return;
-            }
+            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withPoN:pon forPurpose:purpose];
         };
         if (scene == nil) {
@@ -1415,14 +1161,5 @@
     };
 }
 
-#pragma mark- Private
-//- (void)customComponentHandleForScene:(NSInteger)scene dataSource:(id)dataSource handler:(void(^)(id subDataSource, id customComponent))handler {
-//    if (!handler) return;
-//    YJProtocolAssert(dataSource, @protocol(YJDataFillSubDataSource));
-//    YJSelectorAssert(dataSource, @selector(subDataSourceForScene:));
-//    id subDatasource = [(id<YJDataFillSubDataSource>)dataSource subDataSourceForScene:scene];
-//    id customComponent = [(id<YJComponentDelegate>)self.delegate componentForIdentifier:yj_componentIdentifier(YJComponentTypeCustom, scene)];
-//    handler(subDatasource, customComponent);
-//}
 @end
 

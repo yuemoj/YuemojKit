@@ -9,7 +9,7 @@
 #import "YJLayoutNamespace.h"
 #import "YJLayoutDelegate.h"
 #import "YJLayouter.h"
-@import Masonry;
+#import "Masonry.h"
 
 @interface YJLayoutNamespace ()<YJLayoutAbility>
 @property (nonatomic) YJLayouter *layouter;
@@ -137,10 +137,15 @@
 }
 
 - (void)layoutComponent:(YJComponentType)type forScene:(NSInteger)scene withOffset:(UIOffset)offset {
+    if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
     __kindof UIView *component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene);
     [component mas_updateConstraints:^(MASConstraintMaker *make) {
         if (offset.horizontal != NSNotFound) make.centerX.offset(offset.horizontal);
         if (offset.vertical != NSNotFound) make.centerY.offset(offset.vertical);
     }];
 }
+@end
+
+@YJNamespaceInstanceImplementation(UIView, YJLayoutNamespace, yj_layout, YJLayoutAbility)
+
 @end

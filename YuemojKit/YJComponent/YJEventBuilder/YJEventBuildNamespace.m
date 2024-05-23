@@ -7,6 +7,7 @@
 
 #import "YJEventBuildNamespace.h"
 #import "YJEventBuilder.h"
+#import "YJEventBuildDelegate.h"
 #import "UIKit+Yuemoj.h"
 
 @interface YJEventBuildNamespace ()<YJEventBuildAbility>
@@ -31,6 +32,7 @@
 @end
 @implementation YJEventBuildNamespace (EventBuildDelegate)
 - (void)buildComponent:(YJComponentType)type forScene:(NSInteger)scene withGestureRecognizer:(__kindof UIGestureRecognizer * _Nonnull (^)(id _Nonnull, SEL _Nonnull))aRecognizer action:(BOOL (^)(__kindof UIView * _Nonnull, NSInteger))anEvent {
+    if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
     __kindof UIView *component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene);
     if (!aRecognizer) return;
     [component addGestureRecognizer:aRecognizer(self, @selector(onGestureEventTrigged:))];
@@ -38,6 +40,7 @@
 }
 
 - (void)buildComponent:(YJComponentType)type forScene:(NSInteger)scene controlEvents:(UIControlEvents)controlEvents action:(BOOL (^)(__kindof UIControl * _Nonnull, NSInteger))anEvent {
+    if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
     __kindof UIView *component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene);
     [component addTarget:self action:@selector(onControlEventTrigged:) forControlEvents:controlEvents];
     component.yj_action.extendAction = anEvent;
@@ -53,4 +56,8 @@
     if (!sender.yj_action.extendAction) return;
     sender.yj_action.extendAction(sender, yj_componentScene(sender.yj_extra.jTag));
 }
+@end
+
+@YJNamespaceInstanceImplementation(UIView, YJEventBuildNamespace, yj_eventBuild, YJEventBuildAbility)
+
 @end

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIControl.h>
+#import "YJDataFillTypes.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol YJDataFillTextDataSource <NSObject>

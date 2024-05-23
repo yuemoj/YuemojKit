@@ -11,7 +11,9 @@
 
 #import "Masonry.h"
 #import "UIKit+Yuemoj.h"
-#import "Component+Yuemoj.h"
+#import "YJLayouterProtocol.h"
+#import "YJDataFillerProtocol.h"
+#import "YJEventBuilderProtocol.h"
 
 @interface ViewController ()<UITableViewDelegate>
 @property (nonatomic) ViewModel *viewModel;
@@ -59,8 +61,8 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
             layouter.layoutAtIndexPath(self.viewModel, indexPath, ^__kindof UIView * _Nonnull(NSInteger scene) {
                 switch (scene) {
                         // 可预先设置各控件的固定样式
-                    case CellComponentBackgroundImage:  return UIImageView.new;
-                    case CellComponentHeadImage:        return UIImageView.new;
+                    case CellComponentBackgroundImage:
+                    case CellComponentHeadImage:
                     case CellComponentDetailImage:      return UIImageView.new;
                     case CellComponentTitle:            return UILabel.new;
                     case CellComponentMarkBtn:          return [UIButton buttonWithType:UIButtonTypeCustom];
@@ -91,13 +93,13 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UITableViewHeaderFooterView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:DemoHeaderIdentifier];
-    view.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
+    view.contentView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
         layouter.layoutInSection(self.viewModel, section, ^__kindof UIView * _Nonnull(NSInteger scene) {
             return UILabel.new;
         });
     });
     
-    view.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
+    view.contentView.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
         filler.fillTextInSection(self.viewModel, YJTextPurposeText, section, nil)
         .fillFontInSection(self.viewModel, section, nil)
         .fillColorInSection(self.viewModel, YJColorPurposeText, section, nil);
@@ -114,7 +116,7 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
     [self.headerView layoutIfNeeded];
 }
 
-static CGFloat const kHeaderHeight = 100.f;
+static CGFloat const kHeaderHeight = 44.f;
 - (void)layoutHeaderView {
     _headerView = [UIView new];
     [self.view addSubview:self.headerView];

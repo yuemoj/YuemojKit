@@ -8,8 +8,8 @@
 #import "YJLayouter.h"
 #import "YJComponentWrapper.h"
 #import "YJLayoutDataSource.h"
-#import "YJLayoutDelegate.h"
 #import "YJComponentDataSource.h"
+#import "YJLayoutDelegate.h"
 
 @interface YJLayouter ()
 @property (nonatomic, weak) id<YJLayoutDelegate, YJLayoutOffsetDelegate> delegate;
@@ -162,3 +162,4 @@
     };
 }
 @end
+

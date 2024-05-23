@@ -7,6 +7,7 @@
 
 #import "YJDataFillNamespace.h"
 #import "YJDataFiller.h"
+#import "YJDataFillDelegate.h"
 
 @interface YJDataFillNamespace ()<YJDataFillAbility>
 @property (nonatomic) YJDataFiller *filler;
@@ -34,6 +35,7 @@
 @implementation YJDataFillNamespace (DataFillDelegate)
 /// Label text/attribute
 - (void)fillComponent:(YJComponentType)type scene:(NSInteger)scene withText:(NSString *)aString forPurpose:(YJTextPurpose)purpose {
+    if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
     id<YJDataFillTextAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene);
     switch (purpose) {
         case YJTextPurposeText: {
@@ -53,7 +55,8 @@
 }
 
 - (void)fillComponent:(YJComponentType)type scene:(NSInteger)scene withAttributedText:(NSAttributedString *)anAttributedString forPurpose:(YJTextPurpose)purpose {
-    id<YJDataFillTextAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene); 
+    if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
+    id<YJDataFillTextAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene);
     switch (purpose) {
         case YJTextPurposeText: {
             if ([component respondsToSelector:@selector(setAttributedText:)]) {
@@ -71,7 +74,8 @@
 
 /// Button text/attribute
 - (void)fillComponent:(YJComponentType)type scene:(NSInteger)scene withText:(NSString *)aString forPurpose:(YJTextPurpose)purpose state:(UIControlState)state {
-    id<YJDataFillTextAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene); 
+    if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
+    id<YJDataFillTextAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene);
     switch (purpose) {
         case YJTextPurposeText: {
             if ([component respondsToSelector:@selector(setTitle:forState:)]) {
@@ -83,7 +87,8 @@
 }
 
 - (void)fillComponent:(YJComponentType)type scene:(NSInteger)scene withAttributeText:(NSAttributedString *)anAttributeString forPurpose:(YJTextPurpose)purpose state:(UIControlState)state {
-    id<YJDataFillTextAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene); 
+    if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
+    id<YJDataFillTextAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene);
     switch (purpose) {
         case YJTextPurposeText: {
             if ([component respondsToSelector:@selector(setAttributedTitle:forState:)]) {
@@ -95,14 +100,16 @@
 }
 
 - (void)fillComponent:(YJComponentType)type scene:(NSInteger)scene withFont:(UIFont *)font {
-    id<YJDataFillFontAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene); 
+    if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
+    id<YJDataFillFontAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene);
     if ([component respondsToSelector:@selector(setFont:)]) {
         component.font = font;
     }
 }
 
 - (void)fillComponent:(YJComponentType)type scene:(NSInteger)scene withColor:(UIColor *)aColor forPurpose:(YJColorPurpose)purpose {
-    id<YJDataFillColorAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene); 
+    if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
+    id<YJDataFillColorAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene);
     switch (purpose) {
         case YJColorPurposeText: {
             if ([component respondsToSelector:@selector(setTextColor:)]) {
@@ -119,7 +126,8 @@
 }
 
 - (void)fillComponent:(YJComponentType)type scene:(NSInteger)scene withColor:(UIColor *)aColor forPurpose:(YJColorPurpose)purpose state:(UIControlState)state {
-    id<YJDataFillColorAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene); 
+    if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
+    id<YJDataFillColorAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene);
     switch (purpose) {
         case YJColorPurposeText: {
             if ([component respondsToSelector:@selector(setTitleColor:forState:)]) {
@@ -144,7 +152,8 @@
 }
 
 - (void)fillComponent:(YJComponentType)type scene:(NSInteger)scene withImage:(UIImage *)anImage forPurpose:(YJImagePurpose)purpose {
-    id<YJDataFillImageAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene); 
+    if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
+    id<YJDataFillImageAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene);
     switch (purpose) {
         case YJImagePurposeForeground: {
             if ([component respondsToSelector:@selector(setImage:)]) {
@@ -161,7 +170,8 @@
 }
 
 - (void)fillComponent:(YJComponentType)type scene:(NSInteger)scene withImage:(UIImage *)anImage forPurpose:(YJImagePurpose)purpose state:(UIControlState)state {
-    id<YJDataFillImageAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene); 
+    if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
+    id<YJDataFillImageAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene);
     switch (purpose) {
         case YJImagePurposeForeground: {
             if ([component respondsToSelector:@selector(setImage:forState:)]) {
@@ -178,7 +188,8 @@
 }
 
 - (void)fillComponent:(YJComponentType)type scene:(NSInteger)scene withPoN:(BOOL)pon forPurpose:(YJPoNPurpose)purpose {
-    id<YJDataFillPoNAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene); 
+    if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
+    id<YJDataFillPoNAssignment> component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene);
     switch (purpose) {
         case YJPoNPurposeDisplay: {
             if ([component respondsToSelector:@selector(setHidden:)]) {
@@ -201,5 +212,9 @@
         default: break;
     }
 }
+
+@end
+
+@YJNamespaceInstanceImplementation(UIView, YJDataFillNamespace, yj_dataFill, YJDataFillAbility)
 
 @end

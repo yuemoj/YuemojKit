@@ -6,7 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIView.h>
+#import "YuemojMacros.h"
 NS_ASSUME_NONNULL_BEGIN
 @class UIView;
 @protocol YJLayoutDataSource, YJLayoutOffsetDataSource, YJComponentDataSource;
@@ -26,4 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 //@property (nonatomic, readonly, getter=isLayouterLoaded) BOOL layouterLoaded; // 记录是否已经加载过, 一般在fillComponent后设为YES
 @property (nonatomic, copy, readonly) void(^layoutComponent)(void(NS_NOESCAPE^)(id<YJLayouterProtocol> layouter));
 @end
+
+@YJNamespaceInstanceDeclaration(UIView, NSObject, yj_layout, YJLayoutAbility)
+@end
+
 NS_ASSUME_NONNULL_END

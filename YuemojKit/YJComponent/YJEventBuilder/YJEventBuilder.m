@@ -7,7 +7,6 @@
 //
 
 #import "YJEventBuilder.h"
-//#import "YJComponentEventBuilderAbilities.h"
 #import "YJEventBuildDelegate.h"
 #import "YJComponentDataSource.h"
 #import "YJComponentWrapper.h"
@@ -86,5 +85,4 @@
     };
 }
 @end
-
 

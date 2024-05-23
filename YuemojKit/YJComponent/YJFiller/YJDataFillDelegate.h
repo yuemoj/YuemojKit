@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YuemojCoreTypes.h"
+#import "YJDataFillTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /// @abstract
@@ -48,43 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol YJDataFillDelegate<YJDataFillTextDelegate, YJDataFillFontDelegate, YJDataFillColorDelegate, YJDataFillImageDelegate, YJDataFillPoNDelegate>
 @end
-
-#pragma mark- SubDelegate
-/// 用于自定义控件的数据填充, 递归?
-//@protocol YJDataFillTextSubDelegate <NSObject>
-//@optional
-///// Label text/attribute
-//- (void)fillWithTextDataSource:(id<YJDataFillTextDataSource>)dataSource forPurpose:(YJTextPurpose)purpose;
-//- (void)fillWithAttributeTextDataSource:(id<YJDataFillTextDataSource>)dataSource forPurpose:(YJTextPurpose)purpose;
-///// Button text/attribute
-//- (void)fillWithTextDataSource:(id<YJDataFillTextDataSource>)dataSource forPurpose:(YJTextPurpose)purpose state:(UIControlState)state;
-//- (void)fillWithAttributeTextDataSource:(id<YJDataFillTextDataSource>)dataSource forPurpose:(YJTextPurpose)purpose state:(UIControlState)state;
-//@end
-//
-//@protocol YJDataFillFontSubDelegate <NSObject>
-//@optional
-//- (void)fillWithFontDataSource:(id<YJDataFillFontDataSource>)dataSource;
-//@end
-//
-//@protocol YJDataFillColorSubDelegate <NSObject>
-//@optional
-//- (void)fillWithColorDataSource:(id<YJDataFillColorDataSource>)dataSource forPurpose:(YJColorPurpose)purpose;
-//
-//- (void)fillWithColorDataSource:(id<YJDataFillColorDataSource>)dataSource forPurpose:(YJColorPurpose)purpose state:(UIControlState)state ;
-//@end
-//
-//@protocol YJDataFillImageSubDelegate <NSObject>
-//@optional
-//- (void)fillWithImageNameDataSource:(id<YJDataFillImageDataSource>)dataSource forPurpose:(YJImagePurpose)purpose;
-//- (void)fillWithImageNameDataSource:(id<YJDataFillImageDataSource>)dataSource forPurpose:(YJImagePurpose)purpose state:(UIControlState)state;
-//- (void)fillWithImageDataSource:(id<YJDataFillImageDataSource>)dataSource forPurpose:(YJImagePurpose)purpose;
-//- (void)fillWithImageDataSource:(id<YJDataFillImageDataSource>)dataSource forPurpose:(YJImagePurpose)purpose state:(UIControlState)state;
-//@end
-//
-//@protocol YJDataFillPoNSubDelegate <NSObject>
-//@optional
-//- (void)fillWithPoNDataSource:(id<YJDataFillImageDataSource>)dataSource forPurpose:(YJPoNPurpose)purpose;
-//@end
 
 #pragma mark- Assginment
 @protocol YJDataFillTextAssignment <NSObject>
