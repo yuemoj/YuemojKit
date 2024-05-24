@@ -3,7 +3,6 @@
 //  YuemojKit
 //
 //  Created by Yuemoj on 2021/12/13.
-//  Copyright © 2021 hytera. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
