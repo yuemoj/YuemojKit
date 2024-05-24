@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YuemojKit'
-  s.version          = '0.0.2'
+  s.version          = '0.0.3'
   s.summary          = 'UI解耦框架'
 
 # This description is used to generate tags and improve search results.
@@ -49,11 +49,20 @@ Pod::Spec.new do |s|
     ss.source_files = 'YuemojKit/*.{h,m}'
   end
                 
-  s.subspec 'Catagory' do |ss|
-    ss.public_header_files = 'YuemojKit/{Foundation, UIKit}/*{Yuemoj, Abilities}.h'
+  s.subspec 'UIAbility' do |ss|
+    ss.public_header_files = 'YuemojKit/UIKit/*{Yuemoj, Abilities}.h'
     ss.pod_target_xcconfig = { :OTHER_LDFLAGS => '-lObjC', :HEADER_SEARCH_PATHS => '$(inherited)' }
     
-    ss.source_files = 'YuemojKit/Foundation', 'YuemojKit/UIKit'
+    ss.source_files = 'YuemojKit/UIKit'
+        
+    ss.dependency 'YuemojKit/Core'
+  end
+  
+  s.subspec 'FoundationAbility' do |ss|
+    ss.public_header_files = 'YuemojKit/Foundation/*{Yuemoj, Abilities}.h'
+    ss.pod_target_xcconfig = { :OTHER_LDFLAGS => '-lObjC', :HEADER_SEARCH_PATHS => '$(inherited)' }
+    
+    ss.source_files = 'YuemojKit/Foundation'
         
     ss.dependency 'YuemojKit/Core'
     ss.dependency 'PinYin4Objc', '~> 1.1.1'
@@ -64,7 +73,7 @@ Pod::Spec.new do |s|
       sss.public_header_files = 'YuemojKit/YJComponent/YJComponentDataSource.h'
       sss.source_files = 'YuemojKit/YJComponent/*.{h,m}'
       
-      sss.dependency 'YuemojKit/Catagory'
+      sss.dependency 'YuemojKit/UIAbility'
     end
                   
     ss.subspec 'EventBuilder' do |sss|
