@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B3AA7382C01BE0F005A54D1 /* YJOrderJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3AA7352C01BE0F005A54D1 /* YJOrderJSON.m */; };
+		5B3AA7392C01BE0F005A54D1 /* YJBoundedBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3AA7362C01BE0F005A54D1 /* YJBoundedBuffer.m */; };
 		5B7DAA442BFDCA8000578A05 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7DAA432BFDCA8000578A05 /* TableViewCell.m */; };
 		5B9E59142BFC36D0005DF0E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E59132BFC36D0005DF0E9 /* AppDelegate.m */; };
 		5B9E591A2BFC36D0005DF0E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E59192BFC36D0005DF0E9 /* ViewController.m */; };
@@ -44,6 +46,10 @@
 
 /* Begin PBXFileReference section */
 		083D973C4B70804D7D125EE0 /* Pods_YuemojKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YuemojKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B3AA7342C01BE0F005A54D1 /* YJOrderJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJOrderJSON.h; sourceTree = "<group>"; };
+		5B3AA7352C01BE0F005A54D1 /* YJOrderJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJOrderJSON.m; sourceTree = "<group>"; };
+		5B3AA7362C01BE0F005A54D1 /* YJBoundedBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJBoundedBuffer.m; sourceTree = "<group>"; };
+		5B3AA7372C01BE0F005A54D1 /* YJBoundedBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJBoundedBuffer.h; sourceTree = "<group>"; };
 		5B4376C62BFF44C00089C879 /* YJDataFillTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJDataFillTypes.h; sourceTree = "<group>"; };
 		5B7DAA422BFDCA8000578A05 /* TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		5B7DAA432BFDCA8000578A05 /* TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
@@ -138,6 +144,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5B3AA7332C01BDCE005A54D1 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				5B3AA7372C01BE0F005A54D1 /* YJBoundedBuffer.h */,
+				5B3AA7362C01BE0F005A54D1 /* YJBoundedBuffer.m */,
+				5B3AA7342C01BE0F005A54D1 /* YJOrderJSON.h */,
+				5B3AA7352C01BE0F005A54D1 /* YJOrderJSON.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		5B9E59062BFC36D0005DF0E9 = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +225,7 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		5B9E59F02BFC3CB9005DF0E9 /* YJEventBuilder */ = {
+		5B9E59F02BFC3CB9005DF0E9 /* EventBuilder */ = {
 			isa = PBXGroup;
 			children = (
 				5B9E59EA2BFC3CB9005DF0E9 /* YJEventBuildDelegate.h */,
@@ -218,10 +235,10 @@
 				5B9E59EE2BFC3CB9005DF0E9 /* YJEventBuildNamespace.h */,
 				5B9E59EF2BFC3CB9005DF0E9 /* YJEventBuildNamespace.m */,
 			);
-			path = YJEventBuilder;
+			path = EventBuilder;
 			sourceTree = "<group>";
 		};
-		5B9E59F82BFC3CB9005DF0E9 /* YJFiller */ = {
+		5B9E59F82BFC3CB9005DF0E9 /* Filler */ = {
 			isa = PBXGroup;
 			children = (
 				5B9E59F12BFC3CB9005DF0E9 /* YJDataFillDataSource.h */,
@@ -233,10 +250,10 @@
 				5B9E59F62BFC3CB9005DF0E9 /* YJDataFillNamespace.h */,
 				5B9E59F72BFC3CB9005DF0E9 /* YJDataFillNamespace.m */,
 			);
-			path = YJFiller;
+			path = Filler;
 			sourceTree = "<group>";
 		};
-		5B9E5A022BFC3CB9005DF0E9 /* YJLayouter */ = {
+		5B9E5A022BFC3CB9005DF0E9 /* Layouter */ = {
 			isa = PBXGroup;
 			children = (
 				5B9E59F92BFC3CB9005DF0E9 /* YJLayoutDataSource.h */,
@@ -249,23 +266,23 @@
 				5B9E5A002BFC3CB9005DF0E9 /* YJLayoutNamespace.h */,
 				5B9E5A012BFC3CB9005DF0E9 /* YJLayoutNamespace.m */,
 			);
-			path = YJLayouter;
+			path = Layouter;
 			sourceTree = "<group>";
 		};
-		5B9E5A0A2BFC3CB9005DF0E9 /* YJComponent */ = {
+		5B9E5A0A2BFC3CB9005DF0E9 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				5B9E59F02BFC3CB9005DF0E9 /* YJEventBuilder */,
-				5B9E59F82BFC3CB9005DF0E9 /* YJFiller */,
-				5B9E5A022BFC3CB9005DF0E9 /* YJLayouter */,
+				5B9E59F02BFC3CB9005DF0E9 /* EventBuilder */,
+				5B9E59F82BFC3CB9005DF0E9 /* Filler */,
+				5B9E5A022BFC3CB9005DF0E9 /* Layouter */,
 				5B9E5A052BFC3CB9005DF0E9 /* YJComponentDataSource.h */,
 				5B9E5A082BFC3CB9005DF0E9 /* YJComponentWrapper.h */,
 				5B9E5A092BFC3CB9005DF0E9 /* YJComponentWrapper.m */,
 			);
-			path = YJComponent;
+			path = Component;
 			sourceTree = "<group>";
 		};
-		5B9E5A102BFC3CB9005DF0E9 /* YJDataSource */ = {
+		5B9E5A102BFC3CB9005DF0E9 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
 				5B9E5A0B2BFC3CB9005DF0E9 /* YJDataSource.h */,
@@ -274,16 +291,17 @@
 				5B9E5A0E2BFC3CB9005DF0E9 /* YJGroupModel.h */,
 				5B9E5A0F2BFC3CB9005DF0E9 /* YJGroupModel.m */,
 			);
-			path = YJDataSource;
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		5B9E5A172BFC3CB9005DF0E9 /* YuemojKit */ = {
 			isa = PBXGroup;
 			children = (
+				5B3AA7332C01BDCE005A54D1 /* Tools */,
 				5B9E59DD2BFC3CB9005DF0E9 /* Foundation */,
 				5B9E59E82BFC3CB9005DF0E9 /* UIKit */,
-				5B9E5A0A2BFC3CB9005DF0E9 /* YJComponent */,
-				5B9E5A102BFC3CB9005DF0E9 /* YJDataSource */,
+				5B9E5A0A2BFC3CB9005DF0E9 /* Component */,
+				5B9E5A102BFC3CB9005DF0E9 /* DataSource */,
 				5B9E5A112BFC3CB9005DF0E9 /* Yuemoj.h */,
 				5B9E5A122BFC3CB9005DF0E9 /* Yuemoj.m */,
 				5B9E5A132BFC3CB9005DF0E9 /* YuemojKit.docc */,
@@ -441,6 +459,8 @@
 				5B9E5A192BFC3CB9005DF0E9 /* YJArrayNamespace.m in Sources */,
 				5B9E5A1B2BFC3CB9005DF0E9 /* YJStringNamespace.m in Sources */,
 				5B9E5A332BFC4722005DF0E9 /* ViewModel.m in Sources */,
+				5B3AA7382C01BE0F005A54D1 /* YJOrderJSON.m in Sources */,
+				5B3AA7392C01BE0F005A54D1 /* YJBoundedBuffer.m in Sources */,
 				5B9E59252BFC36D2005DF0E9 /* main.m in Sources */,
 				5B9E5A1C2BFC3CB9005DF0E9 /* UIKit+Yuemoj.m in Sources */,
 				5B9E5A1A2BFC3CB9005DF0E9 /* YJFoundationNamespace.m in Sources */,

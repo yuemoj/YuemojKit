@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YuemojKit'
-  s.version          = '0.0.3'
-  s.summary          = 'UI解耦框架'
+  s.version          = '0.0.4'
+  s.summary          = 'yuemoj kit'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,12 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-  UI解耦框架
+  1.处理控件与数据模型的耦合, 提供控件事件的回调处理; 
+  2.支持Layout定制, 避免重复创建大量类似布局的cell;
+  3.TableView和CollectionView的DataSource通用处理
+  4.数据库SQL语句对象化构建
+  5.生产者消费者工厂
+  6.JSON排序构建
                        DESC
 
   s.homepage         = 'https://github.com/yuemoj/YuemojKit'
@@ -70,29 +75,29 @@ Pod::Spec.new do |s|
     
   s.subspec 'Component' do |ss|
     ss.subspec 'Common' do |sss|
-      sss.public_header_files = 'YuemojKit/YJComponent/YJComponentDataSource.h'
-      sss.source_files = 'YuemojKit/YJComponent/*.{h,m}'
+      sss.public_header_files = 'YuemojKit/Component/YJComponentDataSource.h'
+      sss.source_files = 'YuemojKit/Component/*.{h,m}'
       
       sss.dependency 'YuemojKit/UIAbility'
     end
                   
     ss.subspec 'EventBuilder' do |sss|
-      sss.public_header_files = 'YuemojKit/YJComponent/YJEventBuilder/YJEventBuilderProtocol.h'
-      sss.source_files = 'YuemojKit/YJComponent/YJEventBuilder/*'
+      sss.public_header_files = 'YuemojKit/Component/EventBuilder/YJEventBuilderProtocol.h'
+      sss.source_files = 'YuemojKit/Component/EventBuilder/*'
             
       sss.dependency 'YuemojKit/Component/Common'
     end
         
     ss.subspec 'Filler' do |sss|
-      sss.public_header_files = 'YuemojKit/YJComponent/YJFiller/YJDataFill{DataSource,erProtocol}.h'
-      sss.source_files = 'YuemojKit/YJComponent/YJFiller/*'
+      sss.public_header_files = 'YuemojKit/Component/Filler/YJDataFill{DataSource,erProtocol}.h'
+      sss.source_files = 'YuemojKit/Component/Filler/*'
                 
       sss.dependency 'YuemojKit/Component/Common'
     end
           
     ss.subspec 'Layouter' do |sss|
-      sss.public_header_files = 'YuemojKit/YJComponent/YJLayouter/YJLayout{DataSource,erProtocol,Models}.h'
-      sss.source_files = 'YuemojKit/YJComponent/YJLayouter/*'
+      sss.public_header_files = 'YuemojKit/Component/Layouter/YJLayout{DataSource,erProtocol,Models}.h'
+      sss.source_files = 'YuemojKit/Component/Layouter/*'
                         
       sss.dependency 'YuemojKit/Component/Common'
       sss.dependency 'Masonry', '~>1.1.0'
@@ -100,8 +105,14 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'DataSource' do |ss|
-    ss.public_header_files = 'YuemojKit/YJDataSource/*.h'
+    ss.public_header_files = 'YuemojKit/DataSource/*.h'
     
-    ss.source_files = 'YuemojKit/YJDataSource/*'
+    ss.source_files = 'YuemojKit/DataSource/*'
+  end
+
+  s.subspec 'Tools' do |ss|
+    ss.public_header_files = 'YuemojKit/Tools/*.h'
+
+    ss.source_files = 'YuemojKit/Tools'
   end
 end
