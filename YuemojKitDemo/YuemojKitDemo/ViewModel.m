@@ -254,7 +254,7 @@
 }
 
 /// MARK: update
-- (BOOL)shouldUpdateImageForScene:(NSInteger)scene {
+- (BOOL)shouldUpdateImageForScene:(NSInteger)scene indexPath:(nonnull NSIndexPath *)indexPath {
     // 背景图是可变的
     switch (scene) {
         case CellComponentBackgroundImage: return YES;
