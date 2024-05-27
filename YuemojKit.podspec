@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YuemojKit'
-  s.version          = '0.0.4'
+  s.version          = '0.0.5'
   s.summary          = 'yuemoj kit'
 
 # This description is used to generate tags and improve search results.
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Yuemoj' => 'yj_745@163.com' }
-  s.source           = { :git => 'https://github.com/yuemoj/YuemojKit.git', :tag => s.version.to_s, :submodules => true }
+  s.source           = { :git => 'https://github.com/yuemoj/YuemojKit.git', :tag => s.version.to_s }
 
   s.platform    = :ios
   s.ios.deployment_target = '13.0'
@@ -55,7 +55,7 @@ Pod::Spec.new do |s|
   end
                 
   s.subspec 'UIAbility' do |ss|
-    ss.public_header_files = 'YuemojKit/UIKit/*{Yuemoj, Abilities}.h'
+    ss.public_header_files = 'YuemojKit/UIKit/UIKit+Yuemoj.h', 'YuemojKit/UIKit/YuemojUIAbilities.h'
     ss.pod_target_xcconfig = { :OTHER_LDFLAGS => '-lObjC', :HEADER_SEARCH_PATHS => '$(inherited)' }
     
     ss.source_files = 'YuemojKit/UIKit'
@@ -64,7 +64,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'FoundationAbility' do |ss|
-    ss.public_header_files = 'YuemojKit/Foundation/*{Yuemoj, Abilities}.h'
+    ss.public_header_files = 'YuemojKit/Foundation/Foundation+Yuemoj.h', 'YuemojKit/Foundation/YuemojFoundationAbilities}.h'
     ss.pod_target_xcconfig = { :OTHER_LDFLAGS => '-lObjC', :HEADER_SEARCH_PATHS => '$(inherited)' }
     
     ss.source_files = 'YuemojKit/Foundation'
