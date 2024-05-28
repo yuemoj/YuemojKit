@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YuemojKit'
-  s.version          = '0.0.6'
+  s.version          = '0.0.7'
   s.summary          = 'A decoupling framework for UI layout, data sources, and event responses'
 
 # This description is used to generate tags and improve search results.
@@ -64,15 +64,15 @@ Pod::Spec.new do |s|
     ss.dependency 'YuemojKit/Core'
   end
   
-  s.subspec 'FoundationAbility' do |ss|
-    ss.public_header_files = 'YuemojKit/Foundation/Foundation+Yuemoj.h', 'YuemojKit/Foundation/YuemojFoundationAbilities.h'
-    ss.pod_target_xcconfig = { :OTHER_LDFLAGS => '-lObjC', :HEADER_SEARCH_PATHS => '$(inherited)' }
+  # s.subspec 'FoundationAbility' do |ss|
+  #   ss.public_header_files = 'YuemojKit/Foundation/Foundation+Yuemoj.h', 'YuemojKit/Foundation/YuemojFoundationAbilities.h'
+  #   ss.pod_target_xcconfig = { :OTHER_LDFLAGS => '-lObjC', :HEADER_SEARCH_PATHS => '$(inherited)' }
     
-    ss.source_files = 'YuemojKit/Foundation'
+  #   ss.source_files = 'YuemojKit/Foundation/*.{h,m}'
         
-    ss.dependency 'YuemojKit/Core'
-    ss.dependency 'PinYin4Objc', '~> 1.1.1'
-  end
+  #   ss.dependency 'YuemojKit/Core'
+  #   ss.dependency 'PinYin4Objc', '~> 1.1.1'
+  # end
     
   s.subspec 'Component' do |ss|
     ss.subspec 'Common' do |sss|
