@@ -14,12 +14,12 @@ FOUNDATION_EXPORT double YuemojKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char YuemojKitVersionString[];
 
 #import <YuemojKit/Yuemoj.h>
-#import <YuemojKit/YuemojCoreType.h>
+#import <YuemojKit/YuemojCoreTypes.h>
 #import <YuemojKit/YuemojMacros.h>
 #import <YuemojKit/Foundation+Yuemoj.h>
 #else
 #import "Yuemoj.h"
-#import "YuemojCoreType.h"
+#import "YuemojCoreTypes.h"
 #import "YuemojMacros.h"
 #import "Foundation+Yuemoj.h"
 
