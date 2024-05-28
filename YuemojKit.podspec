@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YuemojKit'
-  s.version          = '0.0.5'
-  s.summary          = 'yuemoj kit'
+  s.version          = '0.0.6'
+  s.summary          = 'A decoupling framework for UI layout, data sources, and event responses'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
+  YuemojKit
   1.处理控件与数据模型的耦合, 提供控件事件的回调处理; 
   2.支持Layout定制, 避免重复创建大量类似布局的cell;
   3.TableView和CollectionView的DataSource通用处理
@@ -64,7 +65,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'FoundationAbility' do |ss|
-    ss.public_header_files = 'YuemojKit/Foundation/Foundation+Yuemoj.h', 'YuemojKit/Foundation/YuemojFoundationAbilities}.h'
+    ss.public_header_files = 'YuemojKit/Foundation/Foundation+Yuemoj.h', 'YuemojKit/Foundation/YuemojFoundationAbilities.h'
     ss.pod_target_xcconfig = { :OTHER_LDFLAGS => '-lObjC', :HEADER_SEARCH_PATHS => '$(inherited)' }
     
     ss.source_files = 'YuemojKit/Foundation'

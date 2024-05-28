@@ -2,8 +2,7 @@
 //  YJBoundedBuffer.h
 //  Mcptt
 //
-//  Created by HYT200841559 on 2022/3/14.
-//  Copyright © 2022 hytera. All rights reserved.
+//  Created by Yuemoj on 2022/3/14.
 //
 
 #import <Foundation/Foundation.h>

@@ -2,7 +2,7 @@
 //  TableViewCell.m
 //  YuemojKitDemo
 //
-//  Created by HYT200841559 on 2024/5/22.
+//  Created by Yuemoj on 2024/5/22.
 //
 
 #import "TableViewCell.h"

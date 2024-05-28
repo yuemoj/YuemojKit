@@ -6,13 +6,21 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#if __has_include(<YuemojKit/YuemojKit.h>)
 //! Project version number for YuemojKit.
 FOUNDATION_EXPORT double YuemojKitVersionNumber;
 
 //! Project version string for YuemojKit.
 FOUNDATION_EXPORT const unsigned char YuemojKitVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <YuemojKit/PublicHeader.h>
+#import <YuemojKit/Yuemoj.h>
+#import <YuemojKit/YuemojCoreType.h>
+#import <YuemojKit/YuemojMacros.h>
+#import <YuemojKit/Foundation+Yuemoj.h>
+#else
+#import "Yuemoj.h"
+#import "YuemojCoreType.h"
+#import "YuemojMacros.h"
+#import "Foundation+Yuemoj.h"
 
-
+#endif
