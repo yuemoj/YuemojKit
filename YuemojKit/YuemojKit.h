@@ -33,22 +33,24 @@ FOUNDATION_EXPORT const unsigned char YuemojKitVersionString[];
 //#import <YuemojKit/YJBoundedBuffer.h>
 ////#import <YuemojKit/>
 //#else
-//#import "Yuemoj.h"
-//#import "YuemojCoreTypes.h"
-//#import "YuemojMacros.h"
-//#import "Foundation+Yuemoj.h"
-//#import "YuemojFoundationAbilities.h"
-//#import "UIKit+Yuemoj.h"
-//#import "YuemojUIAbilities.h"
-//#import "YJDataFillDataSource.h"
-//#import "YJDataFillerProtocol.h"
-//#import "YJDataFillTypes.h"
-//#import "YJEventBuilderProtocol.h"
-//#import "YJLayouterProtocol.h"
-//#import "YJLayoutModels.h"
-//#import "YJDataSource.h"
-//#import "YJGroupModel.h"
-//#import "YJOrderJSON.h"
-//#import "YJBoundedBuffer.h"
+#ifndef __YuemojKit__
+#define __YuemojKit__
+#import "Yuemoj.h"
+#import "YuemojCoreTypes.h"
+#import "YuemojMacros.h"
+#import "Foundation+Yuemoj.h"
+#import "YuemojFoundationAbilities.h"
+#import "UIKit+Yuemoj.h"
+#import "YuemojUIAbilities.h"
+#import "YJDataFillDataSource.h"
+#import "YJDataFillerProtocol.h"
+#import "YJDataFillTypes.h"
+#import "YJEventBuilderProtocol.h"
+#import "YJLayouterProtocol.h"
+#import "YJLayoutModels.h"
+#import "YJDataSource.h"
+#import "YJGroupModel.h"
+#import "YJOrderJSON.h"
+#import "YJBoundedBuffer.h"
 
-//#endif
+#endif
