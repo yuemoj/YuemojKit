@@ -51,12 +51,13 @@ Pod::Spec.new do |s|
   s.source_files = 'YuemojKit/YuemojKit.h'
     
   s.subspec 'Core' do |ss|
-    ss.public_header_files = 'YuemojKit/*.h'
+    # ss.public_header_files = 'YuemojKit/*.h'
     ss.source_files = 'YuemojKit/*.{h,m}'
   end
                 
   s.subspec 'UIAbility' do |ss|
-    ss.public_header_files = 'YuemojKit/UIKit/UIKit+Yuemoj.h', 'YuemojKit/UIKit/YuemojUIAbilities.h'
+    ss.private_header_files = 'YuemojKit/UIKit/*Namespace.h'
+    #UIKit+Yuemoj.h', 'YuemojKit/UIKit/YuemojUIAbilities.h'
     ss.pod_target_xcconfig = { :OTHER_LDFLAGS => '-lObjC', :HEADER_SEARCH_PATHS => '$(inherited)' }
     
     ss.source_files = 'YuemojKit/UIKit'
@@ -64,40 +65,44 @@ Pod::Spec.new do |s|
     ss.dependency 'YuemojKit/Core'
   end
   
-  # s.subspec 'FoundationAbility' do |ss|
-  #   ss.public_header_files = 'YuemojKit/Foundation/Foundation+Yuemoj.h', 'YuemojKit/Foundation/YuemojFoundationAbilities.h'
-  #   ss.pod_target_xcconfig = { :OTHER_LDFLAGS => '-lObjC', :HEADER_SEARCH_PATHS => '$(inherited)' }
+  s.subspec 'FoundationAbility' do |ss|
+    ss.private_header_files = 'YuemojKit/Foundation/YJFoundationNamespace.h'
+    #Foundation+Yuemoj.h', 'YuemojKit/Foundation/YuemojFoundationAbilities.h'
+    ss.pod_target_xcconfig = { :OTHER_LDFLAGS => '-lObjC', :HEADER_SEARCH_PATHS => '$(inherited)' }
     
-  #   ss.source_files = 'YuemojKit/Foundation'
+    ss.source_files = 'YuemojKit/Foundation'
         
-  #   ss.dependency 'YuemojKit/Core'
-  #   ss.dependency 'PinYin4Objc', '~> 1.1.1'
-  # end
+    ss.dependency 'YuemojKit/Core'
+    ss.dependency 'PinYin4Objc', '~> 1.1.1'
+  end
     
   s.subspec 'Component' do |ss|
     ss.subspec 'Common' do |sss|
-      sss.public_header_files = 'YuemojKit/Component/YJComponentDataSource.h'
+      sss.private_header_files = 'YuemojKit/Component/YJComponentWrapper.h'
       sss.source_files = 'YuemojKit/Component/*.{h,m}'
       
       sss.dependency 'YuemojKit/UIAbility'
     end
                   
     ss.subspec 'EventBuilder' do |sss|
-      sss.public_header_files = 'YuemojKit/Component/EventBuilder/YJEventBuilderProtocol.h'
+      sss.private_header_files = 'YuemojKit/Component/EventBuilder/YJEventBuild{Delegate,er,Namespace}.h'
+      #YJEventBuilderProtocol.h'
       sss.source_files = 'YuemojKit/Component/EventBuilder/*'
             
       sss.dependency 'YuemojKit/Component/Common'
     end
         
     ss.subspec 'Filler' do |sss|
-      sss.public_header_files = 'YuemojKit/Component/Filler/YJDataFill{DataSource,erProtocol,Types}.h'
+      sss.private_header_files = 'YuemojKit/Component/Filler/YJDataFill{Delegate,er,Namespace}.h'
+        #DataSource,erProtocol,Types}.h'
       sss.source_files = 'YuemojKit/Component/Filler/*'
                 
       sss.dependency 'YuemojKit/Component/Common'
     end
           
     ss.subspec 'Layouter' do |sss|
-      sss.public_header_files = 'YuemojKit/Component/Layouter/YJLayout{DataSource,erProtocol,Models}.h'
+      sss.private_header_files = 'YuemojKit/Component/Layouter/YJLayout{Delegate,er,Namespace}.h'
+      #YJLayout{DataSource,erProtocol,Models}.h'
       sss.source_files = 'YuemojKit/Component/Layouter/*'
                         
       sss.dependency 'YuemojKit/Component/Common'
@@ -106,13 +111,13 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'DataSource' do |ss|
-    ss.public_header_files = 'YuemojKit/DataSource/*.h'
+    # ss.public_header_files = 'YuemojKit/DataSource/*.h'
     
     ss.source_files = 'YuemojKit/DataSource/*'
   end
 
   s.subspec 'Tools' do |ss|
-    ss.public_header_files = 'YuemojKit/Tools/*.h'
+    # ss.public_header_files = 'YuemojKit/Tools/*.h'
 
     ss.source_files = 'YuemojKit/Tools'
   end
