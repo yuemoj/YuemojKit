@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Yuemoj' => 'yj_745@163.com' }
-  s.source           = { :git => 'https://github.com/yuemoj/YuemojKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/yuemoj/YuemojKit.git', :branch => 'master' } #:tag => s.version.to_s }
 
   s.platform    = :ios
   s.ios.deployment_target = '13.0'
@@ -90,7 +90,7 @@ Pod::Spec.new do |s|
     end
         
     ss.subspec 'Filler' do |sss|
-      sss.public_header_files = 'YuemojKit/Component/Filler/YJDataFill{DataSource,erProtocol}.h'
+      sss.public_header_files = 'YuemojKit/Component/Filler/YJDataFill{DataSource,erProtocol,Types}.h'
       sss.source_files = 'YuemojKit/Component/Filler/*'
                 
       sss.dependency 'YuemojKit/Component/Common'

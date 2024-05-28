@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/NSLayoutConstraint.h>
+#import <UIKit/UIView.h>
 #import "YuemojCoreTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -42,7 +43,6 @@ typedef NS_ENUM(int, YJLayoutRelation) {
 - (instancetype)init NS_UNAVAILABLE;
 @end
 
-@import UIKit.UIView;
 @class YJLayoutItemConstraintDescription;
 @protocol YJLayoutConstraintAttributeDelegate;
 @interface YJLayoutItem : NSObject

@@ -7,57 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B4658E32BE8BFB900FBD494 /* YJDataFillerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4658E22BE8BFB900FBD494 /* YJDataFillerProtocol.h */; };
-		5B4658E62BE8C43000FBD494 /* YJDataFillNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4658E52BE8C43000FBD494 /* YJDataFillNamespace.m */; };
-		5B4658E72BE8C43000FBD494 /* YJDataFillNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4658E42BE8C43000FBD494 /* YJDataFillNamespace.h */; };
+		5B4857472C05806B004E2E0E /* YJEventBuildDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B48571E2C05806B004E2E0E /* YJEventBuildDelegate.h */; };
+		5B4857482C05806B004E2E0E /* YJEventBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B48571F2C05806B004E2E0E /* YJEventBuilder.h */; };
+		5B4857492C05806B004E2E0E /* YJEventBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4857202C05806B004E2E0E /* YJEventBuilder.m */; };
+		5B48574A2C05806B004E2E0E /* YJEventBuilderProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4857212C05806B004E2E0E /* YJEventBuilderProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B48574B2C05806B004E2E0E /* YJEventBuildNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4857222C05806B004E2E0E /* YJEventBuildNamespace.h */; };
+		5B48574C2C05806B004E2E0E /* YJEventBuildNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4857232C05806B004E2E0E /* YJEventBuildNamespace.m */; };
+		5B48574D2C05806B004E2E0E /* YJDataFillDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4857252C05806B004E2E0E /* YJDataFillDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B48574E2C05806B004E2E0E /* YJDataFillDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4857262C05806B004E2E0E /* YJDataFillDelegate.h */; };
+		5B48574F2C05806B004E2E0E /* YJDataFiller.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4857272C05806B004E2E0E /* YJDataFiller.h */; };
+		5B4857502C05806B004E2E0E /* YJDataFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4857282C05806B004E2E0E /* YJDataFiller.m */; };
+		5B4857512C05806B004E2E0E /* YJDataFillerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4857292C05806B004E2E0E /* YJDataFillerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B4857522C05806B004E2E0E /* YJDataFillNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B48572A2C05806B004E2E0E /* YJDataFillNamespace.h */; };
+		5B4857532C05806B004E2E0E /* YJDataFillNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B48572B2C05806B004E2E0E /* YJDataFillNamespace.m */; };
+		5B4857542C05806B004E2E0E /* YJDataFillTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B48572C2C05806B004E2E0E /* YJDataFillTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B4857552C05806B004E2E0E /* YJLayoutDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B48572E2C05806B004E2E0E /* YJLayoutDataSource.h */; };
+		5B4857562C05806B004E2E0E /* YJLayoutDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B48572F2C05806B004E2E0E /* YJLayoutDelegate.h */; };
+		5B4857572C05806B004E2E0E /* YJLayouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4857302C05806B004E2E0E /* YJLayouter.h */; };
+		5B4857582C05806B004E2E0E /* YJLayouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4857312C05806B004E2E0E /* YJLayouter.m */; };
+		5B4857592C05806B004E2E0E /* YJLayouterProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4857322C05806B004E2E0E /* YJLayouterProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B48575A2C05806B004E2E0E /* YJLayoutModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4857332C05806B004E2E0E /* YJLayoutModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B48575B2C05806B004E2E0E /* YJLayoutModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4857342C05806B004E2E0E /* YJLayoutModels.m */; };
+		5B48575C2C05806B004E2E0E /* YJLayoutNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4857352C05806B004E2E0E /* YJLayoutNamespace.h */; };
+		5B48575D2C05806B004E2E0E /* YJLayoutNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4857362C05806B004E2E0E /* YJLayoutNamespace.m */; };
+		5B48575E2C05806B004E2E0E /* YJComponentDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4857382C05806B004E2E0E /* YJComponentDataSource.h */; };
+		5B48575F2C05806B004E2E0E /* YJComponentWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4857392C05806B004E2E0E /* YJComponentWrapper.h */; };
+		5B4857602C05806B004E2E0E /* YJComponentWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B48573A2C05806B004E2E0E /* YJComponentWrapper.m */; };
+		5B4857612C05806B004E2E0E /* YJDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B48573C2C05806B004E2E0E /* YJDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B4857622C05806B004E2E0E /* YJDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B48573D2C05806B004E2E0E /* YJDataSource.m */; };
+		5B4857632C05806B004E2E0E /* YJGroupDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B48573E2C05806B004E2E0E /* YJGroupDataSource.m */; };
+		5B4857642C05806B004E2E0E /* YJGroupModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B48573F2C05806B004E2E0E /* YJGroupModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B4857652C05806B004E2E0E /* YJGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4857402C05806B004E2E0E /* YJGroupModel.m */; };
+		5B4857662C05806B004E2E0E /* YJBoundedBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4857422C05806B004E2E0E /* YJBoundedBuffer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B4857672C05806B004E2E0E /* YJBoundedBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4857432C05806B004E2E0E /* YJBoundedBuffer.m */; };
+		5B4857682C05806B004E2E0E /* YJOrderJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4857442C05806B004E2E0E /* YJOrderJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B4857692C05806B004E2E0E /* YJOrderJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4857452C05806B004E2E0E /* YJOrderJSON.m */; };
+		5B48576B2C05A569004E2E0E /* YuemojMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1552BDE642500B95DF0 /* YuemojMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B7DAA462BFDE82400578A05 /* YuemojKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 5B7DAA452BFDE82400578A05 /* YuemojKit.podspec */; };
-		5B7DAA492BFE185900578A05 /* Yuemoj.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B7DAA472BFE185900578A05 /* Yuemoj.h */; };
+		5B7DAA492BFE185900578A05 /* Yuemoj.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B7DAA472BFE185900578A05 /* Yuemoj.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B7DAA4A2BFE185900578A05 /* Yuemoj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7DAA482BFE185900578A05 /* Yuemoj.m */; };
-		5BBA664C2BE0E60A00979548 /* YJLayouterProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBA664B2BE0E60A00979548 /* YJLayouterProtocol.h */; };
-		5BBA664E2BE0EDC200979548 /* YJLayoutDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BBA664D2BE0EDC200979548 /* YJLayoutDelegate.h */; };
-		5BC57DB42BF7055100E4CA42 /* YuemojMetamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BC57DB32BF7055100E4CA42 /* YuemojMetamacros.h */; };
+		5BC57DB42BF7055100E4CA42 /* YuemojMetamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BC57DB32BF7055100E4CA42 /* YuemojMetamacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BC57DB82BF7546E00E4CA42 /* YJArrayNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC57DB62BF7546E00E4CA42 /* YJArrayNamespace.m */; };
-		5BD123682C00338C0051257D /* YuemojCoreTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD123672C00338C0051257D /* YuemojCoreTypes.h */; };
-		5BD888822BF4566700034AB0 /* YJEventBuildNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD888802BF4566700034AB0 /* YJEventBuildNamespace.h */; };
-		5BD888832BF4566700034AB0 /* YJEventBuildNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD888812BF4566700034AB0 /* YJEventBuildNamespace.m */; };
-		5BD888852BF456B500034AB0 /* YJEventBuildDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD888842BF456B500034AB0 /* YJEventBuildDelegate.h */; };
-		5BD888892BF456D400034AB0 /* YJEventBuilderProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD888882BF456D400034AB0 /* YJEventBuilderProtocol.h */; };
-		5BD888A62BF4B10300034AB0 /* YuemojUIAbilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD888A52BF4B10300034AB0 /* YuemojUIAbilities.h */; };
+		5BD123682C00338C0051257D /* YuemojCoreTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD123672C00338C0051257D /* YuemojCoreTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BD888A62BF4B10300034AB0 /* YuemojUIAbilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD888A52BF4B10300034AB0 /* YuemojUIAbilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BD888AA2BF4B76A00034AB0 /* YJActionNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD888A82BF4B76A00034AB0 /* YJActionNamespace.m */; };
 		5BD888AE2BF4B77B00034AB0 /* YJFrameNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD888AC2BF4B77B00034AB0 /* YJFrameNamespace.m */; };
 		5BD888B22BF4B78700034AB0 /* YJArrangeNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD888B02BF4B78700034AB0 /* YJArrangeNamespace.m */; };
-		5BD888B52BF4D3FD00034AB0 /* UIKit+Yuemoj.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD888B32BF4D3FD00034AB0 /* UIKit+Yuemoj.h */; };
+		5BD888B52BF4D3FD00034AB0 /* UIKit+Yuemoj.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD888B32BF4D3FD00034AB0 /* UIKit+Yuemoj.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BD888B62BF4D3FD00034AB0 /* UIKit+Yuemoj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD888B42BF4D3FD00034AB0 /* UIKit+Yuemoj.m */; };
 		5BECA1122BDE3BD600B95DF0 /* YuemojKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA1112BDE3BD600B95DF0 /* YuemojKit.docc */; };
 		5BECA1132BDE3BD600B95DF0 /* YuemojKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1102BDE3BD600B95DF0 /* YuemojKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5BECA1202BDE40A100B95DF0 /* YJLayoutModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA11E2BDE40A100B95DF0 /* YJLayoutModels.h */; };
-		5BECA1212BDE40A100B95DF0 /* YJLayoutModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA11F2BDE40A100B95DF0 /* YJLayoutModels.m */; };
-		5BECA1242BDE411300B95DF0 /* YJComponentWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1222BDE411300B95DF0 /* YJComponentWrapper.h */; };
-		5BECA1252BDE411300B95DF0 /* YJComponentWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA1232BDE411300B95DF0 /* YJComponentWrapper.m */; };
-		5BECA12C2BDE412E00B95DF0 /* YJLayouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA1262BDE412E00B95DF0 /* YJLayouter.m */; };
-		5BECA12E2BDE412E00B95DF0 /* YJLayoutDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1282BDE412E00B95DF0 /* YJLayoutDataSource.h */; };
-		5BECA12F2BDE412E00B95DF0 /* YJLayouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1292BDE412E00B95DF0 /* YJLayouter.h */; };
-		5BECA1312BDE412E00B95DF0 /* YJComponentDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA12B2BDE412E00B95DF0 /* YJComponentDataSource.h */; };
 		5BECA1362BDE42C800B95DF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BECA1352BDE42C800B95DF0 /* UIKit.framework */; };
-		5BECA13D2BDE453300B95DF0 /* YJDataFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA1392BDE453200B95DF0 /* YJDataFiller.m */; };
-		5BECA13E2BDE453300B95DF0 /* YJDataFiller.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA13A2BDE453200B95DF0 /* YJDataFiller.h */; };
-		5BECA13F2BDE453300B95DF0 /* YJDataFillDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA13B2BDE453300B95DF0 /* YJDataFillDataSource.h */; };
-		5BECA1402BDE453300B95DF0 /* YJDataFillDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA13C2BDE453300B95DF0 /* YJDataFillDelegate.h */; };
-		5BECA1452BDE45EA00B95DF0 /* YJEventBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA1422BDE45EA00B95DF0 /* YJEventBuilder.m */; };
-		5BECA1462BDE45EA00B95DF0 /* YJEventBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1432BDE45EA00B95DF0 /* YJEventBuilder.h */; };
-		5BECA1502BDE62A500B95DF0 /* YJGroupModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA14B2BDE62A500B95DF0 /* YJGroupModel.h */; };
-		5BECA1512BDE62A500B95DF0 /* YJDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA14C2BDE62A500B95DF0 /* YJDataSource.m */; };
-		5BECA1522BDE62A500B95DF0 /* YJGroupDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA14D2BDE62A500B95DF0 /* YJGroupDataSource.m */; };
-		5BECA1532BDE62A500B95DF0 /* YJDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA14E2BDE62A500B95DF0 /* YJDataSource.h */; };
-		5BECA1542BDE62A500B95DF0 /* YJGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA14F2BDE62A500B95DF0 /* YJGroupModel.m */; };
-		5BECA1582BDE687700B95DF0 /* YJLayoutNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BECA1572BDE687700B95DF0 /* YJLayoutNamespace.m */; };
-		5BECA1592BDE687700B95DF0 /* YJLayoutNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BECA1562BDE687700B95DF0 /* YJLayoutNamespace.h */; };
 		5BF073372BF5A8FB0071EAB4 /* YJExtraNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF073352BF5A8FB0071EAB4 /* YJExtraNamespace.m */; };
 		5BF0733A2BF5ADB30071EAB4 /* YJUIKitNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BF073382BF5ADB30071EAB4 /* YJUIKitNamespace.h */; };
 		5BF0733B2BF5ADB30071EAB4 /* YJUIKitNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF073392BF5ADB30071EAB4 /* YJUIKitNamespace.m */; };
 		5BF0733F2BF5E82A0071EAB4 /* YJHyperlinkNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0733D2BF5E82A0071EAB4 /* YJHyperlinkNamespace.m */; };
-		5BF073452BF5FF420071EAB4 /* YuemojFoundationAbilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BF073442BF5FF420071EAB4 /* YuemojFoundationAbilities.h */; };
-		5BF073482BF60A9B0071EAB4 /* Foundation+Yuemoj.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BF073462BF60A9B0071EAB4 /* Foundation+Yuemoj.h */; };
+		5BF073452BF5FF420071EAB4 /* YuemojFoundationAbilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BF073442BF5FF420071EAB4 /* YuemojFoundationAbilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BF073482BF60A9B0071EAB4 /* Foundation+Yuemoj.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BF073462BF60A9B0071EAB4 /* Foundation+Yuemoj.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BF073492BF60A9B0071EAB4 /* Foundation+Yuemoj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF073472BF60A9B0071EAB4 /* Foundation+Yuemoj.m */; };
 		5BF0734C2BF60B440071EAB4 /* YJFoundationNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BF0734A2BF60B440071EAB4 /* YJFoundationNamespace.h */; };
 		5BF0734D2BF60B440071EAB4 /* YJFoundationNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF0734B2BF60B440071EAB4 /* YJFoundationNamespace.m */; };
@@ -67,21 +73,47 @@
 
 /* Begin PBXFileReference section */
 		39A382E92446090AAB573E50 /* Pods-YuemojKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YuemojKit.debug.xcconfig"; path = "Target Support Files/Pods-YuemojKit/Pods-YuemojKit.debug.xcconfig"; sourceTree = "<group>"; };
-		5B4658E22BE8BFB900FBD494 /* YJDataFillerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJDataFillerProtocol.h; sourceTree = "<group>"; };
-		5B4658E42BE8C43000FBD494 /* YJDataFillNamespace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJDataFillNamespace.h; sourceTree = "<group>"; };
-		5B4658E52BE8C43000FBD494 /* YJDataFillNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJDataFillNamespace.m; sourceTree = "<group>"; };
+		5B48571E2C05806B004E2E0E /* YJEventBuildDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJEventBuildDelegate.h; sourceTree = "<group>"; };
+		5B48571F2C05806B004E2E0E /* YJEventBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJEventBuilder.h; sourceTree = "<group>"; };
+		5B4857202C05806B004E2E0E /* YJEventBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJEventBuilder.m; sourceTree = "<group>"; };
+		5B4857212C05806B004E2E0E /* YJEventBuilderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJEventBuilderProtocol.h; sourceTree = "<group>"; };
+		5B4857222C05806B004E2E0E /* YJEventBuildNamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJEventBuildNamespace.h; sourceTree = "<group>"; };
+		5B4857232C05806B004E2E0E /* YJEventBuildNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJEventBuildNamespace.m; sourceTree = "<group>"; };
+		5B4857252C05806B004E2E0E /* YJDataFillDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFillDataSource.h; sourceTree = "<group>"; };
+		5B4857262C05806B004E2E0E /* YJDataFillDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFillDelegate.h; sourceTree = "<group>"; };
+		5B4857272C05806B004E2E0E /* YJDataFiller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFiller.h; sourceTree = "<group>"; };
+		5B4857282C05806B004E2E0E /* YJDataFiller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJDataFiller.m; sourceTree = "<group>"; };
+		5B4857292C05806B004E2E0E /* YJDataFillerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFillerProtocol.h; sourceTree = "<group>"; };
+		5B48572A2C05806B004E2E0E /* YJDataFillNamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFillNamespace.h; sourceTree = "<group>"; };
+		5B48572B2C05806B004E2E0E /* YJDataFillNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJDataFillNamespace.m; sourceTree = "<group>"; };
+		5B48572C2C05806B004E2E0E /* YJDataFillTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFillTypes.h; sourceTree = "<group>"; };
+		5B48572E2C05806B004E2E0E /* YJLayoutDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutDataSource.h; sourceTree = "<group>"; };
+		5B48572F2C05806B004E2E0E /* YJLayoutDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutDelegate.h; sourceTree = "<group>"; };
+		5B4857302C05806B004E2E0E /* YJLayouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayouter.h; sourceTree = "<group>"; };
+		5B4857312C05806B004E2E0E /* YJLayouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayouter.m; sourceTree = "<group>"; };
+		5B4857322C05806B004E2E0E /* YJLayouterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayouterProtocol.h; sourceTree = "<group>"; };
+		5B4857332C05806B004E2E0E /* YJLayoutModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutModels.h; sourceTree = "<group>"; };
+		5B4857342C05806B004E2E0E /* YJLayoutModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayoutModels.m; sourceTree = "<group>"; };
+		5B4857352C05806B004E2E0E /* YJLayoutNamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutNamespace.h; sourceTree = "<group>"; };
+		5B4857362C05806B004E2E0E /* YJLayoutNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayoutNamespace.m; sourceTree = "<group>"; };
+		5B4857382C05806B004E2E0E /* YJComponentDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJComponentDataSource.h; sourceTree = "<group>"; };
+		5B4857392C05806B004E2E0E /* YJComponentWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJComponentWrapper.h; sourceTree = "<group>"; };
+		5B48573A2C05806B004E2E0E /* YJComponentWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJComponentWrapper.m; sourceTree = "<group>"; };
+		5B48573C2C05806B004E2E0E /* YJDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataSource.h; sourceTree = "<group>"; };
+		5B48573D2C05806B004E2E0E /* YJDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJDataSource.m; sourceTree = "<group>"; };
+		5B48573E2C05806B004E2E0E /* YJGroupDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJGroupDataSource.m; sourceTree = "<group>"; };
+		5B48573F2C05806B004E2E0E /* YJGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJGroupModel.h; sourceTree = "<group>"; };
+		5B4857402C05806B004E2E0E /* YJGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJGroupModel.m; sourceTree = "<group>"; };
+		5B4857422C05806B004E2E0E /* YJBoundedBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJBoundedBuffer.h; sourceTree = "<group>"; };
+		5B4857432C05806B004E2E0E /* YJBoundedBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJBoundedBuffer.m; sourceTree = "<group>"; };
+		5B4857442C05806B004E2E0E /* YJOrderJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJOrderJSON.h; sourceTree = "<group>"; };
+		5B4857452C05806B004E2E0E /* YJOrderJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJOrderJSON.m; sourceTree = "<group>"; };
 		5B7DAA452BFDE82400578A05 /* YuemojKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = YuemojKit.podspec; sourceTree = SOURCE_ROOT; };
 		5B7DAA472BFE185900578A05 /* Yuemoj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yuemoj.h; sourceTree = "<group>"; };
 		5B7DAA482BFE185900578A05 /* Yuemoj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Yuemoj.m; sourceTree = "<group>"; };
-		5BBA664B2BE0E60A00979548 /* YJLayouterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJLayouterProtocol.h; sourceTree = "<group>"; };
-		5BBA664D2BE0EDC200979548 /* YJLayoutDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJLayoutDelegate.h; sourceTree = "<group>"; };
 		5BC57DB32BF7055100E4CA42 /* YuemojMetamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuemojMetamacros.h; sourceTree = "<group>"; };
 		5BC57DB62BF7546E00E4CA42 /* YJArrayNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJArrayNamespace.m; sourceTree = "<group>"; };
 		5BD123672C00338C0051257D /* YuemojCoreTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuemojCoreTypes.h; sourceTree = "<group>"; };
-		5BD888802BF4566700034AB0 /* YJEventBuildNamespace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJEventBuildNamespace.h; sourceTree = "<group>"; };
-		5BD888812BF4566700034AB0 /* YJEventBuildNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJEventBuildNamespace.m; sourceTree = "<group>"; };
-		5BD888842BF456B500034AB0 /* YJEventBuildDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJEventBuildDelegate.h; sourceTree = "<group>"; };
-		5BD888882BF456D400034AB0 /* YJEventBuilderProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJEventBuilderProtocol.h; sourceTree = "<group>"; };
 		5BD888A52BF4B10300034AB0 /* YuemojUIAbilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YuemojUIAbilities.h; sourceTree = "<group>"; };
 		5BD888A82BF4B76A00034AB0 /* YJActionNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJActionNamespace.m; sourceTree = "<group>"; };
 		5BD888AC2BF4B77B00034AB0 /* YJFrameNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJFrameNamespace.m; sourceTree = "<group>"; };
@@ -91,29 +123,8 @@
 		5BECA10D2BDE3BD600B95DF0 /* YuemojKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YuemojKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BECA1102BDE3BD600B95DF0 /* YuemojKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YuemojKit.h; sourceTree = "<group>"; };
 		5BECA1112BDE3BD600B95DF0 /* YuemojKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = YuemojKit.docc; sourceTree = "<group>"; };
-		5BECA11E2BDE40A100B95DF0 /* YJLayoutModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutModels.h; sourceTree = "<group>"; };
-		5BECA11F2BDE40A100B95DF0 /* YJLayoutModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayoutModels.m; sourceTree = "<group>"; };
-		5BECA1222BDE411300B95DF0 /* YJComponentWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJComponentWrapper.h; sourceTree = "<group>"; };
-		5BECA1232BDE411300B95DF0 /* YJComponentWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJComponentWrapper.m; sourceTree = "<group>"; };
-		5BECA1262BDE412E00B95DF0 /* YJLayouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayouter.m; sourceTree = "<group>"; };
-		5BECA1282BDE412E00B95DF0 /* YJLayoutDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutDataSource.h; sourceTree = "<group>"; };
-		5BECA1292BDE412E00B95DF0 /* YJLayouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayouter.h; sourceTree = "<group>"; };
-		5BECA12B2BDE412E00B95DF0 /* YJComponentDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJComponentDataSource.h; sourceTree = "<group>"; };
 		5BECA1352BDE42C800B95DF0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		5BECA1392BDE453200B95DF0 /* YJDataFiller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJDataFiller.m; sourceTree = "<group>"; };
-		5BECA13A2BDE453200B95DF0 /* YJDataFiller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFiller.h; sourceTree = "<group>"; };
-		5BECA13B2BDE453300B95DF0 /* YJDataFillDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFillDataSource.h; sourceTree = "<group>"; };
-		5BECA13C2BDE453300B95DF0 /* YJDataFillDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFillDelegate.h; sourceTree = "<group>"; };
-		5BECA1422BDE45EA00B95DF0 /* YJEventBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJEventBuilder.m; sourceTree = "<group>"; };
-		5BECA1432BDE45EA00B95DF0 /* YJEventBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJEventBuilder.h; sourceTree = "<group>"; };
-		5BECA14B2BDE62A500B95DF0 /* YJGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJGroupModel.h; sourceTree = "<group>"; };
-		5BECA14C2BDE62A500B95DF0 /* YJDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJDataSource.m; sourceTree = "<group>"; };
-		5BECA14D2BDE62A500B95DF0 /* YJGroupDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJGroupDataSource.m; sourceTree = "<group>"; };
-		5BECA14E2BDE62A500B95DF0 /* YJDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataSource.h; sourceTree = "<group>"; };
-		5BECA14F2BDE62A500B95DF0 /* YJGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJGroupModel.m; sourceTree = "<group>"; };
 		5BECA1552BDE642500B95DF0 /* YuemojMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YuemojMacros.h; sourceTree = "<group>"; };
-		5BECA1562BDE687700B95DF0 /* YJLayoutNamespace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJLayoutNamespace.h; sourceTree = "<group>"; };
-		5BECA1572BDE687700B95DF0 /* YJLayoutNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJLayoutNamespace.m; sourceTree = "<group>"; };
 		5BF073352BF5A8FB0071EAB4 /* YJExtraNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJExtraNamespace.m; sourceTree = "<group>"; };
 		5BF073382BF5ADB30071EAB4 /* YJUIKitNamespace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJUIKitNamespace.h; sourceTree = "<group>"; };
 		5BF073392BF5ADB30071EAB4 /* YJUIKitNamespace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJUIKitNamespace.m; sourceTree = "<group>"; };
@@ -141,6 +152,86 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B4857242C05806B004E2E0E /* EventBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				5B48571E2C05806B004E2E0E /* YJEventBuildDelegate.h */,
+				5B48571F2C05806B004E2E0E /* YJEventBuilder.h */,
+				5B4857202C05806B004E2E0E /* YJEventBuilder.m */,
+				5B4857212C05806B004E2E0E /* YJEventBuilderProtocol.h */,
+				5B4857222C05806B004E2E0E /* YJEventBuildNamespace.h */,
+				5B4857232C05806B004E2E0E /* YJEventBuildNamespace.m */,
+			);
+			path = EventBuilder;
+			sourceTree = "<group>";
+		};
+		5B48572D2C05806B004E2E0E /* Filler */ = {
+			isa = PBXGroup;
+			children = (
+				5B4857252C05806B004E2E0E /* YJDataFillDataSource.h */,
+				5B4857262C05806B004E2E0E /* YJDataFillDelegate.h */,
+				5B4857272C05806B004E2E0E /* YJDataFiller.h */,
+				5B4857282C05806B004E2E0E /* YJDataFiller.m */,
+				5B4857292C05806B004E2E0E /* YJDataFillerProtocol.h */,
+				5B48572A2C05806B004E2E0E /* YJDataFillNamespace.h */,
+				5B48572B2C05806B004E2E0E /* YJDataFillNamespace.m */,
+				5B48572C2C05806B004E2E0E /* YJDataFillTypes.h */,
+			);
+			path = Filler;
+			sourceTree = "<group>";
+		};
+		5B4857372C05806B004E2E0E /* Layouter */ = {
+			isa = PBXGroup;
+			children = (
+				5B48572E2C05806B004E2E0E /* YJLayoutDataSource.h */,
+				5B48572F2C05806B004E2E0E /* YJLayoutDelegate.h */,
+				5B4857302C05806B004E2E0E /* YJLayouter.h */,
+				5B4857312C05806B004E2E0E /* YJLayouter.m */,
+				5B4857322C05806B004E2E0E /* YJLayouterProtocol.h */,
+				5B4857332C05806B004E2E0E /* YJLayoutModels.h */,
+				5B4857342C05806B004E2E0E /* YJLayoutModels.m */,
+				5B4857352C05806B004E2E0E /* YJLayoutNamespace.h */,
+				5B4857362C05806B004E2E0E /* YJLayoutNamespace.m */,
+			);
+			path = Layouter;
+			sourceTree = "<group>";
+		};
+		5B48573B2C05806B004E2E0E /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				5B4857242C05806B004E2E0E /* EventBuilder */,
+				5B48572D2C05806B004E2E0E /* Filler */,
+				5B4857372C05806B004E2E0E /* Layouter */,
+				5B4857382C05806B004E2E0E /* YJComponentDataSource.h */,
+				5B4857392C05806B004E2E0E /* YJComponentWrapper.h */,
+				5B48573A2C05806B004E2E0E /* YJComponentWrapper.m */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		5B4857412C05806B004E2E0E /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				5B48573C2C05806B004E2E0E /* YJDataSource.h */,
+				5B48573D2C05806B004E2E0E /* YJDataSource.m */,
+				5B48573E2C05806B004E2E0E /* YJGroupDataSource.m */,
+				5B48573F2C05806B004E2E0E /* YJGroupModel.h */,
+				5B4857402C05806B004E2E0E /* YJGroupModel.m */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		5B4857462C05806B004E2E0E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				5B4857422C05806B004E2E0E /* YJBoundedBuffer.h */,
+				5B4857432C05806B004E2E0E /* YJBoundedBuffer.m */,
+				5B4857442C05806B004E2E0E /* YJOrderJSON.h */,
+				5B4857452C05806B004E2E0E /* YJOrderJSON.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		5BD888972BF4AB3600034AB0 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +268,9 @@
 		5BECA10F2BDE3BD600B95DF0 /* YuemojKit */ = {
 			isa = PBXGroup;
 			children = (
+				5B48573B2C05806B004E2E0E /* Component */,
+				5B4857412C05806B004E2E0E /* DataSource */,
+				5B4857462C05806B004E2E0E /* Tools */,
 				5B7DAA452BFDE82400578A05 /* YuemojKit.podspec */,
 				5B7DAA472BFE185900578A05 /* Yuemoj.h */,
 				5B7DAA482BFE185900578A05 /* Yuemoj.m */,
@@ -185,28 +279,10 @@
 				5BC57DB32BF7055100E4CA42 /* YuemojMetamacros.h */,
 				5BF073432BF5FEE70071EAB4 /* Foundation */,
 				5BD888972BF4AB3600034AB0 /* UIKit */,
-				5BECA14A2BDE627B00B95DF0 /* YJDataSource */,
-				5BECA1482BDE47EB00B95DF0 /* YJComponent */,
 				5BECA1102BDE3BD600B95DF0 /* YuemojKit.h */,
 				5BECA1112BDE3BD600B95DF0 /* YuemojKit.docc */,
 			);
 			path = YuemojKit;
-			sourceTree = "<group>";
-		};
-		5BECA11D2BDE3CEC00B95DF0 /* YJLayouter */ = {
-			isa = PBXGroup;
-			children = (
-				5BECA1562BDE687700B95DF0 /* YJLayoutNamespace.h */,
-				5BECA1572BDE687700B95DF0 /* YJLayoutNamespace.m */,
-				5BECA1292BDE412E00B95DF0 /* YJLayouter.h */,
-				5BECA1262BDE412E00B95DF0 /* YJLayouter.m */,
-				5BECA11E2BDE40A100B95DF0 /* YJLayoutModels.h */,
-				5BECA11F2BDE40A100B95DF0 /* YJLayoutModels.m */,
-				5BBA664D2BE0EDC200979548 /* YJLayoutDelegate.h */,
-				5BECA1282BDE412E00B95DF0 /* YJLayoutDataSource.h */,
-				5BBA664B2BE0E60A00979548 /* YJLayouterProtocol.h */,
-			);
-			path = YJLayouter;
 			sourceTree = "<group>";
 		};
 		5BECA1342BDE42C800B95DF0 /* Frameworks */ = {
@@ -216,58 +292,6 @@
 				859F124C8DCCB24BB679C1B8 /* Pods_YuemojKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5BECA1382BDE44EE00B95DF0 /* YJFiller */ = {
-			isa = PBXGroup;
-			children = (
-				5B4658E42BE8C43000FBD494 /* YJDataFillNamespace.h */,
-				5B4658E52BE8C43000FBD494 /* YJDataFillNamespace.m */,
-				5BECA13A2BDE453200B95DF0 /* YJDataFiller.h */,
-				5BECA1392BDE453200B95DF0 /* YJDataFiller.m */,
-				5BECA13C2BDE453300B95DF0 /* YJDataFillDelegate.h */,
-				5BECA13B2BDE453300B95DF0 /* YJDataFillDataSource.h */,
-				5B4658E22BE8BFB900FBD494 /* YJDataFillerProtocol.h */,
-			);
-			path = YJFiller;
-			sourceTree = "<group>";
-		};
-		5BECA1412BDE45D100B95DF0 /* YJEventBuilder */ = {
-			isa = PBXGroup;
-			children = (
-				5BD888802BF4566700034AB0 /* YJEventBuildNamespace.h */,
-				5BD888812BF4566700034AB0 /* YJEventBuildNamespace.m */,
-				5BECA1432BDE45EA00B95DF0 /* YJEventBuilder.h */,
-				5BECA1422BDE45EA00B95DF0 /* YJEventBuilder.m */,
-				5BD888842BF456B500034AB0 /* YJEventBuildDelegate.h */,
-				5BD888882BF456D400034AB0 /* YJEventBuilderProtocol.h */,
-			);
-			path = YJEventBuilder;
-			sourceTree = "<group>";
-		};
-		5BECA1482BDE47EB00B95DF0 /* YJComponent */ = {
-			isa = PBXGroup;
-			children = (
-				5BECA1222BDE411300B95DF0 /* YJComponentWrapper.h */,
-				5BECA1232BDE411300B95DF0 /* YJComponentWrapper.m */,
-				5BECA12B2BDE412E00B95DF0 /* YJComponentDataSource.h */,
-				5BECA1382BDE44EE00B95DF0 /* YJFiller */,
-				5BECA11D2BDE3CEC00B95DF0 /* YJLayouter */,
-				5BECA1412BDE45D100B95DF0 /* YJEventBuilder */,
-			);
-			path = YJComponent;
-			sourceTree = "<group>";
-		};
-		5BECA14A2BDE627B00B95DF0 /* YJDataSource */ = {
-			isa = PBXGroup;
-			children = (
-				5BECA14B2BDE62A500B95DF0 /* YJGroupModel.h */,
-				5BECA14F2BDE62A500B95DF0 /* YJGroupModel.m */,
-				5BECA14E2BDE62A500B95DF0 /* YJDataSource.h */,
-				5BECA14C2BDE62A500B95DF0 /* YJDataSource.m */,
-				5BECA14D2BDE62A500B95DF0 /* YJGroupDataSource.m */,
-			);
-			path = YJDataSource;
 			sourceTree = "<group>";
 		};
 		5BF073402BF5F9A20071EAB4 /* View */ = {
@@ -326,35 +350,39 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BF0733A2BF5ADB30071EAB4 /* YJUIKitNamespace.h in Headers */,
-				5B7DAA492BFE185900578A05 /* Yuemoj.h in Headers */,
-				5BECA1132BDE3BD600B95DF0 /* YuemojKit.h in Headers */,
-				5BBA664E2BE0EDC200979548 /* YJLayoutDelegate.h in Headers */,
-				5BD888B52BF4D3FD00034AB0 /* UIKit+Yuemoj.h in Headers */,
-				5BECA1502BDE62A500B95DF0 /* YJGroupModel.h in Headers */,
-				5BECA13F2BDE453300B95DF0 /* YJDataFillDataSource.h in Headers */,
-				5BECA1312BDE412E00B95DF0 /* YJComponentDataSource.h in Headers */,
-				5B4658E72BE8C43000FBD494 /* YJDataFillNamespace.h in Headers */,
-				5BECA13E2BDE453300B95DF0 /* YJDataFiller.h in Headers */,
-				5BECA1242BDE411300B95DF0 /* YJComponentWrapper.h in Headers */,
-				5BD123682C00338C0051257D /* YuemojCoreTypes.h in Headers */,
-				5B4658E32BE8BFB900FBD494 /* YJDataFillerProtocol.h in Headers */,
-				5BECA1402BDE453300B95DF0 /* YJDataFillDelegate.h in Headers */,
-				5BF073452BF5FF420071EAB4 /* YuemojFoundationAbilities.h in Headers */,
 				5BC57DB42BF7055100E4CA42 /* YuemojMetamacros.h in Headers */,
-				5BF0734C2BF60B440071EAB4 /* YJFoundationNamespace.h in Headers */,
-				5BECA1202BDE40A100B95DF0 /* YJLayoutModels.h in Headers */,
-				5BD888852BF456B500034AB0 /* YJEventBuildDelegate.h in Headers */,
+				5BD123682C00338C0051257D /* YuemojCoreTypes.h in Headers */,
 				5BF073482BF60A9B0071EAB4 /* Foundation+Yuemoj.h in Headers */,
-				5BBA664C2BE0E60A00979548 /* YJLayouterProtocol.h in Headers */,
+				5BF073452BF5FF420071EAB4 /* YuemojFoundationAbilities.h in Headers */,
+				5B4857562C05806B004E2E0E /* YJLayoutDelegate.h in Headers */,
+				5B7DAA492BFE185900578A05 /* Yuemoj.h in Headers */,
+				5B4857662C05806B004E2E0E /* YJBoundedBuffer.h in Headers */,
+				5B4857512C05806B004E2E0E /* YJDataFillerProtocol.h in Headers */,
+				5BD888B52BF4D3FD00034AB0 /* UIKit+Yuemoj.h in Headers */,
+				5B4857542C05806B004E2E0E /* YJDataFillTypes.h in Headers */,
+				5B4857592C05806B004E2E0E /* YJLayouterProtocol.h in Headers */,
+				5B4857682C05806B004E2E0E /* YJOrderJSON.h in Headers */,
 				5BD888A62BF4B10300034AB0 /* YuemojUIAbilities.h in Headers */,
-				5BECA1532BDE62A500B95DF0 /* YJDataSource.h in Headers */,
-				5BECA12E2BDE412E00B95DF0 /* YJLayoutDataSource.h in Headers */,
-				5BD888892BF456D400034AB0 /* YJEventBuilderProtocol.h in Headers */,
-				5BECA1462BDE45EA00B95DF0 /* YJEventBuilder.h in Headers */,
-				5BECA1592BDE687700B95DF0 /* YJLayoutNamespace.h in Headers */,
-				5BECA12F2BDE412E00B95DF0 /* YJLayouter.h in Headers */,
-				5BD888822BF4566700034AB0 /* YJEventBuildNamespace.h in Headers */,
+				5B48574D2C05806B004E2E0E /* YJDataFillDataSource.h in Headers */,
+				5B48574A2C05806B004E2E0E /* YJEventBuilderProtocol.h in Headers */,
+				5B4857612C05806B004E2E0E /* YJDataSource.h in Headers */,
+				5B48575A2C05806B004E2E0E /* YJLayoutModels.h in Headers */,
+				5B4857642C05806B004E2E0E /* YJGroupModel.h in Headers */,
+				5B48576B2C05A569004E2E0E /* YuemojMacros.h in Headers */,
+				5BF0733A2BF5ADB30071EAB4 /* YJUIKitNamespace.h in Headers */,
+				5B48574F2C05806B004E2E0E /* YJDataFiller.h in Headers */,
+				5B4857552C05806B004E2E0E /* YJLayoutDataSource.h in Headers */,
+				5B48575F2C05806B004E2E0E /* YJComponentWrapper.h in Headers */,
+				5B4857472C05806B004E2E0E /* YJEventBuildDelegate.h in Headers */,
+				5BECA1132BDE3BD600B95DF0 /* YuemojKit.h in Headers */,
+				5B48575C2C05806B004E2E0E /* YJLayoutNamespace.h in Headers */,
+				5B4857572C05806B004E2E0E /* YJLayouter.h in Headers */,
+				5B48574B2C05806B004E2E0E /* YJEventBuildNamespace.h in Headers */,
+				5B48574E2C05806B004E2E0E /* YJDataFillDelegate.h in Headers */,
+				5B4857522C05806B004E2E0E /* YJDataFillNamespace.h in Headers */,
+				5BF0734C2BF60B440071EAB4 /* YJFoundationNamespace.h in Headers */,
+				5B48575E2C05806B004E2E0E /* YJComponentDataSource.h in Headers */,
+				5B4857482C05806B004E2E0E /* YJEventBuilder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,30 +481,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BECA13D2BDE453300B95DF0 /* YJDataFiller.m in Sources */,
+				5B48575D2C05806B004E2E0E /* YJLayoutNamespace.m in Sources */,
 				5BD888AA2BF4B76A00034AB0 /* YJActionNamespace.m in Sources */,
+				5B4857652C05806B004E2E0E /* YJGroupModel.m in Sources */,
 				5BF0734D2BF60B440071EAB4 /* YJFoundationNamespace.m in Sources */,
 				5BECA1122BDE3BD600B95DF0 /* YuemojKit.docc in Sources */,
+				5B4857672C05806B004E2E0E /* YJBoundedBuffer.m in Sources */,
 				5BD888AE2BF4B77B00034AB0 /* YJFrameNamespace.m in Sources */,
+				5B4857502C05806B004E2E0E /* YJDataFiller.m in Sources */,
 				5B7DAA4A2BFE185900578A05 /* Yuemoj.m in Sources */,
-				5BECA1252BDE411300B95DF0 /* YJComponentWrapper.m in Sources */,
+				5B48574C2C05806B004E2E0E /* YJEventBuildNamespace.m in Sources */,
+				5B48575B2C05806B004E2E0E /* YJLayoutModels.m in Sources */,
+				5B4857622C05806B004E2E0E /* YJDataSource.m in Sources */,
 				5BD888B22BF4B78700034AB0 /* YJArrangeNamespace.m in Sources */,
+				5B4857532C05806B004E2E0E /* YJDataFillNamespace.m in Sources */,
+				5B4857582C05806B004E2E0E /* YJLayouter.m in Sources */,
 				5BF0733F2BF5E82A0071EAB4 /* YJHyperlinkNamespace.m in Sources */,
 				5BF0733B2BF5ADB30071EAB4 /* YJUIKitNamespace.m in Sources */,
-				5BD888832BF4566700034AB0 /* YJEventBuildNamespace.m in Sources */,
-				5BECA1542BDE62A500B95DF0 /* YJGroupModel.m in Sources */,
 				5BF073372BF5A8FB0071EAB4 /* YJExtraNamespace.m in Sources */,
-				5BECA1212BDE40A100B95DF0 /* YJLayoutModels.m in Sources */,
 				5BD888B62BF4D3FD00034AB0 /* UIKit+Yuemoj.m in Sources */,
+				5B4857692C05806B004E2E0E /* YJOrderJSON.m in Sources */,
+				5B4857602C05806B004E2E0E /* YJComponentWrapper.m in Sources */,
 				5BF073492BF60A9B0071EAB4 /* Foundation+Yuemoj.m in Sources */,
-				5BECA12C2BDE412E00B95DF0 /* YJLayouter.m in Sources */,
-				5BECA1522BDE62A500B95DF0 /* YJGroupDataSource.m in Sources */,
-				5BECA1452BDE45EA00B95DF0 /* YJEventBuilder.m in Sources */,
+				5B4857492C05806B004E2E0E /* YJEventBuilder.m in Sources */,
 				5BF073512BF60B660071EAB4 /* YJStringNamespace.m in Sources */,
 				5BC57DB82BF7546E00E4CA42 /* YJArrayNamespace.m in Sources */,
-				5B4658E62BE8C43000FBD494 /* YJDataFillNamespace.m in Sources */,
-				5BECA1512BDE62A500B95DF0 /* YJDataSource.m in Sources */,
-				5BECA1582BDE687700B95DF0 /* YJLayoutNamespace.m in Sources */,
+				5B4857632C05806B004E2E0E /* YJGroupDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,7 +647,17 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PinYin4Objc\"",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PinYin4Objc/PinYin4Objc.framework/Headers\"",
+				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -626,6 +666,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
@@ -649,7 +690,17 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PinYin4Objc\"",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Masonry/Masonry.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PinYin4Objc/PinYin4Objc.framework/Headers\"",
+				);
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -658,6 +709,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
