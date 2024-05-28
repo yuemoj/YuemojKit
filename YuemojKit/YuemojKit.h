@@ -18,7 +18,7 @@ FOUNDATION_EXPORT const unsigned char YuemojKitVersionString[];
 #import <YuemojKit/YuemojCoreTypes.h>
 #import <YuemojKit/YuemojMacros.h>
 //#import <YuemojKit/Foundation+Yuemoj.h>
-#import <YuemojKit/YuemojFoundationAbilities.h>
+//#import <YuemojKit/YuemojFoundationAbilities.h>
 #import <YuemojKit/UIKit+Yuemoj.h>
 #import <YuemojKit/YuemojUIAbilities.h>
 #import <YuemojKit/YJDataFillDataSource.h>
@@ -36,8 +36,8 @@ FOUNDATION_EXPORT const unsigned char YuemojKitVersionString[];
 #import "Yuemoj.h"
 #import "YuemojCoreTypes.h"
 #import "YuemojMacros.h"
-#import "Foundation+Yuemoj.h"
-#import "YuemojFoundationAbilities.h"
+//#import "Foundation+Yuemoj.h"
+//#import "YuemojFoundationAbilities.h"
 #import "UIKit+Yuemoj.h"
 #import "YuemojUIAbilities.h"
 #import "YJDataFillDataSource.h"
