@@ -41,36 +41,31 @@ Pod::Spec.new do |s|
   #s.resource_bundles = {
   #  'YuemojKit' => ['YuemojKit/PrivacyInfo.xcprivacy'],
   #}
-  s.prefix_header_contents = <<-EOS
-  EOS
+
+  # s.prefix_header_contents = <<-EOS
+  # EOS
   
 #  s.ios.pod_target_xcconfig = { :GCC_PRECOMPILE_PREFIX_HEADER => 'YES' }
-      
-#  s.public_header_files = 'YuemojKit/Yuemoj{Kit,Macros,Metamacros}.h', 'YuemojKit/Yuemoj.h'
-#  s.project_header_files = 'YuemojKit/Yuemoj.h'
   s.source_files = 'YuemojKit/YuemojKit.h'
     
   s.subspec 'Core' do |ss|
-    # ss.public_header_files = 'YuemojKit/*.h'
-    ss.source_files = 'YuemojKit/*.{h,m}'
+    ss.source_files = 'YuemojKit/Yuemoj.{h,m}','YuemojKit/Yuemoj{CoreTypes,Macros,Metamacros}.h'
   end
                 
   s.subspec 'UIAbility' do |ss|
-    ss.private_header_files = 'YuemojKit/UIKit/*Namespace.h'
-    #UIKit+Yuemoj.h', 'YuemojKit/UIKit/YuemojUIAbilities.h'
+    ss.project_header_files = 'YuemojKit/UIKit/*Namespace.h'
     ss.pod_target_xcconfig = { :OTHER_LDFLAGS => '-lObjC', :HEADER_SEARCH_PATHS => '$(inherited)' }
     
-    ss.source_files = 'YuemojKit/UIKit'
+    ss.source_files = 'YuemojKit/UIKit/*.{h,m}'
         
     ss.dependency 'YuemojKit/Core'
   end
   
   s.subspec 'FoundationAbility' do |ss|
-    ss.private_header_files = 'YuemojKit/Foundation/YJFoundationNamespace.h'
-    #Foundation+Yuemoj.h', 'YuemojKit/Foundation/YuemojFoundationAbilities.h'
+    ss.project_header_files = 'YuemojKit/Foundation/YJFoundationNamespace.h'
     ss.pod_target_xcconfig = { :OTHER_LDFLAGS => '-lObjC', :HEADER_SEARCH_PATHS => '$(inherited)' }
     
-    ss.source_files = 'YuemojKit/Foundation'
+    ss.source_files = 'YuemojKit/Foundation/*.{h,m}'
         
     ss.dependency 'YuemojKit/Core'
     ss.dependency 'PinYin4Objc', '~> 1.1.1'
@@ -78,47 +73,40 @@ Pod::Spec.new do |s|
     
   s.subspec 'Component' do |ss|
     ss.subspec 'Common' do |sss|
-      sss.private_header_files = 'YuemojKit/Component/YJComponentWrapper.h'
+      sss.project_header_files = 'YuemojKit/Component/YJComponentWrapper.h'
       sss.source_files = 'YuemojKit/Component/*.{h,m}'
       
       sss.dependency 'YuemojKit/UIAbility'
     end
                   
     ss.subspec 'EventBuilder' do |sss|
-      sss.private_header_files = 'YuemojKit/Component/EventBuilder/YJEventBuild{Delegate,er,Namespace}.h'
-      #YJEventBuilderProtocol.h'
-      sss.source_files = 'YuemojKit/Component/EventBuilder/*'
+      sss.project_header_files = 'YuemojKit/Component/EventBuilder/YJEventBuild{Delegate,er,Namespace}.h'
+      sss.source_files = 'YuemojKit/Component/EventBuilder/*.{h,m}'
             
       sss.dependency 'YuemojKit/Component/Common'
     end
         
     ss.subspec 'Filler' do |sss|
-      sss.private_header_files = 'YuemojKit/Component/Filler/YJDataFill{Delegate,er,Namespace}.h'
-        #DataSource,erProtocol,Types}.h'
-      sss.source_files = 'YuemojKit/Component/Filler/*'
+      sss.project_header_files = 'YuemojKit/Component/Filler/YJDataFill{Delegate,er,Namespace}.h'
+      sss.source_files = 'YuemojKit/Component/Filler/*.{h,m}'
                 
       sss.dependency 'YuemojKit/Component/Common'
     end
           
     ss.subspec 'Layouter' do |sss|
-      sss.private_header_files = 'YuemojKit/Component/Layouter/YJLayout{Delegate,er,Namespace}.h'
-      #YJLayout{DataSource,erProtocol,Models}.h'
-      sss.source_files = 'YuemojKit/Component/Layouter/*'
+      sss.project_header_files = 'YuemojKit/Component/Layouter/YJLayout{Delegate,er,Namespace}.h'
+      sss.source_files = 'YuemojKit/Component/Layouter/*.{h,m}'
                         
       sss.dependency 'YuemojKit/Component/Common'
       sss.dependency 'Masonry', '~>1.1.0'
     end
   end
   
-  s.subspec 'DataSource' do |ss|
-    # ss.public_header_files = 'YuemojKit/DataSource/*.h'
-    
-    ss.source_files = 'YuemojKit/DataSource/*'
+  s.subspec 'DataSource' do |ss|  
+    ss.source_files = 'YuemojKit/DataSource/*.{h,m}'
   end
 
   s.subspec 'Tools' do |ss|
-    # ss.public_header_files = 'YuemojKit/Tools/*.h'
-
-    ss.source_files = 'YuemojKit/Tools'
+    ss.source_files = 'YuemojKit/Tools/*.{h,m}'
   end
 end
