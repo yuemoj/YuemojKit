@@ -37,7 +37,7 @@
 }
 
 - (id<YJEventBuilderProtocol>  _Nonnull (^)(id<YJComponentDataSource> _Nonnull, __kindof UIGestureRecognizer * _Nonnull (^ _Nonnull)(id _Nonnull, SEL _Nonnull), BOOL (^ _Nonnull)(id _Nonnull, __kindof UIView * _Nonnull, NSInteger), NSNumber * _Nullable, ...))addActionForGestureRecognizer {
-    return ^(id<YJComponentDataSource,YJComponentDataSource> dataSource, __kindof UIGestureRecognizer *(^gestureBuilder)(id, SEL), BOOL (^action)(id, __kindof UIView * _Nonnull, NSInteger), NSNumber * _Nullable scene, ...) {
+    return ^(id<YJComponentDataSource,YJComponentDataSource> dataSource, __kindof UIGestureRecognizer *(^gestureBuilder)(id, SEL), BOOL (^action)(id, __kindof UIView * _Nonnull, NSInteger), NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
         YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
         YJProtocolAssert(self.delegate, @protocol(YJEventBuildGestureDelegate));
@@ -49,12 +49,12 @@
                 return action(self.delegate, view, scene);
             }];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isBuilded forScene:kYJDefaultPlaceHolderScene shouldUpdate:nil action:build];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isBuilded forScene:scene args:args shouldUpdate:nil action:build];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isBuilded forScene:firstScene args:args shouldUpdate:nil action:build];
         }
         return self;
     };
@@ -63,7 +63,7 @@
 - (id<YJEventBuilderProtocol>  _Nonnull (^)(id<YJComponentDataSource> _Nonnull, UIControlEvents, BOOL (^ _Nonnull)(id _Nonnull, __kindof UIControl * _Nonnull, NSInteger), NSNumber * _Nullable, ...))addActionForControlEvents {
     YJProtocolAssert(self.delegate, @protocol(YJEventBuildDelegate));
     YJSelectorAssert(self.delegate, @selector(buildComponent:forScene:controlEvents:action:));
-    return ^(id<YJComponentDataSource> _Nonnull dataSource, UIControlEvents controlEvents, BOOL (^action)(id owner, __kindof UIControl * _Nonnull, NSInteger), NSNumber * _Nullable scene, ...) {
+    return ^(id<YJComponentDataSource> _Nonnull dataSource, UIControlEvents controlEvents, BOOL (^action)(id owner, __kindof UIControl * _Nonnull, NSInteger), NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
         YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
         void(^build)(int) = ^(int nextScene) {
@@ -73,12 +73,12 @@
                 return action(self.delegate, sender, scene);
             }];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isBuilded forScene:kYJDefaultPlaceHolderScene shouldUpdate:nil action:build];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isBuilded forScene:scene args:args shouldUpdate:nil action:build];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isBuilded forScene:firstScene args:args shouldUpdate:nil action:build];
         }
         return self;
     };

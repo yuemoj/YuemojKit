@@ -73,7 +73,7 @@
 }
 
 - (id<YJLayouterProtocol> _Nonnull (^)(id<YJLayoutOffsetDataSource, YJComponentDataSource> _Nonnull, NSNumber * _Nullable, ...))layoutOffset {
-    return ^(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJLayoutOffsetDataSource));
         YJSelectorAssert(dataSource, @selector(offsetForScene:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -91,19 +91,19 @@
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
             [(id<YJLayoutOffsetDelegate>)self.delegate layoutComponent:type forScene:nextScene withOffset:offset];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJLayouterProtocol> _Nonnull (^)(id<YJLayoutOffsetDataSource, YJComponentDataSource> _Nonnull, NSInteger, NSNumber * _Nullable, ...))layoutOffsetInSection {
-    return ^(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSInteger section, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSInteger section, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJLayoutOffsetDataSource));
         YJSelectorAssert(dataSource, @selector(offsetForScene:inSection:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -121,19 +121,19 @@
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
             [(id<YJLayoutOffsetDelegate>)self.delegate layoutComponent:type forScene:nextScene withOffset:offset];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJLayouterProtocol> _Nonnull (^)(id<YJLayoutOffsetDataSource, YJComponentDataSource> _Nonnull, NSIndexPath * _Nonnull, NSNumber * _Nullable, ...))layoutOffsetAtIndexPath {
-    return ^(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSIndexPath * _Nonnull indexPath, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSIndexPath * _Nonnull indexPath, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJLayoutOffsetDataSource));
         YJSelectorAssert(dataSource, @selector(offsetForScene:indexPath:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -151,12 +151,12 @@
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
             [(id<YJLayoutOffsetDelegate>)self.delegate layoutComponent:type forScene:nextScene withOffset:offset];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };

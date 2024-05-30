@@ -108,7 +108,7 @@
 		5B4857432C05806B004E2E0E /* YJBoundedBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJBoundedBuffer.m; sourceTree = "<group>"; };
 		5B4857442C05806B004E2E0E /* YJOrderJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJOrderJSON.h; sourceTree = "<group>"; };
 		5B4857452C05806B004E2E0E /* YJOrderJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJOrderJSON.m; sourceTree = "<group>"; };
-		5B7DAA452BFDE82400578A05 /* YuemojKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = YuemojKit.podspec; sourceTree = SOURCE_ROOT; };
+		5B7DAA452BFDE82400578A05 /* YuemojKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = YuemojKit.podspec; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5B7DAA472BFE185900578A05 /* Yuemoj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yuemoj.h; sourceTree = "<group>"; };
 		5B7DAA482BFE185900578A05 /* Yuemoj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Yuemoj.m; sourceTree = "<group>"; };
 		5BC57DB32BF7055100E4CA42 /* YuemojMetamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuemojMetamacros.h; sourceTree = "<group>"; };

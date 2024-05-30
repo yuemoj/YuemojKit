@@ -4,6 +4,10 @@
 //
 //  Created by Yuemoj on 2024/4/28.
 //
+//  Tips: To add a code snippet to Xcode:
+//  1. Unzip the 'YuemojKit.codesnippet.zip' file.
+//  2. Copy the unzipped file to the path '~/Library/Developer/Xcode/UserData/CodeSnippets'.
+//  3. Restart Xcode.
 
 #import <Foundation/Foundation.h>
 

@@ -15,6 +15,32 @@
 		5B9E59222BFC36D2005DF0E9 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E59212BFC36D2005DF0E9 /* Base */; };
 		5B9E59252BFC36D2005DF0E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E59242BFC36D2005DF0E9 /* main.m */; };
 		5B9E5A332BFC4722005DF0E9 /* ViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9E5A322BFC4722005DF0E9 /* ViewModel.m */; };
+		5BB630EE2C08109E008C70E8 /* YJEventBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630AC2C08109E008C70E8 /* YJEventBuilder.m */; };
+		5BB630EF2C08109E008C70E8 /* YJEventBuildNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630AF2C08109E008C70E8 /* YJEventBuildNamespace.m */; };
+		5BB630F02C08109E008C70E8 /* YJDataFiller.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630B42C08109E008C70E8 /* YJDataFiller.m */; };
+		5BB630F12C08109E008C70E8 /* YJDataFillNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630B72C08109E008C70E8 /* YJDataFillNamespace.m */; };
+		5BB630F22C08109E008C70E8 /* YJLayouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630BD2C08109E008C70E8 /* YJLayouter.m */; };
+		5BB630F32C08109E008C70E8 /* YJLayoutModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630C02C08109E008C70E8 /* YJLayoutModels.m */; };
+		5BB630F42C08109E008C70E8 /* YJLayoutNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630C22C08109E008C70E8 /* YJLayoutNamespace.m */; };
+		5BB630F52C08109E008C70E8 /* YJComponentWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630C62C08109E008C70E8 /* YJComponentWrapper.m */; };
+		5BB630F62C08109E008C70E8 /* YJDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630C92C08109E008C70E8 /* YJDataSource.m */; };
+		5BB630F72C08109E008C70E8 /* YJGroupDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630CA2C08109E008C70E8 /* YJGroupDataSource.m */; };
+		5BB630F82C08109E008C70E8 /* YJGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630CC2C08109E008C70E8 /* YJGroupModel.m */; };
+		5BB630F92C08109E008C70E8 /* Foundation+Yuemoj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630CF2C08109E008C70E8 /* Foundation+Yuemoj.m */; };
+		5BB630FA2C08109E008C70E8 /* YJArrayNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630D02C08109E008C70E8 /* YJArrayNamespace.m */; };
+		5BB630FB2C08109E008C70E8 /* YJFoundationNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630D22C08109E008C70E8 /* YJFoundationNamespace.m */; };
+		5BB630FC2C08109E008C70E8 /* YJStringNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630D32C08109E008C70E8 /* YJStringNamespace.m */; };
+		5BB630FD2C08109E008C70E8 /* YJBoundedBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630D72C08109E008C70E8 /* YJBoundedBuffer.m */; };
+		5BB630FE2C08109E008C70E8 /* YJOrderJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630D92C08109E008C70E8 /* YJOrderJSON.m */; };
+		5BB630FF2C08109E008C70E8 /* UIKit+Yuemoj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630DC2C08109E008C70E8 /* UIKit+Yuemoj.m */; };
+		5BB631002C08109E008C70E8 /* YJActionNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630DD2C08109E008C70E8 /* YJActionNamespace.m */; };
+		5BB631012C08109E008C70E8 /* YJArrangeNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630DE2C08109E008C70E8 /* YJArrangeNamespace.m */; };
+		5BB631022C08109E008C70E8 /* YJExtraNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630DF2C08109E008C70E8 /* YJExtraNamespace.m */; };
+		5BB631032C08109E008C70E8 /* YJFrameNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630E02C08109E008C70E8 /* YJFrameNamespace.m */; };
+		5BB631042C08109E008C70E8 /* YJHyperlinkNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630E12C08109E008C70E8 /* YJHyperlinkNamespace.m */; };
+		5BB631052C08109E008C70E8 /* YJUIKitNamespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630E32C08109E008C70E8 /* YJUIKitNamespace.m */; };
+		5BB631062C08109E008C70E8 /* Yuemoj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630E72C08109E008C70E8 /* Yuemoj.m */; };
+		5BB631072C08109E008C70E8 /* YuemojKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 5BB630E92C08109E008C70E8 /* YuemojKit.docc */; };
 		D8DEBB639C124CF4A6304FE9 /* Pods_YuemojKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083D973C4B70804D7D125EE0 /* Pods_YuemojKitDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +60,65 @@
 		5B9E59242BFC36D2005DF0E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5B9E5A312BFC4722005DF0E9 /* ViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewModel.h; sourceTree = "<group>"; };
 		5B9E5A322BFC4722005DF0E9 /* ViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewModel.m; sourceTree = "<group>"; };
+		5BB630AA2C08109E008C70E8 /* YJEventBuildDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJEventBuildDelegate.h; sourceTree = "<group>"; };
+		5BB630AB2C08109E008C70E8 /* YJEventBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJEventBuilder.h; sourceTree = "<group>"; };
+		5BB630AC2C08109E008C70E8 /* YJEventBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJEventBuilder.m; sourceTree = "<group>"; };
+		5BB630AD2C08109E008C70E8 /* YJEventBuilderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJEventBuilderProtocol.h; sourceTree = "<group>"; };
+		5BB630AE2C08109E008C70E8 /* YJEventBuildNamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJEventBuildNamespace.h; sourceTree = "<group>"; };
+		5BB630AF2C08109E008C70E8 /* YJEventBuildNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJEventBuildNamespace.m; sourceTree = "<group>"; };
+		5BB630B12C08109E008C70E8 /* YJDataFillDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFillDataSource.h; sourceTree = "<group>"; };
+		5BB630B22C08109E008C70E8 /* YJDataFillDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFillDelegate.h; sourceTree = "<group>"; };
+		5BB630B32C08109E008C70E8 /* YJDataFiller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFiller.h; sourceTree = "<group>"; };
+		5BB630B42C08109E008C70E8 /* YJDataFiller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJDataFiller.m; sourceTree = "<group>"; };
+		5BB630B52C08109E008C70E8 /* YJDataFillerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFillerProtocol.h; sourceTree = "<group>"; };
+		5BB630B62C08109E008C70E8 /* YJDataFillNamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFillNamespace.h; sourceTree = "<group>"; };
+		5BB630B72C08109E008C70E8 /* YJDataFillNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJDataFillNamespace.m; sourceTree = "<group>"; };
+		5BB630B82C08109E008C70E8 /* YJDataFillTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataFillTypes.h; sourceTree = "<group>"; };
+		5BB630BA2C08109E008C70E8 /* YJLayoutDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutDataSource.h; sourceTree = "<group>"; };
+		5BB630BB2C08109E008C70E8 /* YJLayoutDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutDelegate.h; sourceTree = "<group>"; };
+		5BB630BC2C08109E008C70E8 /* YJLayouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayouter.h; sourceTree = "<group>"; };
+		5BB630BD2C08109E008C70E8 /* YJLayouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayouter.m; sourceTree = "<group>"; };
+		5BB630BE2C08109E008C70E8 /* YJLayouterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayouterProtocol.h; sourceTree = "<group>"; };
+		5BB630BF2C08109E008C70E8 /* YJLayoutModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutModels.h; sourceTree = "<group>"; };
+		5BB630C02C08109E008C70E8 /* YJLayoutModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayoutModels.m; sourceTree = "<group>"; };
+		5BB630C12C08109E008C70E8 /* YJLayoutNamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLayoutNamespace.h; sourceTree = "<group>"; };
+		5BB630C22C08109E008C70E8 /* YJLayoutNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLayoutNamespace.m; sourceTree = "<group>"; };
+		5BB630C42C08109E008C70E8 /* YJComponentDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJComponentDataSource.h; sourceTree = "<group>"; };
+		5BB630C52C08109E008C70E8 /* YJComponentWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJComponentWrapper.h; sourceTree = "<group>"; };
+		5BB630C62C08109E008C70E8 /* YJComponentWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJComponentWrapper.m; sourceTree = "<group>"; };
+		5BB630C82C08109E008C70E8 /* YJDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJDataSource.h; sourceTree = "<group>"; };
+		5BB630C92C08109E008C70E8 /* YJDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJDataSource.m; sourceTree = "<group>"; };
+		5BB630CA2C08109E008C70E8 /* YJGroupDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJGroupDataSource.m; sourceTree = "<group>"; };
+		5BB630CB2C08109E008C70E8 /* YJGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJGroupModel.h; sourceTree = "<group>"; };
+		5BB630CC2C08109E008C70E8 /* YJGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJGroupModel.m; sourceTree = "<group>"; };
+		5BB630CE2C08109E008C70E8 /* Foundation+Yuemoj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Foundation+Yuemoj.h"; sourceTree = "<group>"; };
+		5BB630CF2C08109E008C70E8 /* Foundation+Yuemoj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Yuemoj.m"; sourceTree = "<group>"; };
+		5BB630D02C08109E008C70E8 /* YJArrayNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJArrayNamespace.m; sourceTree = "<group>"; };
+		5BB630D12C08109E008C70E8 /* YJFoundationNamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJFoundationNamespace.h; sourceTree = "<group>"; };
+		5BB630D22C08109E008C70E8 /* YJFoundationNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFoundationNamespace.m; sourceTree = "<group>"; };
+		5BB630D32C08109E008C70E8 /* YJStringNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJStringNamespace.m; sourceTree = "<group>"; };
+		5BB630D42C08109E008C70E8 /* YuemojFoundationAbilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuemojFoundationAbilities.h; sourceTree = "<group>"; };
+		5BB630D62C08109E008C70E8 /* YJBoundedBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJBoundedBuffer.h; sourceTree = "<group>"; };
+		5BB630D72C08109E008C70E8 /* YJBoundedBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJBoundedBuffer.m; sourceTree = "<group>"; };
+		5BB630D82C08109E008C70E8 /* YJOrderJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJOrderJSON.h; sourceTree = "<group>"; };
+		5BB630D92C08109E008C70E8 /* YJOrderJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJOrderJSON.m; sourceTree = "<group>"; };
+		5BB630DB2C08109E008C70E8 /* UIKit+Yuemoj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+Yuemoj.h"; sourceTree = "<group>"; };
+		5BB630DC2C08109E008C70E8 /* UIKit+Yuemoj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+Yuemoj.m"; sourceTree = "<group>"; };
+		5BB630DD2C08109E008C70E8 /* YJActionNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJActionNamespace.m; sourceTree = "<group>"; };
+		5BB630DE2C08109E008C70E8 /* YJArrangeNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJArrangeNamespace.m; sourceTree = "<group>"; };
+		5BB630DF2C08109E008C70E8 /* YJExtraNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJExtraNamespace.m; sourceTree = "<group>"; };
+		5BB630E02C08109E008C70E8 /* YJFrameNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJFrameNamespace.m; sourceTree = "<group>"; };
+		5BB630E12C08109E008C70E8 /* YJHyperlinkNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHyperlinkNamespace.m; sourceTree = "<group>"; };
+		5BB630E22C08109E008C70E8 /* YJUIKitNamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJUIKitNamespace.h; sourceTree = "<group>"; };
+		5BB630E32C08109E008C70E8 /* YJUIKitNamespace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJUIKitNamespace.m; sourceTree = "<group>"; };
+		5BB630E42C08109E008C70E8 /* YuemojUIAbilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuemojUIAbilities.h; sourceTree = "<group>"; };
+		5BB630E62C08109E008C70E8 /* Yuemoj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yuemoj.h; sourceTree = "<group>"; };
+		5BB630E72C08109E008C70E8 /* Yuemoj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Yuemoj.m; sourceTree = "<group>"; };
+		5BB630E82C08109E008C70E8 /* YuemojCoreTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuemojCoreTypes.h; sourceTree = "<group>"; };
+		5BB630E92C08109E008C70E8 /* YuemojKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = YuemojKit.docc; sourceTree = "<group>"; };
+		5BB630EA2C08109E008C70E8 /* YuemojKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuemojKit.h; sourceTree = "<group>"; };
+		5BB630EB2C08109E008C70E8 /* YuemojMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuemojMacros.h; sourceTree = "<group>"; };
+		5BB630EC2C08109E008C70E8 /* YuemojMetamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuemojMetamacros.h; sourceTree = "<group>"; };
 		708020978B24A939B3D84DB7 /* Pods-YuemojKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YuemojKitDemo.debug.xcconfig"; path = "Target Support Files/Pods-YuemojKitDemo/Pods-YuemojKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		82591DA66D1E64C15B7401BD /* Pods-YuemojKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YuemojKitDemo.release.xcconfig"; path = "Target Support Files/Pods-YuemojKitDemo/Pods-YuemojKitDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +147,7 @@
 		5B9E59062BFC36D0005DF0E9 = {
 			isa = PBXGroup;
 			children = (
+				5BB630ED2C08109E008C70E8 /* YuemojKit */,
 				5B9E59112BFC36D0005DF0E9 /* YuemojKitDemo */,
 				5B9E59102BFC36D0005DF0E9 /* Products */,
 				51AC1CDC27824CE4DE6AD88C /* Pods */,
@@ -95,6 +181,137 @@
 				5B9E59242BFC36D2005DF0E9 /* main.m */,
 			);
 			path = YuemojKitDemo;
+			sourceTree = "<group>";
+		};
+		5BB630B02C08109E008C70E8 /* EventBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				5BB630AA2C08109E008C70E8 /* YJEventBuildDelegate.h */,
+				5BB630AB2C08109E008C70E8 /* YJEventBuilder.h */,
+				5BB630AC2C08109E008C70E8 /* YJEventBuilder.m */,
+				5BB630AD2C08109E008C70E8 /* YJEventBuilderProtocol.h */,
+				5BB630AE2C08109E008C70E8 /* YJEventBuildNamespace.h */,
+				5BB630AF2C08109E008C70E8 /* YJEventBuildNamespace.m */,
+			);
+			path = EventBuilder;
+			sourceTree = "<group>";
+		};
+		5BB630B92C08109E008C70E8 /* Filler */ = {
+			isa = PBXGroup;
+			children = (
+				5BB630B12C08109E008C70E8 /* YJDataFillDataSource.h */,
+				5BB630B22C08109E008C70E8 /* YJDataFillDelegate.h */,
+				5BB630B32C08109E008C70E8 /* YJDataFiller.h */,
+				5BB630B42C08109E008C70E8 /* YJDataFiller.m */,
+				5BB630B52C08109E008C70E8 /* YJDataFillerProtocol.h */,
+				5BB630B62C08109E008C70E8 /* YJDataFillNamespace.h */,
+				5BB630B72C08109E008C70E8 /* YJDataFillNamespace.m */,
+				5BB630B82C08109E008C70E8 /* YJDataFillTypes.h */,
+			);
+			path = Filler;
+			sourceTree = "<group>";
+		};
+		5BB630C32C08109E008C70E8 /* Layouter */ = {
+			isa = PBXGroup;
+			children = (
+				5BB630BA2C08109E008C70E8 /* YJLayoutDataSource.h */,
+				5BB630BB2C08109E008C70E8 /* YJLayoutDelegate.h */,
+				5BB630BC2C08109E008C70E8 /* YJLayouter.h */,
+				5BB630BD2C08109E008C70E8 /* YJLayouter.m */,
+				5BB630BE2C08109E008C70E8 /* YJLayouterProtocol.h */,
+				5BB630BF2C08109E008C70E8 /* YJLayoutModels.h */,
+				5BB630C02C08109E008C70E8 /* YJLayoutModels.m */,
+				5BB630C12C08109E008C70E8 /* YJLayoutNamespace.h */,
+				5BB630C22C08109E008C70E8 /* YJLayoutNamespace.m */,
+			);
+			path = Layouter;
+			sourceTree = "<group>";
+		};
+		5BB630C72C08109E008C70E8 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				5BB630B02C08109E008C70E8 /* EventBuilder */,
+				5BB630B92C08109E008C70E8 /* Filler */,
+				5BB630C32C08109E008C70E8 /* Layouter */,
+				5BB630C42C08109E008C70E8 /* YJComponentDataSource.h */,
+				5BB630C52C08109E008C70E8 /* YJComponentWrapper.h */,
+				5BB630C62C08109E008C70E8 /* YJComponentWrapper.m */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		5BB630CD2C08109E008C70E8 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				5BB630C82C08109E008C70E8 /* YJDataSource.h */,
+				5BB630C92C08109E008C70E8 /* YJDataSource.m */,
+				5BB630CA2C08109E008C70E8 /* YJGroupDataSource.m */,
+				5BB630CB2C08109E008C70E8 /* YJGroupModel.h */,
+				5BB630CC2C08109E008C70E8 /* YJGroupModel.m */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		5BB630D52C08109E008C70E8 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				5BB630CE2C08109E008C70E8 /* Foundation+Yuemoj.h */,
+				5BB630CF2C08109E008C70E8 /* Foundation+Yuemoj.m */,
+				5BB630D02C08109E008C70E8 /* YJArrayNamespace.m */,
+				5BB630D12C08109E008C70E8 /* YJFoundationNamespace.h */,
+				5BB630D22C08109E008C70E8 /* YJFoundationNamespace.m */,
+				5BB630D32C08109E008C70E8 /* YJStringNamespace.m */,
+				5BB630D42C08109E008C70E8 /* YuemojFoundationAbilities.h */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		5BB630DA2C08109E008C70E8 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				5BB630D62C08109E008C70E8 /* YJBoundedBuffer.h */,
+				5BB630D72C08109E008C70E8 /* YJBoundedBuffer.m */,
+				5BB630D82C08109E008C70E8 /* YJOrderJSON.h */,
+				5BB630D92C08109E008C70E8 /* YJOrderJSON.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		5BB630E52C08109E008C70E8 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				5BB630DB2C08109E008C70E8 /* UIKit+Yuemoj.h */,
+				5BB630DC2C08109E008C70E8 /* UIKit+Yuemoj.m */,
+				5BB630DD2C08109E008C70E8 /* YJActionNamespace.m */,
+				5BB630DE2C08109E008C70E8 /* YJArrangeNamespace.m */,
+				5BB630DF2C08109E008C70E8 /* YJExtraNamespace.m */,
+				5BB630E02C08109E008C70E8 /* YJFrameNamespace.m */,
+				5BB630E12C08109E008C70E8 /* YJHyperlinkNamespace.m */,
+				5BB630E22C08109E008C70E8 /* YJUIKitNamespace.h */,
+				5BB630E32C08109E008C70E8 /* YJUIKitNamespace.m */,
+				5BB630E42C08109E008C70E8 /* YuemojUIAbilities.h */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		5BB630ED2C08109E008C70E8 /* YuemojKit */ = {
+			isa = PBXGroup;
+			children = (
+				5BB630C72C08109E008C70E8 /* Component */,
+				5BB630CD2C08109E008C70E8 /* DataSource */,
+				5BB630D52C08109E008C70E8 /* Foundation */,
+				5BB630DA2C08109E008C70E8 /* Tools */,
+				5BB630E52C08109E008C70E8 /* UIKit */,
+				5BB630E62C08109E008C70E8 /* Yuemoj.h */,
+				5BB630E72C08109E008C70E8 /* Yuemoj.m */,
+				5BB630E82C08109E008C70E8 /* YuemojCoreTypes.h */,
+				5BB630E92C08109E008C70E8 /* YuemojKit.docc */,
+				5BB630EA2C08109E008C70E8 /* YuemojKit.h */,
+				5BB630EB2C08109E008C70E8 /* YuemojMacros.h */,
+				5BB630EC2C08109E008C70E8 /* YuemojMetamacros.h */,
+			);
+			name = YuemojKit;
+			path = ../YuemojKit;
 			sourceTree = "<group>";
 		};
 		9D1BE304E43E5428D068BFFE /* Frameworks */ = {
@@ -220,10 +437,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B9E591A2BFC36D0005DF0E9 /* ViewController.m in Sources */,
+				5BB630F22C08109E008C70E8 /* YJLayouter.m in Sources */,
+				5BB631072C08109E008C70E8 /* YuemojKit.docc in Sources */,
+				5BB630F32C08109E008C70E8 /* YJLayoutModels.m in Sources */,
+				5BB631042C08109E008C70E8 /* YJHyperlinkNamespace.m in Sources */,
+				5BB630F62C08109E008C70E8 /* YJDataSource.m in Sources */,
+				5BB631002C08109E008C70E8 /* YJActionNamespace.m in Sources */,
+				5BB630F92C08109E008C70E8 /* Foundation+Yuemoj.m in Sources */,
 				5B9E59142BFC36D0005DF0E9 /* AppDelegate.m in Sources */,
+				5BB631032C08109E008C70E8 /* YJFrameNamespace.m in Sources */,
+				5BB631022C08109E008C70E8 /* YJExtraNamespace.m in Sources */,
+				5BB631062C08109E008C70E8 /* Yuemoj.m in Sources */,
 				5B7DAA442BFDCA8000578A05 /* TableViewCell.m in Sources */,
+				5BB631012C08109E008C70E8 /* YJArrangeNamespace.m in Sources */,
+				5BB630FD2C08109E008C70E8 /* YJBoundedBuffer.m in Sources */,
+				5BB630F12C08109E008C70E8 /* YJDataFillNamespace.m in Sources */,
 				5B9E5A332BFC4722005DF0E9 /* ViewModel.m in Sources */,
+				5BB630F52C08109E008C70E8 /* YJComponentWrapper.m in Sources */,
+				5BB630F72C08109E008C70E8 /* YJGroupDataSource.m in Sources */,
+				5BB630FF2C08109E008C70E8 /* UIKit+Yuemoj.m in Sources */,
+				5BB630F82C08109E008C70E8 /* YJGroupModel.m in Sources */,
+				5BB630F02C08109E008C70E8 /* YJDataFiller.m in Sources */,
+				5BB630FC2C08109E008C70E8 /* YJStringNamespace.m in Sources */,
+				5BB630F42C08109E008C70E8 /* YJLayoutNamespace.m in Sources */,
+				5BB631052C08109E008C70E8 /* YJUIKitNamespace.m in Sources */,
+				5BB630FA2C08109E008C70E8 /* YJArrayNamespace.m in Sources */,
+				5BB630FE2C08109E008C70E8 /* YJOrderJSON.m in Sources */,
+				5BB630EF2C08109E008C70E8 /* YJEventBuildNamespace.m in Sources */,
+				5BB630FB2C08109E008C70E8 /* YJFoundationNamespace.m in Sources */,
 				5B9E59252BFC36D2005DF0E9 /* main.m in Sources */,
+				5BB630EE2C08109E008C70E8 /* YJEventBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

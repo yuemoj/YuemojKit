@@ -18,9 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutAtIndexPath)(id<YJLayoutDataSource> dataSource, NSIndexPath *indexPath, __kindof UIView *(NS_NOESCAPE^)(NSInteger scene));
 
 
-@property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutOffset)(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSNumber * _Nullable scene, ...);
-@property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutOffsetInSection)(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSInteger section, NSNumber * _Nullable scene, ...);
-@property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutOffsetAtIndexPath)(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSIndexPath *indexPath, NSNumber * _Nullable scene, ...);
+@property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutOffset)(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSNumber * _Nullable firstScene, ...);
+@property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutOffsetInSection)(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSInteger section, NSNumber * _Nullable firstScene, ...);
+@property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutOffsetAtIndexPath)(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSIndexPath *indexPath, NSNumber * _Nullable firstScene, ...);
 @end
 
 @protocol YJLayoutAbility <NSObject>

@@ -34,7 +34,7 @@
 
 #pragma mark- Text Filler
 - (id<YJDataFillerProtocol>  _Nonnull (^)(id<YJDataFillTextDataSource,YJComponentDataSource> _Nonnull, YJTextPurpose, NSNumber * _Nullable, ...))fillText {
-    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillTextDataSource));
         YJSelectorAssert(dataSource, @selector(textForScene:purpose:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillTextDelegate));
@@ -51,19 +51,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol>  _Nonnull (^)(id<YJDataFillTextDataSource,YJComponentDataSource> _Nonnull, YJTextPurpose purpose, NSInteger, NSNumber * _Nullable, ...))fillTextInSection {
-    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSInteger section, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSInteger section, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillTextDataSource));
         YJSelectorAssert(dataSource, @selector(textForScene:purpose:inSection:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillTextDelegate));
@@ -80,19 +80,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol>  _Nonnull (^)(id<YJDataFillTextDataSource,YJComponentDataSource> _Nonnull, YJTextPurpose purpose, NSIndexPath * _Nonnull, NSNumber * _Nullable, ...))fillTextAtIndexPath {
-    return ^(id<YJDataFillTextDataSource,YJComponentDataSource> dataSource, YJTextPurpose purpose, NSIndexPath *indexPath, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillTextDataSource,YJComponentDataSource> dataSource, YJTextPurpose purpose, NSIndexPath *indexPath, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillTextDataSource));
         YJSelectorAssert(dataSource, @selector(textForScene:purpose:indexPath:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillTextDelegate));
@@ -109,19 +109,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillTextDataSource, YJComponentDataSource>, YJTextPurpose purpose, UIControlState, NSNumber * _Nullable, ...))fillTextForState {
-    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, UIControlState state, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, UIControlState state, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillTextDataSource));
         YJSelectorAssert(dataSource, @selector(textForScene:purpose:state:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillTextDelegate));
@@ -138,19 +138,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillTextDataSource, YJComponentDataSource> _Nonnull, YJTextPurpose purpose, NSInteger, UIControlState, NSNumber * _Nullable, ...))fillTextForStateInSection {
-    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSInteger section, UIControlState state, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSInteger section, UIControlState state, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillTextDataSource));
         YJSelectorAssert(dataSource, @selector(textForScene:purpose:state:inSection:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillTextDelegate));
@@ -169,19 +169,19 @@
             }
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillTextDataSource, YJComponentDataSource> _Nonnull, YJTextPurpose purpose, NSIndexPath * _Nonnull, UIControlState, NSNumber * _Nullable, ...))fillTextForStateAtIndexPath {
-    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSIndexPath *indexPath, UIControlState state, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSIndexPath *indexPath, UIControlState state, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillTextDataSource));
         YJSelectorAssert(dataSource, @selector(textForScene:purpose:state:indexPath:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillTextDelegate));
@@ -198,19 +198,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 /// MARK: attribute
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillTextDataSource, YJComponentDataSource>, YJTextPurpose purpose, NSNumber * _Nullable, ...))fillTextAttribute {
-    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillTextDataSource));
         YJSelectorAssert(dataSource, @selector(attributeTextForScene:purpose:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillTextDelegate));
@@ -227,19 +227,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributedText:attributeString forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillTextDataSource, YJComponentDataSource> _Nonnull, YJTextPurpose purpose, NSInteger, NSNumber * _Nullable, ...))fillTextAttributeInSection {
-    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSInteger section, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSInteger section, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillTextDataSource));
         YJSelectorAssert(dataSource, @selector(attributeTextForScene:purpose:inSection:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillTextDelegate));
@@ -256,19 +256,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributedText:attributeString forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillTextDataSource, YJComponentDataSource> _Nonnull, YJTextPurpose purpose, NSIndexPath * _Nonnull, NSNumber * _Nullable, ...))fillTextAttributeAtIndexPath {
-    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSIndexPath *indexPath, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSIndexPath *indexPath, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillTextDataSource));
         YJSelectorAssert(dataSource, @selector(attributeTextForScene:purpose:indexPath:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillTextDelegate));
@@ -285,19 +285,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributedText:attributeString forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillTextDataSource, YJComponentDataSource>, YJTextPurpose purpose, UIControlState, NSNumber * _Nullable, ...))fillTextAttributeForState {
-    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, UIControlState state, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, UIControlState state, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillTextDataSource));
         YJSelectorAssert(dataSource, @selector(attributeTextForScene:purpose:state:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillTextDelegate));
@@ -314,19 +314,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributeText:attributeString forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillTextDataSource, YJComponentDataSource> _Nonnull, YJTextPurpose,  NSInteger, UIControlState, NSNumber * _Nullable, ...))fillTextAttributeForStateInSection {
-    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSInteger section, UIControlState state, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSInteger section, UIControlState state, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillTextDataSource));
         YJSelectorAssert(dataSource, @selector(attributeTextForScene:purpose:state:inSection:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillTextDelegate));
@@ -343,19 +343,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributeText:attributeString forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillTextDataSource, YJComponentDataSource> _Nonnull, YJTextPurpose, NSIndexPath * _Nonnull, UIControlState, NSNumber * _Nullable, ...))fillTextAttributeForStateAtIndexPath {
-    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSIndexPath *indexPath, UIControlState state, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSIndexPath *indexPath, UIControlState state, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillTextDataSource));
         YJSelectorAssert(dataSource, @selector(attributeTextForScene:purpose:state:indexPath:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillTextDelegate));
@@ -372,12 +372,12 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributeText:attributeString forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
@@ -385,7 +385,7 @@
 
 /// MARK: text async
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillTextDataSource, YJComponentDataSource> _Nonnull, YJTextPurpose, NSNumber * _Nullable, ...))fillTextAsync {
-    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillTextDataSource, YJComponentDataSource> dataSource, YJTextPurpose purpose, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillTextDataSource));
         YJSelectorAssert(dataSource, @selector(textForScene:purpose:async:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillTextDelegate));
@@ -404,12 +404,12 @@
             }];
         };
         
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
@@ -417,7 +417,7 @@
 
 #pragma mark - Font Filler
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillFontDataSource, YJComponentDataSource>, NSNumber * _Nullable, ...))fillFont {
-    return ^(id<YJDataFillFontDataSource, YJComponentDataSource> dataSource, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillFontDataSource, YJComponentDataSource> dataSource, NSNumber * _Nullable firstScene, ...) {
         // 不遵循协议 或者不实现dataSource的方法 --> 使用component初始化的默认值
         if (![dataSource conformsToProtocol:@protocol(YJDataFillFontDataSource)] || ![dataSource respondsToSelector:@selector(fontForScene:)])
             return self;
@@ -437,19 +437,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withFont:font];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillFontDataSource, YJComponentDataSource> _Nonnull, NSInteger, NSNumber * _Nullable, ...))fillFontInSection {
-    return ^(id<YJDataFillFontDataSource, YJComponentDataSource> dataSource, NSInteger section, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillFontDataSource, YJComponentDataSource> dataSource, NSInteger section, NSNumber * _Nullable firstScene, ...) {
         // 不遵循协议 或者不实现dataSource的方法 --> 使用component初始化的默认值
         if (![dataSource conformsToProtocol:@protocol(YJDataFillFontDataSource)] || ![dataSource respondsToSelector:@selector(fontForScene:inSection:)])
             return self;
@@ -469,19 +469,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withFont:font];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillFontDataSource, YJComponentDataSource> _Nonnull, NSIndexPath * _Nonnull, NSNumber * _Nullable, ...))fillFontAtIndexPath {
-    return ^(id<YJDataFillFontDataSource, YJComponentDataSource> dataSource, NSIndexPath *indexPath, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillFontDataSource, YJComponentDataSource> dataSource, NSIndexPath *indexPath, NSNumber * _Nullable firstScene, ...) {
         // 不遵循协议 或者不实现dataSource的方法 --> 使用component初始化的默认值
         if (![dataSource conformsToProtocol:@protocol(YJDataFillFontDataSource)] || ![dataSource respondsToSelector:@selector(fontForScene:indexPath:)])
             return self;
@@ -501,12 +501,12 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withFont:font];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
@@ -514,7 +514,7 @@
 
 #pragma mark - Color Filler
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillColorDataSource, YJComponentDataSource>, YJColorPurpose, NSNumber * _Nullable, ...))fillColor {
-    return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, NSNumber * _Nullable firstScene, ...) {
         if (![dataSource conformsToProtocol:@protocol(YJDataFillColorDataSource)] || ![dataSource respondsToSelector:@selector(colorForScene:purpose:)]) return self;
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
         YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
@@ -532,19 +532,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillColorDataSource, YJComponentDataSource> _Nonnull, YJColorPurpose, NSInteger, NSNumber * _Nullable, ...))fillColorInSection {
-    return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, NSInteger section, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, NSInteger section, NSNumber * _Nullable firstScene, ...) {
         // 不遵循协议 或者不实现dataSource的方法 --> 使用component初始化的默认值
         if (![dataSource conformsToProtocol:@protocol(YJDataFillColorDataSource)] || ![dataSource respondsToSelector:@selector(colorForScene:purpose:inSection:)]) return self;
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -563,19 +563,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillColorDataSource, YJComponentDataSource> _Nonnull, YJColorPurpose, NSIndexPath * _Nonnull, NSNumber * _Nullable, ...))fillColorAtIndexPath {
-    return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, NSIndexPath *indexPath, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, NSIndexPath *indexPath, NSNumber * _Nullable firstScene, ...) {
         if (![dataSource conformsToProtocol:@protocol(YJDataFillColorDataSource)] || ![dataSource respondsToSelector:@selector(colorForScene:purpose:indexPath:)]) return self;
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
         YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
@@ -593,19 +593,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillColorDataSource, YJComponentDataSource>, YJColorPurpose, UIControlState, NSNumber * _Nullable, ...))fillColorForState {
-    return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, UIControlState state, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, UIControlState state, NSNumber * _Nullable firstScene, ...) {
         if (![dataSource conformsToProtocol:@protocol(YJDataFillColorDataSource)] || ![dataSource respondsToSelector:@selector(colorForScene:purpose:state:)]) return self;
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
         YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
@@ -623,19 +623,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillColorDataSource, YJComponentDataSource> _Nonnull, YJColorPurpose, UIControlState, NSInteger, NSNumber * _Nullable, ...))fillColorForStateInSection {
-    return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, UIControlState state, NSInteger section, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, UIControlState state, NSInteger section, NSNumber * _Nullable firstScene, ...) {
         if (![dataSource conformsToProtocol:@protocol(YJDataFillColorDataSource)] || ![dataSource respondsToSelector:@selector(colorForScene:purpose:state:inSection:)]) return self;
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
         YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
@@ -653,19 +653,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillColorDataSource, YJComponentDataSource> _Nonnull, YJColorPurpose, UIControlState, NSIndexPath * _Nonnull, NSNumber * _Nullable, ...))fillColorForStateAtIndexPath {
-    return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, UIControlState state, NSIndexPath *indexPath, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, UIControlState state, NSIndexPath *indexPath, NSNumber * _Nullable firstScene, ...) {
         if (![dataSource conformsToProtocol:@protocol(YJDataFillColorDataSource)] || ![dataSource respondsToSelector:@selector(colorForScene:purpose:state:indexPath:)]) return self;
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
         YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
@@ -683,12 +683,12 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
@@ -696,7 +696,7 @@
 
 #pragma mark - Image Filler
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull, YJImagePurpose, NSNumber * _Nullable, ...))fillImageName {
-    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageNameForScene:purpose:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -715,19 +715,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull, YJImagePurpose, NSInteger, NSNumber * _Nullable, ...))fillImageNameInSection {
-    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, NSInteger section, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, NSInteger section, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageNameForScene:purpose:inSection:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -746,19 +746,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull, YJImagePurpose, NSIndexPath * _Nonnull, NSNumber * _Nullable, ...))fillImageNameAtIndexPath {
-    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, NSIndexPath * _Nonnull indexPath, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, NSIndexPath * _Nonnull indexPath, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageNameForScene:purpose:indexPath:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -777,19 +777,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull, YJImagePurpose, UIControlState, NSNumber * _Nullable, ...))fillImageNameForState {
-    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, UIControlState state, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, UIControlState state, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageNameForScene:purpose:state:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -808,19 +808,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull, YJImagePurpose, UIControlState, NSInteger, NSNumber * _Nullable, ...))fillImageNameForStateInSection {
-    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, UIControlState state, NSInteger section, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, UIControlState state, NSInteger section, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageNameForScene:purpose:state:inSection:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -839,19 +839,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull, YJImagePurpose, UIControlState, NSIndexPath * _Nonnull, NSNumber * _Nullable, ...))fillImageNameForStateAtIndexPath {
-    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, UIControlState state, NSIndexPath *indexPath, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, UIControlState state, NSIndexPath *indexPath, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageNameForScene:purpose:state:indexPath:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -870,19 +870,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull, YJImagePurpose, NSNumber * _Nullable, ...))fillImage {
-    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageForScene:purpose:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -901,19 +901,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull, YJImagePurpose, NSInteger, NSNumber * _Nullable, ...))fillImageInSection {
-    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, NSInteger section, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, NSInteger section, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageForScene:purpose:inSection:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -932,19 +932,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull, YJImagePurpose, NSIndexPath * _Nonnull, NSNumber * _Nullable, ...))fillImageAtIndexPath {
-    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, NSIndexPath * _Nonnull indexPath, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, NSIndexPath * _Nonnull indexPath, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageForScene:purpose:indexPath:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -963,19 +963,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull, YJImagePurpose, UIControlState, NSNumber * _Nullable, ...))fillImageForState {
-    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, UIControlState state, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, UIControlState state, NSNumber * _Nullable firstScene, ...) {
         YJSelectorAssert(dataSource, @selector(imageForScene:purpose:state:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillImageDelegate));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -993,19 +993,19 @@
             if (type == YJComponentTypeCustom) return;
             [(id<YJDataFillImageDelegate>)self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull, YJImagePurpose, UIControlState, NSInteger, NSNumber * _Nullable, ...))fillImageForStateInSection {
-    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, UIControlState state, NSInteger section, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, UIControlState state, NSInteger section, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageForScene:purpose:state:inSection:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -1024,19 +1024,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull, YJImagePurpose, UIControlState, NSIndexPath * _Nonnull, NSNumber * _Nullable, ...))fillImageForStateAtIndexPath {
-    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, UIControlState state, NSIndexPath *indexPath, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillImageDataSource, YJComponentDataSource> _Nonnull dataSource, YJImagePurpose purpose, UIControlState state, NSIndexPath *indexPath, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageForScene:purpose:state:indexPath:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -1055,12 +1055,12 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose state:state];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
@@ -1068,7 +1068,7 @@
 
 #pragma mark PoN
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillPoNDataSource, YJComponentDataSource> _Nonnull, YJPoNPurpose, NSNumber * _Nullable, ...))fillPoN {
-    return ^(id<YJDataFillPoNDataSource, YJComponentDataSource> _Nonnull dataSource, YJPoNPurpose purpose, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillPoNDataSource, YJComponentDataSource> _Nonnull dataSource, YJPoNPurpose purpose, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillPoNDataSource));
         YJSelectorAssert(dataSource, @selector(ponForScene:purpose:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -1087,19 +1087,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withPoN:pon forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillPoNDataSource, YJComponentDataSource> _Nonnull, YJPoNPurpose, NSInteger, NSNumber * _Nullable, ...))fillPoNInSection {
-    return ^(id<YJDataFillPoNDataSource, YJComponentDataSource> _Nonnull dataSource, YJPoNPurpose purpose, NSInteger section, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillPoNDataSource, YJComponentDataSource> _Nonnull dataSource, YJPoNPurpose purpose, NSInteger section, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillPoNDataSource));
         YJSelectorAssert(dataSource, @selector(ponForScene:purpose:inSection:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -1118,19 +1118,19 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withPoN:pon forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };
 }
 
 - (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillPoNDataSource, YJComponentDataSource> _Nonnull, NSIndexPath * _Nonnull, YJPoNPurpose, NSNumber * _Nullable, ...))fillPoNAtIndexPath {
-    return ^(id<YJDataFillPoNDataSource, YJComponentDataSource> _Nonnull dataSource, NSIndexPath * _Nonnull indexPath, YJPoNPurpose purpose, NSNumber * _Nullable scene, ...) {
+    return ^(id<YJDataFillPoNDataSource, YJComponentDataSource> _Nonnull dataSource, NSIndexPath * _Nonnull indexPath, YJPoNPurpose purpose, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillPoNDataSource));
         YJSelectorAssert(dataSource, @selector(ponForScene:purpose:indexPath:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
@@ -1149,12 +1149,12 @@
             if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withPoN:pon forPurpose:purpose];
         };
-        if (scene == nil) {
+        if (firstScene == nil) {
             [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
         } else {
             va_list args;
-            va_start(args, scene);
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:scene args:args shouldUpdate:update action:action];
+            va_start(args, firstScene);
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:firstScene args:args shouldUpdate:update action:action];
         }
         return self;
     };

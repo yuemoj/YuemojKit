@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YuemojKit'
-  s.version          = '0.0.7'
+  s.version          = '0.0.8'
   s.summary          = 'A decoupling framework for UI layout, data sources, and event responses'
 
 # This description is used to generate tags and improve search results.
@@ -31,16 +31,16 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Yuemoj' => 'yj_745@163.com' }
-  s.source           = { :git => 'https://github.com/yuemoj/YuemojKit.git', :branch => 'master' } #:tag => s.version.to_s }
-
+  s.source           = { :git => 'https://github.com/yuemoj/YuemojKit.git', :tag => s.version.to_s }
+  # s.source           = { :path => 'YuemojKit'}
   s.platform    = :ios
   s.ios.deployment_target = '13.0'
   s.requires_arc = true
   
   # 这里设置空的resource只是为了在项目中可以获取到pod库的bundle路径
-  #s.resource_bundles = {
-  #  'YuemojKit' => ['YuemojKit/PrivacyInfo.xcprivacy'],
-  #}
+  s.resource_bundles = {
+    'YuemojKit' => ['YuemojKit.codesnippet.zip'],
+  }
 
   # s.prefix_header_contents = <<-EOS
   # EOS
