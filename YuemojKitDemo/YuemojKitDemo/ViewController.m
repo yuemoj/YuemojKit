@@ -88,7 +88,7 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
             sender.selected = !sender.selected;
             return YES;
         }, @(CellComponentMarkBtn), nil);
-    });    
+    });
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
