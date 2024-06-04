@@ -39,6 +39,7 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
 #pragma mark- ** Lifecycle **
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = UIColor.lightGrayColor;
     
     [self privateLayout];
     [self privateRegister];
@@ -56,6 +57,7 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
 #pragma mark- ** Protocols **
 #pragma mark UITableViewDelegate
 - (void)fillCell:(__kindof UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
+//    cell.contentView.backgroundColor = UIColor.clearColor; [UIColor colorWithWhite:1.f alpha:0.f];
     cell.backgroundColor = [UIColor colorWithWhite:1.f alpha:0.f];
     if (!indexPath.section) {
         cell.contentView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
@@ -121,7 +123,7 @@ static CGFloat const kHorizontalMargin = 16.f, kVerticalMargin = 16.f;
 static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
 - (void)layoutHeaderView {
     _headerView = [UIView new];
-    _headerView.backgroundColor = [UIColor colorWithWhite:.8f alpha:1.f];
+//    _headerView.backgroundColor = [UIColor colorWithWhite:.8f alpha:1.f];
     [self.view addSubview:_headerView];
     [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
@@ -246,7 +248,7 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
         layouter.layout(tabLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {
             if (scene == YJTabSceneIndicator) {
                 UIView *indicatorView = UIView.new;
-                indicatorView.backgroundColor = [UIColor colorWithWhite:.5f alpha:1.f];;
+                indicatorView.backgroundColor = [UIColor colorWithWhite:.2f alpha:1.f];;
                 indicatorView.layer.cornerRadius = 10.f;
                 return indicatorView;
             } else if (scene >= YJTabSceneFirstSplit && scene < YJTabSceneFirstTabBtn) {

@@ -350,7 +350,6 @@ static NSString *const tabTitle[] = {
 }
 
 - (UIColor *)colorForScene:(NSInteger)scene purpose:(YJColorPurpose)purpose state:(UIControlState)state {
-    NSLog(@"scene : %ld", scene);
     return state == UIControlStateNormal ? UIColor.blackColor : UIColor.whiteColor;
 }
 

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YuemojKit'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A decoupling framework for UI layout, data sources, and event responses'
 
 # This description is used to generate tags and improve search results.
@@ -33,19 +33,18 @@ Pod::Spec.new do |s|
   s.author           = { 'Yuemoj' => 'yj_745@163.com' }
   s.source           = { :git => 'https://github.com/yuemoj/YuemojKit.git', :tag => s.version.to_s }
   # s.source           = { :path => 'YuemojKit'}
-  s.platform    = :ios
-  s.ios.deployment_target = '13.0'
+  s.resource         = 'YuemojKit.codesnippet.zip'
+  s.platform         = :ios, '11.0'
+  s.ios.deployment_target = '11.0'
   s.requires_arc = true
   
-  # 这里设置空的resource只是为了在项目中可以获取到pod库的bundle路径
-  s.resource_bundles = {
-    'YuemojKit' => ['YuemojKit.codesnippet.zip'],
-  }
+# 这里设置空的resource只是为了在项目中可以获取到pod库的bundle路径
+#  s.resource_bundles = {
+#    'YuemojKit' => ['YuemojKit.codesnippet.zip'],
+#  }
 
-  # s.prefix_header_contents = <<-EOS
-  # EOS
-  
-#  s.ios.pod_target_xcconfig = { :GCC_PRECOMPILE_PREFIX_HEADER => 'YES' }
+#  s.prefix_header_contents = <<-EOS
+#  EOS
   s.source_files = 'YuemojKit/YuemojKit.h'
     
   s.subspec 'Core' do |ss|
@@ -68,7 +67,7 @@ Pod::Spec.new do |s|
     ss.source_files = 'YuemojKit/Foundation/*.{h,m}'
         
     ss.dependency 'YuemojKit/Core'
-    ss.dependency 'PinYin4Objc', '~> 1.1.1'
+    ss.dependency 'PinYin4Objc'
   end
     
   s.subspec 'ComponentSupport' do |ss|
@@ -98,7 +97,7 @@ Pod::Spec.new do |s|
       sss.source_files = 'YuemojKit/ComponentSupport/Layouter/*.{h,m}'
                         
       sss.dependency 'YuemojKit/ComponentSupport/Common'
-      sss.dependency 'Masonry', '~>1.1.0'
+      sss.dependency 'Masonry'#, '~>1.1.0'
     end
   end
   
