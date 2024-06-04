@@ -65,7 +65,7 @@ typedef NSArray *_Nullable(^YJFilter)(id value);
 @protocol YuemojFilterAbility <NSObject>
 @property (nonatomic, readonly) NSArray *_Nullable(^filter)(id value);
 /// 指定keypath和value筛选, TODO:其他类型的值
-@property (nonatomic, readonly) NSArray  * _Nullable (^filterKeyValue)(NSString *keypath, NSString *);
+@property (nonatomic, readonly) NSArray  * _Nullable (^filterKeyValue)(NSString *keypath, id);
 /// block返回一个指定了keypath的筛选器block, 再次执行传入value即可筛选, 用于筛选多个不同的value
 @property (nonatomic, readonly) YJFilter(^filterKeypath)(NSString *keypath);
 @property (nonatomic, readonly) YJFilter(^filterKeypathIgnoreCase)(NSString *keypath, BOOL ignoreCase);

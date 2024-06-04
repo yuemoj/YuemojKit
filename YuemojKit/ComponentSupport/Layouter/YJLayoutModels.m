@@ -21,19 +21,19 @@
 }
 @end
 
-@interface YJLayoutAnchor (Handler)<YJLayoutAnchorHandler> @end
+@interface YJLayoutAnchor (Handler)<YJLayoutAnchorProtocol> @end
 
 @interface YJLayoutConstraintMaker : NSObject<YJLayoutConstraintAttributeDelegate>
-@property (nonatomic) id<YJLayoutAnchorHandler> top;
-@property (nonatomic) id<YJLayoutAnchorHandler> bottom;
-@property (nonatomic) id<YJLayoutAnchorHandler> leading;
-@property (nonatomic) id<YJLayoutAnchorHandler> trailing;
-@property (nonatomic) id<YJLayoutAnchorHandler> centerX;
-@property (nonatomic) id<YJLayoutAnchorHandler> centerY;
-@property (nonatomic) id<YJLayoutAnchorHandler> center;
-@property (nonatomic) id<YJLayoutAnchorHandler> edgeInset;
-@property (nonatomic) id<YJLayoutAnchorHandler> width;
-@property (nonatomic) id<YJLayoutAnchorHandler> height;
+@property (nonatomic) id<YJLayoutAnchorProtocol> top;
+@property (nonatomic) id<YJLayoutAnchorProtocol> bottom;
+@property (nonatomic) id<YJLayoutAnchorProtocol> leading;
+@property (nonatomic) id<YJLayoutAnchorProtocol> trailing;
+@property (nonatomic) id<YJLayoutAnchorProtocol> centerX;
+@property (nonatomic) id<YJLayoutAnchorProtocol> centerY;
+@property (nonatomic) id<YJLayoutAnchorProtocol> center;
+@property (nonatomic) id<YJLayoutAnchorProtocol> edgeInset;
+@property (nonatomic) id<YJLayoutAnchorProtocol> width;
+@property (nonatomic) id<YJLayoutAnchorProtocol> height;
 
 @property (nonatomic) NSMutableArray<YJLayoutRelatedItem *> *relatedItems;
 
@@ -46,7 +46,7 @@
 }
 
 - (void)itemConstraintsRelated:(YJLayoutRelation)relation to:(YJLayoutItem *)item attribute:(YJLayoutAttribute)attribute {
-    NSAssert([item isKindOfClass:[YJLayoutItem class]], @"Assert Fail: Related item must be a kind of Class YJComponenetLayoutItem!");
+    NSAssert([item isKindOfClass:[YJLayoutItem class]], @"Assert Fail: Related item must be a kind of Class YJLayoutItem!");
     for (YJLayoutRelatedItem *tmpConstraint in self.relatedItems) {
         if (tmpConstraint.hasRelated) continue;
         tmpConstraint.secondItem = item;
@@ -85,6 +85,11 @@
     self.relatedItems.lastObject.constraint.constant = offset;
 }
 
+- (void)setPriority:(UILayoutPriority)priority {  
+    self.relatedItems.lastObject.constraint.priority = priority;
+    self.relatedItems.lastObject.hasRelated = YES;
+}
+
 - (void)insets:(UIEdgeInsets)edgeInsets {
     self.relatedItems.lastObject.constraint.relation = YJLayoutRelationInsets;
     self.relatedItems.lastObject.constraint.edgeInsets = edgeInsets;
@@ -96,70 +101,70 @@
     return _relatedItems;
 }
 
-- (id<YJLayoutAnchorHandler>)top {
+- (id<YJLayoutAnchorProtocol>)top {
     if (!_top) {
         _top = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeTop owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeTop];
     }
     return _top;
 }
-- (id<YJLayoutAnchorHandler>)bottom {
+- (id<YJLayoutAnchorProtocol>)bottom {
     if (!_bottom) {
         _bottom = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeBottom owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeBottom];
     }
     return _bottom;
 }
-- (id<YJLayoutAnchorHandler>)leading {
+- (id<YJLayoutAnchorProtocol>)leading {
     if (!_leading) {
         _leading = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeLeading owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeLeading];
     }
     return _leading;
 }
-- (id<YJLayoutAnchorHandler>)trailing {
+- (id<YJLayoutAnchorProtocol>)trailing {
     if (!_trailing) {
         _trailing = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeTrailing owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeTrailing];
     }
     return _trailing;
 }
-- (id<YJLayoutAnchorHandler>)centerX {
+- (id<YJLayoutAnchorProtocol>)centerX {
     if (!_centerX) {
         _centerX = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeCenterX owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeCenterX];
     }
     return _centerX;
 }
-- (id<YJLayoutAnchorHandler>)centerY {
+- (id<YJLayoutAnchorProtocol>)centerY {
     if (!_centerY) {
         _centerY = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeCenterY owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeCenterY];
     }
     return _centerY;
 }
-- (id<YJLayoutAnchorHandler>)center {
+- (id<YJLayoutAnchorProtocol>)center {
     if (!_center) {
         _center = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeCenter owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeCenter];
     }
     return _center;
 }
-- (id<YJLayoutAnchorHandler>)edges {
+- (id<YJLayoutAnchorProtocol>)edges {
     if (!_edgeInset) {
         _edgeInset = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeEdgeInset owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeEdgeInset];
     }
     return _edgeInset;
 }
-- (id<YJLayoutAnchorHandler>)width {
+- (id<YJLayoutAnchorProtocol>)width {
     if (!_width) {
         _width = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeWidth owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeWidth];
     }
     return _width;
 }
-- (id<YJLayoutAnchorHandler>)height {
+- (id<YJLayoutAnchorProtocol>)height {
     if (!_height) {
         _height = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeHeight owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeHeight];
@@ -169,7 +174,7 @@
 @end
 
 @implementation YJLayoutAnchor (Handler)
-- (id<YJLayoutAnchorHandler>(^)(id))lessThanOrEqualTo {
+- (id<YJLayoutAnchorProtocol>(^)(id))lessThanOrEqualTo {
     return ^(id anchor) {
         YJLayoutRelation relation = YJLayoutRelationLessThanOrEqualTo;
         if ([anchor isKindOfClass:[YJLayoutItem class]]) {
@@ -179,13 +184,13 @@
         } else if ([anchor isKindOfClass:[NSNumber class]]) {
             [self.owner itemConstraintsRelated:relation constant:[anchor floatValue]];
         } else {
-            NSAssert(NO, @"Assert Fail: attribute can only be a Number or kind of Class 'YJLayoutConstraintItemAttribute'");
+            NSAssert(NO, @"Assert Fail: attribute can only be a Number or kind of Class 'YJLayoutItem' or 'YJLayoutAnchor'");
         }
         return self;
     };
 }
 
-- (id<YJLayoutAnchorHandler>(^)(id))equalTo {
+- (id<YJLayoutAnchorProtocol>(^)(id))equalTo {
     return ^(id anchor) {
         YJLayoutRelation relation = YJLayoutRelationEqualTo;
         if ([anchor isKindOfClass:[YJLayoutItem class]]) {
@@ -195,13 +200,13 @@
         } else if ([anchor isKindOfClass:[NSNumber class]]) {
             [self.owner itemConstraintsRelated:relation constant:[anchor floatValue]];
         } else {
-            NSAssert(NO, @"Assert Fail: attribute can only be a Number or kind of Class 'YJLayoutConstraintItemAttribute'");
+            NSAssert(NO, @"Assert Fail: attribute can only be a Number or kind of Class 'YJLayoutItem' or 'YJLayoutAnchor'");
         }
         return self;
     };
 }
 
-- (id<YJLayoutAnchorHandler>(^)(id))greaterThanOrEqualTo {
+- (id<YJLayoutAnchorProtocol>(^)(id))greaterThanOrEqualTo {
     return ^(id anchor) {
         YJLayoutRelation relation = YJLayoutRelationGreaterThanOrEqualTo;
         if ([anchor isKindOfClass:[YJLayoutItem class]]) {
@@ -211,24 +216,38 @@
         } else if ([anchor isKindOfClass:[NSNumber class]]) {
             [self.owner itemConstraintsRelated:relation constant:[anchor floatValue]];
         } else {
-            NSAssert(NO, @"Assert Fail: attribute can only be a Number or kind of Class 'YJLayoutConstraintItemAttribute'");
+            NSAssert(NO, @"Assert Fail: param can only be a Number or kind of Class 'YJLayoutItem' or 'YJLayoutAnchor'");
         }
         return self;
     };
 }
 
-- (id<YJLayoutAnchorHandler> _Nonnull (^)(CGFloat))multipliedBy {
+- (id<YJLayoutAnchorProtocol> _Nonnull (^)(CGFloat))multipliedBy {
     return ^(CGFloat multiplier) {
         [self.owner setLayoutMultiplier:multiplier];
         return self;
     };
 }
 
-- (void(^)(UIEdgeInsets))insets {
-    return ^(UIEdgeInsets edgeInsets) { [self.owner insets:edgeInsets]; };
+- (id<YJLayoutAnchorProtocol> _Nonnull (^)(UIEdgeInsets))insets {
+    return ^(UIEdgeInsets edgeInsets) {
+        [self.owner insets:edgeInsets];
+        return self;
+    };
 }
-- (void(^)(CGFloat))yj_offset {
-    return ^(CGFloat offset) { [self.owner setOffset:offset]; };
+
+- (id<YJLayoutAnchorProtocol> _Nonnull (^)(CGFloat))yj_offset {
+    return ^(CGFloat offset) {
+        [self.owner setOffset:offset];
+        return self;
+    };
+}
+
+- (id<YJLayoutAnchorProtocol>  _Nonnull (^)(UILayoutPriority))priority {
+    return ^(UILayoutPriority p) {
+        [self.owner setPriority:p];
+        return self;
+    };
 }
 @end
 

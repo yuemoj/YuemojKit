@@ -20,9 +20,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol YJEventBuildAbility <NSObject>
 @property (nonatomic, readonly) void(^buildEvent)(void(^)(id<YJEventBuilderProtocol> builder));
-
+@optional
+@property (nonatomic, readonly) void(^eventTrigger)(NSInteger componentType, NSInteger scene);
 @end
 
-@YJNamespaceInstanceDeclaration(UIView, NSObject, yj_eventBuild, YJEventBuildAbility)
+@protocol YJEventBuildPoint <NSObject>
+@optional
+- (void)eventWillBeganAtComponent:(__kindof UIView *)component;
+- (void)eventDidEndAtComponent:(__kindof UIView *)component;
+@end
+
+@YJNamespaceInstanceDeclaration(UIView, YJEventBuildPoint, yj_eventBuild, YJEventBuildAbility)
 @end
 NS_ASSUME_NONNULL_END

@@ -8,6 +8,8 @@
 #import "ViewController.h"
 #import "ViewModel.h"
 #import "TableViewCell.h"
+#import "YJTabView.h"
+#import "YJTabLayoutViewModel.h"
 
 #import "Masonry.h"
 #import "UIKit+Yuemoj.h"
@@ -18,11 +20,15 @@
 @interface ViewController ()<UITableViewDelegate>
 @property (nonatomic) ViewModel *viewModel;
 @property (nonatomic) UIView *headerView;
+@property (nonatomic) YJTabView *underlineTabView;
+@property (nonatomic) YJTabView *backgroundTabView;
 @property (nonatomic) UILabel *nameLabel;
 @property (nonatomic) UILabel *stateLabel;
 @property (nonatomic) UILabel *idLabel;
 
 @property (nonatomic) UITableView *tableView;
+
+@property (nonatomic) BOOL shouldLinkage;
 @end
 
 static NSString * const DemoLayoutCellIdentifier    = @"com.yuemoj.demo.cell.layout";
@@ -35,16 +41,11 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
     [super viewDidLoad];
     
     [self privateLayout];
-    [self privateFiller];
     [self privateRegister];
     
     [self privateInitialData];
     
-    self.nameLabel.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
-        filler.fillText(self.viewModel, YJTextPurposeText, nil)
-        .fillFont(self.viewModel, nil)
-        .fillColor(self.viewModel, YJColorPurposeText, nil);
-    });
+    [self privateFiller];
 }
 
 #pragma mark- ** User Operations **
@@ -116,50 +117,174 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
     [self.headerView layoutIfNeeded];
 }
 
-static CGFloat const kHeaderHeight = 44.f;
+static CGFloat const kHorizontalMargin = 16.f, kVerticalMargin = 16.f;
+static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
 - (void)layoutHeaderView {
     _headerView = [UIView new];
-    [self.view addSubview:self.headerView];
-    [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+    _headerView.backgroundColor = [UIColor colorWithWhite:.8f alpha:1.f];
+    [self.view addSubview:_headerView];
+    [_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
         make.leading.trailing.offset(0.f);
-        make.height.offset(kHeaderHeight);
     }];
     
     UIButton *editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [editBtn setImage:[UIImage imageNamed:@"icon_edit"] forState:UIControlStateNormal];
     [editBtn addTarget:self action:@selector(onEdit:) forControlEvents:UIControlEventPrimaryActionTriggered];
-    [self.headerView addSubview:editBtn];
+    [_headerView addSubview:editBtn];
     [editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.offset(16.f);
-        make.trailing.offset(-12.f);
+        make.top.offset(kVerticalMargin);
+        make.trailing.offset(-kHorizontalMargin);
     }];
     
-    __weak typeof(self) weakself = self;
     _nameLabel = [UILabel new];
+    __weak typeof(_nameLabel) weakNameLabel = _nameLabel;
     _nameLabel.yj_extra.viewForIdentifier = ^__kindof UIView * _Nonnull(YJComponentType type, NSInteger scene) {
-        return weakself.nameLabel;
+        return weakNameLabel;
     };
     _nameLabel.textColor = UIColor.whiteColor;
     _nameLabel.font = [UIFont systemFontOfSize:24.f];
     _nameLabel.numberOfLines = 0;
     _nameLabel.lineBreakMode = NSLineBreakByCharWrapping;
-    [self.headerView addSubview:self.nameLabel];
-    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+    [_headerView addSubview:_nameLabel];
+    [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(16.f);
         make.leading.offset(24.f);
-        make.trailing.lessThanOrEqualTo(editBtn.mas_leading).offset(-10.f);
+        make.trailing.lessThanOrEqualTo(editBtn.mas_leading).offset(-kHorizontalSpace);
+    }];
+    
+    _underlineTabView = YJTabView.new;
+    [_headerView addSubview:_underlineTabView];
+    [_underlineTabView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_nameLabel.mas_bottom).offset(kVerticalSpace);
+        make.leading.offset(kHorizontalMargin);
+    }];
+    
+    _backgroundTabView = YJTabView.new;
+    [_headerView addSubview:_backgroundTabView];
+    [_backgroundTabView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_underlineTabView.mas_bottom).offset(kVerticalSpace);
+        make.leading.offset(kHorizontalMargin);
+        make.bottom.offset(-kVerticalMargin);
     }];
     
     [self initialTableView];
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop).offset(kHeaderHeight);
+        make.top.equalTo(self.headerView.mas_bottom).offset(kVerticalSpace);
         make.leading.bottom.trailing.offset(0.f);
     }];
 }
 
 - (void)privateFiller {
+    self.nameLabel.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
+        filler.fillText(self.viewModel, YJTextPurposeText, nil)
+        .fillFont(self.viewModel, nil)
+        .fillColor(self.viewModel, YJColorPurposeText, nil);
+    });
+    
+    [self loadUnderlineTabView];
+    [self loadBackgroundTabView];
+}
+
+- (void)loadUnderlineTabView {
+    YJTabLayoutViewModel *tabLayoutViewModel = YJTabLayoutViewModel.new;
+    tabLayoutViewModel.shouldSplit = YES;
+    tabLayoutViewModel.indicatorStyle = YJTabViewIndicatorStyleUnderline;
+    tabLayoutViewModel.tabCount = 3;
+    // TabView 布局
+    self.underlineTabView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
+        layouter.layout(tabLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {
+            if (scene == YJTabSceneIndicator) {
+                UIView *indicatorView = UIView.new;
+                indicatorView.backgroundColor = UIColor.cyanColor;
+                return indicatorView;
+            } else if (scene >= YJTabSceneFirstSplit && scene < YJTabSceneFirstTabBtn) {
+                UIView *splitView = UIView.new;
+                splitView.backgroundColor = UIColor.lightGrayColor;
+                return splitView;
+            } else {
+                UIButton *tabButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                return tabButton;
+            }
+        });
+    });
+    // 数据
+    self.underlineTabView.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
+        filler.fillTextForState(self.viewModel.tabTitleDataSource, YJTextPurposeText, UIControlStateNormal, @(YJTabSceneFirstTabBtn), @(YJTabSceneFirstTabBtn+1), @(YJTabSceneFirstTabBtn+2), nil)
+        .fillColorForState(self.viewModel.tabTitleDataSource, YJColorPurposeText, UIControlStateNormal, @(YJTabSceneFirstTabBtn), @(YJTabSceneFirstTabBtn+1), @(YJTabSceneFirstTabBtn+2), nil)
+        .fillColorForState(self.viewModel.tabTitleDataSource, YJColorPurposeText, UIControlStateSelected, @(YJTabSceneFirstTabBtn), @(YJTabSceneFirstTabBtn+1), @(YJTabSceneFirstTabBtn+2), nil);
+    });
+    
+    // Tab button 事件响应注册
+    __weak typeof(self) weakself = self;
+    self.underlineTabView.yj_eventBuild.buildEvent(^(id<YJEventBuilderProtocol>  _Nonnull builder) {
+        builder.addActionForControlEvents(self.viewModel.tabTitleDataSource, UIControlEventPrimaryActionTriggered, ^BOOL(id owner, __kindof UIControl *sender, NSInteger scene) {
+            if (sender.selected) return NO;
+            [weakself.viewModel onTabChoose:(YJTabScene)scene];
+            weakself.underlineTabView.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
+                filler.fillPoN(weakself.viewModel.tabTitleDataSource, YJPoNPurposeSelected, @(YJTabSceneFirstTabBtn), @(YJTabSceneFirstTabBtn+1), @(YJTabSceneFirstTabBtn+2), nil);
+            });
+            do {
+                weakself.shouldLinkage = !weakself.shouldLinkage;
+                if (!weakself.shouldLinkage) break;
+                weakself.backgroundTabView.yj_eventBuild.eventTrigger(YJComponentTypeButton, scene);
+            } while (0);
+            return YES;
+        }, @(YJTabSceneFirstTabBtn), @(YJTabSceneFirstTabBtn+1), @(YJTabSceneFirstTabBtn+2), nil);
+    });
+    // 查看all
+    self.underlineTabView.yj_eventBuild.eventTrigger(YJComponentTypeButton, YJTabSceneFirstTabBtn);
+}
+
+- (void)loadBackgroundTabView {
+    YJTabLayoutViewModel *tabLayoutViewModel = YJTabLayoutViewModel.new;
+    tabLayoutViewModel.indicatorStyle = YJTabViewIndicatorStyleBackground;
+    tabLayoutViewModel.tabCount = 3;
+    // TabView 布局
+    self.backgroundTabView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
+        layouter.layout(tabLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {
+            if (scene == YJTabSceneIndicator) {
+                UIView *indicatorView = UIView.new;
+                indicatorView.backgroundColor = [UIColor colorWithWhite:.5f alpha:1.f];;
+                indicatorView.layer.cornerRadius = 10.f;
+                return indicatorView;
+            } else if (scene >= YJTabSceneFirstSplit && scene < YJTabSceneFirstTabBtn) {
+                UIView *splitView = UIView.new;
+                splitView.backgroundColor = UIColor.lightGrayColor;
+                return splitView;
+            } else {
+                UIButton *tabButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                return tabButton;
+            }
+        });
+    });
+    // 数据
+    self.backgroundTabView.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
+        filler.fillTextForState(self.viewModel.tabTitleDataSource, YJTextPurposeText, UIControlStateNormal, @(YJTabSceneFirstTabBtn), @(YJTabSceneFirstTabBtn+1), @(YJTabSceneFirstTabBtn+2), nil)
+        .fillColorForState(self.viewModel.tabTitleDataSource, YJColorPurposeText, UIControlStateNormal, @(YJTabSceneFirstTabBtn), @(YJTabSceneFirstTabBtn+1), @(YJTabSceneFirstTabBtn+2), nil)
+        .fillColorForState(self.viewModel.tabTitleDataSource, YJColorPurposeText, UIControlStateSelected, @(YJTabSceneFirstTabBtn), @(YJTabSceneFirstTabBtn+1), @(YJTabSceneFirstTabBtn+2), nil);
+    });
+    
+    // Tab button 事件响应注册
+    __weak typeof(self) weakself = self;
+    self.backgroundTabView.yj_eventBuild.buildEvent(^(id<YJEventBuilderProtocol>  _Nonnull builder) {
+        builder.addActionForControlEvents(self.viewModel.tabTitleDataSource, UIControlEventPrimaryActionTriggered, ^BOOL(id owner, __kindof UIControl *sender, NSInteger scene) {
+            if (sender.selected) return NO;
+            [weakself.viewModel onTabChoose:(YJTabScene)scene];
+            weakself.backgroundTabView.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
+                filler.fillPoN(weakself.viewModel.tabTitleDataSource, YJPoNPurposeSelected, @(YJTabSceneFirstTabBtn), @(YJTabSceneFirstTabBtn+1), @(YJTabSceneFirstTabBtn+2), nil);
+            });
+            do {
+                weakself.shouldLinkage = !weakself.shouldLinkage;
+                if (!weakself.shouldLinkage) break;
+                weakself.underlineTabView.yj_eventBuild.eventTrigger(YJComponentTypeButton, scene);
+            } while (0);
+            return YES;
+        }, @(YJTabSceneFirstTabBtn), @(YJTabSceneFirstTabBtn+1), @(YJTabSceneFirstTabBtn+2), nil);
+    });
+    // 查看all
+    self.backgroundTabView.yj_eventBuild.eventTrigger(YJComponentTypeButton, YJTabSceneFirstTabBtn);
 }
 
 #pragma mark -Initial

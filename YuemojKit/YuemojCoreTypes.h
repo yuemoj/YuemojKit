@@ -32,7 +32,9 @@ static inline NSInteger yj_componentScene(NSInteger identifier) {
     return (identifier - kYJComponentSceneTag) % 100;
 }
 
-
+static inline NSInteger yj_componentType(NSInteger identifier) {
+    return (identifier - kYJComponentSceneTag) / 100;
+}
 
 #endif /* YuemojCoreTypes_h */
 

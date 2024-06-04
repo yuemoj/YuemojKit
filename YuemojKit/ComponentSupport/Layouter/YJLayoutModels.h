@@ -90,29 +90,32 @@ typedef NS_ENUM(int, YJLayoutRelation) {
 @property (nonatomic) NSArray<YJLayoutRelatedItem *> *relatedItems;
 /// 容器
 @property (nonatomic, nullable) YJLayoutItem *containerItem;
+@property (nonatomic, nullable) YJLayoutItem *belowItem;    // insertSubview:below:
+@property (nonatomic, nullable) YJLayoutItem *aboveItem;    // insertSubview:above:
 @end
 
 #pragma mark- Protocols
-@protocol YJLayoutAnchorHandler <NSObject>
-- (id<YJLayoutAnchorHandler>(^)(id))equalTo;
-- (id<YJLayoutAnchorHandler>(^)(id))greaterThanOrEqualTo;
-- (id<YJLayoutAnchorHandler>(^)(id))lessThanOrEqualTo;
-- (id<YJLayoutAnchorHandler>(^)(CGFloat))multipliedBy;
-- (void(^)(UIEdgeInsets))insets;
-- (void(^)(CGFloat))yj_offset;
+@protocol YJLayoutAnchorProtocol <NSObject>
+- (id<YJLayoutAnchorProtocol>(^)(id))equalTo;
+- (id<YJLayoutAnchorProtocol>(^)(id))greaterThanOrEqualTo;
+- (id<YJLayoutAnchorProtocol>(^)(id))lessThanOrEqualTo;
+- (id<YJLayoutAnchorProtocol>(^)(CGFloat))multipliedBy;
+- (id<YJLayoutAnchorProtocol>(^)(UIEdgeInsets))insets;
+- (id<YJLayoutAnchorProtocol>(^)(CGFloat))yj_offset;
+- (id<YJLayoutAnchorProtocol>(^)(UILayoutPriority))priority;
 @end
 
 @protocol YJLayoutConstraintAttributeDelegate <NSObject>
-@property (nonatomic, readonly) id<YJLayoutAnchorHandler> top;
-@property (nonatomic, readonly) id<YJLayoutAnchorHandler> bottom;
-@property (nonatomic, readonly) id<YJLayoutAnchorHandler> leading;
-@property (nonatomic, readonly) id<YJLayoutAnchorHandler> trailing;
-@property (nonatomic, readonly) id<YJLayoutAnchorHandler> centerX;
-@property (nonatomic, readonly) id<YJLayoutAnchorHandler> centerY;
-@property (nonatomic, readonly) id<YJLayoutAnchorHandler> center;
-@property (nonatomic, readonly) id<YJLayoutAnchorHandler> edges;
-@property (nonatomic, readonly) id<YJLayoutAnchorHandler> width;
-@property (nonatomic, readonly) id<YJLayoutAnchorHandler> height;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> top;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> bottom;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> leading;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> trailing;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> centerX;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> centerY;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> center;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> edges;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> width;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> height;
 @end
 
 NS_ASSUME_NONNULL_END

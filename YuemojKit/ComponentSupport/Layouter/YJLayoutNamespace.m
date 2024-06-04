@@ -47,25 +47,25 @@
         [self record:component usingItem:tmpDescription.firstItem];
         // TODO: container和secondItem不用上层指定顺序, 自动递归处理, 以后再实现吧
         __kindof UIView *containerView = tmpDescription.containerItem.view ?: self.owner;//.contentView;
-        [containerView addSubview:component];
+        if (tmpDescription.aboveItem) [containerView insertSubview:component aboveSubview:tmpDescription.aboveItem.view];
+        else if (tmpDescription.belowItem) [containerView insertSubview:component belowSubview:tmpDescription.belowItem.view];
+        else [containerView addSubview:component];
         for (YJLayoutRelatedItem *tmpItemConstraint in tmpDescription.relatedItems) {
             [component mas_makeConstraints:^(MASConstraintMaker *make) {
                 MASConstraint *constraint = [self getFirstItemConstraintFromMaker:make itemConstraint:tmpItemConstraint];
                 NSAssert(constraint, @"fatal: invalid constraint!");
                 MASConstraint * (^relation)(id) = [self getItemRelationForConstraint:constraint itemConstraint:tmpItemConstraint];
-                if (!relation) return; // relation为空表示已经设置了简单类型的值, 不需要再关联下面的约束了.
-                                
-                [self relationSecondItemView:tmpItemConstraint.secondItem.view constraint:tmpItemConstraint using:relation];
-                // 有secondItem时, constant默认为0 就不需要额外offset了
-                if (fabs(tmpItemConstraint.constraint.constant) > FLT_EPSILON) {
-                    constraint.offset(tmpItemConstraint.constraint.constant);
-                }
-                if (tmpItemConstraint.constraint.multiplier > 0.f) {
-                    constraint.multipliedBy(tmpItemConstraint.constraint.multiplier);
-                }
-                if (tmpItemConstraint.constraint.priority > 0.f) {
-                    constraint.priority(tmpItemConstraint.constraint.priority);
-                }
+                do {
+                    if (!relation) break;
+                    [self relationSecondItemView:tmpItemConstraint.secondItem.view constraint:tmpItemConstraint using:relation];
+                    // maker.edge.equalTo(item).insets(edge) 场景的最终处理
+                    if (tmpItemConstraint.constraint.relation == YJLayoutRelationInsets)
+                        constraint.insets(tmpItemConstraint.constraint.edgeInsets);
+                    // 有secondItem时, constant默认为0 就不需要额外offset了
+                    if (fabs(tmpItemConstraint.constraint.constant) > FLT_EPSILON) constraint.offset(tmpItemConstraint.constraint.constant);
+                    if (tmpItemConstraint.constraint.multiplier > 0.f) constraint.multipliedBy(tmpItemConstraint.constraint.multiplier);
+                } while (0);
+                if (tmpItemConstraint.constraint.priority > 0.f) constraint.priority(tmpItemConstraint.constraint.priority);
             }];
         }
     }
@@ -81,6 +81,7 @@
     self.componentLayouts[@(item.view.yj_extra.jTag)] = component;
 }
 
+/// eg: maker.👉🏻leading👈🏻.equalTo(xx.leading)
 - (MASConstraint *)getFirstItemConstraintFromMaker:(MASConstraintMaker *)make itemConstraint:(YJLayoutRelatedItem *)itemConstraint {
     switch (itemConstraint.constraint.firstItemAttribute) {
         case YJLayoutAttributeTop:          return make.top;
@@ -98,13 +99,16 @@
     return nil;
 }
 
+/// eg: 1. maker.edge.👉🏻inset(edge)👈🏻 or maker.yj_offset.👉🏻(10.f)👈🏻 类似场景 secondItem == nil;
+/// 2. maker.leading.👉🏻equalTo👈🏻(item.leading)
+/// 有一个特殊情况, 在设置edge的时候, 如果是和同级View做约束: maker.edge.equalTo(item).insets(edge), relation会在构建的时候被设为为insets, 这里的关系需要处理成返回equalTo, 在最后处理实际的edgeInsets
 - (MASConstraint * (^)(id))getItemRelationForConstraint:(MASConstraint *)constraint itemConstraint:(YJLayoutRelatedItem *)itemConstraint {
     do {
         if (!itemConstraint.secondItem) {
-            // 设置实际值时不需要secondItem, secondItem为父容器时可忽略不写.
             if (itemConstraint.constraint.relation == YJLayoutRelationInsets) {
                 constraint.insets(itemConstraint.constraint.edgeInsets);
             } else {
+                // 设置实际值时不需要secondItem, secondItem为父容器时可忽略不写.
                 constraint.offset(itemConstraint.constraint.constant);
             }
             break;
@@ -113,12 +117,14 @@
             case YJLayoutRelationLessThanOrEqualTo:      return constraint.lessThanOrEqualTo;
             case YJLayoutRelationEqualTo:                return constraint.equalTo;
             case YJLayoutRelationGreaterThanOrEqualTo:   return constraint.greaterThanOrEqualTo;
+            case YJLayoutRelationInsets:                 return constraint.equalTo;
             default: break;
         }
     } while (0);
     return nil;
 }
 
+/// eg: maker.leading.equalTo(👉🏻item👈🏻)  or  maker.leading.equalTo(👉🏻item.leading👈🏻)
 - (void)relationSecondItemView:(__kindof UIView *)secondItemView constraint:(YJLayoutRelatedItem *)itemConstraint using:(MASConstraint * (^)(id))relation {
     switch (itemConstraint.constraint.secondItemAttribute) {
         case YJLayoutAttributeSame:         relation(secondItemView);              break;
@@ -129,13 +135,13 @@
         case YJLayoutAttributeCenterX:      relation(secondItemView.mas_centerX);  break;
         case YJLayoutAttributeCenterY:      relation(secondItemView.mas_centerY);  break;
         case YJLayoutAttributeCenter:       relation(secondItemView);              break;
-//        case YJLayoutAttributeEdgeInset:    break;
         case YJLayoutAttributeWidth:        relation(secondItemView.mas_width);    break;
         case YJLayoutAttributeHeight:       relation(secondItemView.mas_height);   break;
         default: break;
     }
 }
 
+#pragma mark - layout offset
 - (void)layoutComponent:(YJComponentType)type forScene:(NSInteger)scene withOffset:(UIOffset)offset {
     if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
     __kindof UIView *component = ((UIView *)self.owner).yj_extra.viewForIdentifier(type, scene);

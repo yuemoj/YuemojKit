@@ -47,14 +47,43 @@
 }
 
 - (void)onGestureEventTrigged:(__kindof UIGestureRecognizer *)sender {
-    if (!sender.view.yj_action.extendAction) return;
-    if (!sender.view.yj_action.extendAction(sender.view, yj_componentScene(sender.view.yj_extra.jTag))) return;
-    // do sth
+//    if (!sender.view.yj_action.extendAction) return;
+//    do {
+//        if (![self.owner conformsToProtocol:@protocol(YJEventBuildPoint)]) break;
+//        if (![self.owner respondsToSelector:@selector(eventWillBeganAtComponent:)]) break;
+//        [self.owner eventWillBeganAtComponent:sender.view];
+//    } while (0);
+//    if (!sender.view.yj_action.extendAction(sender.view, yj_componentScene(sender.view.yj_extra.jTag))) return;
+//    // do sth
+//    if (![self.owner conformsToProtocol:@protocol(YJEventBuildPoint)]) return;;
+//    if (![self.owner respondsToSelector:@selector(eventDidEndAtComponent:)]) return;;
+//    [self.owner eventDidEndAtComponent:sender.view];
+    [self onEventTrigged:sender.view];
 }
 
 - (void)onControlEventTrigged:(__kindof UIControl *)sender {
+    [self onEventTrigged:sender];
+}
+
+- (void)onEventTrigged:(__kindof UIView *)sender {
     if (!sender.yj_action.extendAction) return;
-    sender.yj_action.extendAction(sender, yj_componentScene(sender.yj_extra.jTag));
+    do {
+        if (![self.owner conformsToProtocol:@protocol(YJEventBuildPoint)]) break;
+        if (![self.owner respondsToSelector:@selector(eventWillBeganAtComponent:)]) break;
+        [self.owner eventWillBeganAtComponent:sender];
+    } while (0);
+    if (!sender.yj_action.extendAction(sender, yj_componentScene(sender.yj_extra.jTag))) return;
+    if (![self.owner conformsToProtocol:@protocol(YJEventBuildPoint)]) return;;
+    if (![self.owner respondsToSelector:@selector(eventDidEndAtComponent:)]) return;;
+    [self.owner eventDidEndAtComponent:sender];
+}
+
+- (void (^)(NSInteger, NSInteger))eventTrigger {
+    return ^(NSInteger type, NSInteger scene) {
+        if (!((UIView *)self.owner).yj_extra.viewForIdentifier) return;
+        __kindof UIView *component = ((UIView *)self.owner).yj_extra.viewForIdentifier((YJComponentType)type, scene);
+        [self onEventTrigged:component];
+    };
 }
 @end
 

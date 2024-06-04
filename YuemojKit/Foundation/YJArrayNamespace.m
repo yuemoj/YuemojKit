@@ -12,8 +12,8 @@
 @end
 @implementation YJArrayNamespace
 
-- (NSArray * _Nonnull (^)(NSString * _Nonnull, NSString * _Nonnull))filterKeyValue {
-    return ^NSArray *(NSString *keyPath, NSString *value) {
+- (NSArray * _Nonnull (^)(NSString * _Nonnull, id _Nonnull))filterKeyValue {
+    return ^NSArray *(NSString *keyPath, id value) {
         return self.filterKeypath(keyPath)(value);
     };
 }

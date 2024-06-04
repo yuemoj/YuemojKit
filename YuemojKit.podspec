@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YuemojKit'
-  s.version          = '0.0.8'
+  s.version          = '1.0.0'
   s.summary          = 'A decoupling framework for UI layout, data sources, and event responses'
 
 # This description is used to generate tags and improve search results.
@@ -71,33 +71,33 @@ Pod::Spec.new do |s|
     ss.dependency 'PinYin4Objc', '~> 1.1.1'
   end
     
-  s.subspec 'Component' do |ss|
+  s.subspec 'ComponentSupport' do |ss|
     ss.subspec 'Common' do |sss|
-      sss.project_header_files = 'YuemojKit/Component/YJComponentWrapper.h'
-      sss.source_files = 'YuemojKit/Component/*.{h,m}'
+      sss.project_header_files = 'YuemojKit/ComponentSupport/YJComponentWrapper.h'
+      sss.source_files = 'YuemojKit/ComponentSupport/*.{h,m}'
       
       sss.dependency 'YuemojKit/UIAbility'
     end
                   
     ss.subspec 'EventBuilder' do |sss|
-      sss.project_header_files = 'YuemojKit/Component/EventBuilder/YJEventBuild{Delegate,er,Namespace}.h'
-      sss.source_files = 'YuemojKit/Component/EventBuilder/*.{h,m}'
+      sss.project_header_files = 'YuemojKit/ComponentSupport/EventBuilder/YJEventBuild{Delegate,er,Namespace}.h'
+      sss.source_files = 'YuemojKit/ComponentSupport/EventBuilder/*.{h,m}'
             
-      sss.dependency 'YuemojKit/Component/Common'
+      sss.dependency 'YuemojKit/ComponentSupport/Common'
     end
         
     ss.subspec 'Filler' do |sss|
-      sss.project_header_files = 'YuemojKit/Component/Filler/YJDataFill{Delegate,er,Namespace}.h'
-      sss.source_files = 'YuemojKit/Component/Filler/*.{h,m}'
+      sss.project_header_files = 'YuemojKit/ComponentSupport/Filler/YJDataFill{Delegate,er,Namespace}.h'
+      sss.source_files = 'YuemojKit/ComponentSupport/Filler/*.{h,m}'
                 
-      sss.dependency 'YuemojKit/Component/Common'
+      sss.dependency 'YuemojKit/ComponentSupport/Common'
     end
           
     ss.subspec 'Layouter' do |sss|
-      sss.project_header_files = 'YuemojKit/Component/Layouter/YJLayout{Delegate,er,Namespace}.h'
-      sss.source_files = 'YuemojKit/Component/Layouter/*.{h,m}'
+      sss.project_header_files = 'YuemojKit/ComponentSupport/Layouter/YJLayout{Delegate,er,Namespace}.h'
+      sss.source_files = 'YuemojKit/ComponentSupport/Layouter/*.{h,m}'
                         
-      sss.dependency 'YuemojKit/Component/Common'
+      sss.dependency 'YuemojKit/ComponentSupport/Common'
       sss.dependency 'Masonry', '~>1.1.0'
     end
   end
@@ -108,5 +108,11 @@ Pod::Spec.new do |s|
 
   s.subspec 'Tools' do |ss|
     ss.source_files = 'YuemojKit/Tools/*.{h,m}'
+  end
+
+  s.subspec 'ComponentGallery' do |ss|
+    ss.source_files = 'YuemojKit/ComponentGallery/*.{h,m}'
+
+    ss.dependency 'YuemojKit/ComponentSupport'
   end
 end
