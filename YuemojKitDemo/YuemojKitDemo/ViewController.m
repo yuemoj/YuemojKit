@@ -55,7 +55,7 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
 #pragma mark- ** Lifecycle **
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = UIColor.lightGrayColor;
+    self.view.backgroundColor = [UIColor colorWithRed:118.f/255.f green:214.f/255.f blue:1.f alpha:1.f];
     
     UIBarButtonItem *singleItem = [[UIBarButtonItem alloc] initWithTitle:@"SingleMask" style:UIBarButtonItemStylePlain target:self action:@selector(onSingleMask:)];
     UIBarButtonItem *dualItem = [[UIBarButtonItem alloc] initWithTitle:@"DualMask" style:UIBarButtonItemStylePlain target:self action:@selector(onDualMask:)];
