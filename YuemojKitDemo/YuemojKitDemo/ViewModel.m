@@ -15,17 +15,29 @@
 @property (nonatomic) NSArray<id<YJGroupModelProtocol>> *allDatas;
 @property (nonatomic) NSArray<id<YJGroupModelProtocol>> *onlineDatas;
 @property (nonatomic) NSArray<id<YJGroupModelProtocol>> *offlineDatas;
+@property (nonatomic) NSMutableArray *selectedIds; // TODO: 按需要记录相应的数据用作筛选
 @property (nonatomic) NSArray *titleDatas;
 @property (nonatomic) YJTabScene selectedTabScene;
-@property (nonatomic, copy) void(^reloader)(void);
+@property (nonatomic, copy) void(^reloader)(BOOL);
 @property (nonatomic, copy) void(^result)(void);
+
+@property (nonatomic) BOOL isSelectionMode;
 @end
+
+@interface TmpDataModel : NSObject
+@property (nonatomic) NSInteger modelId;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic) BOOL isOn;
+@end
+@implementation TmpDataModel
+@end
+
 @implementation ViewModel
-+ (instancetype)viewModelWithDataSourceSetter:(void (NS_NOESCAPE^)(id<UITableViewDataSource> _Nonnull))setter identifierFetcher:(NSString * _Nonnull (^)(NSIndexPath *))fetcher cellFiller:(void (^)(__kindof UITableViewCell * _Nonnull, NSIndexPath * _Nonnull))filler dataReloader:(void (^)(void))reloader result:(void (^)(void))result {
++ (instancetype)viewModelWithDataSourceSetter:(void (NS_NOESCAPE^)(id<UITableViewDataSource> _Nonnull))setter identifierFetcher:(NSString * _Nonnull (^)(NSIndexPath *))fetcher cellFiller:(void (^)(__kindof UITableViewCell * _Nonnull, NSIndexPath * _Nonnull))filler dataReloader:(void (^)(BOOL))reloader result:(void (^)(void))result {
     return [[self alloc] initWithDataSourceSetter:setter identifierFetcher:fetcher cellFiller:filler dataReloader:reloader result:result];
 }
 
-- (instancetype)initWithDataSourceSetter:(void (^)(id<UITableViewDataSource> _Nonnull))setter identifierFetcher:(NSString * _Nonnull (^)(NSIndexPath *))fetcher cellFiller:(void (^)(__kindof UITableViewCell * _Nonnull, NSIndexPath * _Nonnull))filler dataReloader:(void (^)(void))reloader result:(void (^)(void))result {
+- (instancetype)initWithDataSourceSetter:(void (^)(id<UITableViewDataSource> _Nonnull))setter identifierFetcher:(NSString * _Nonnull (^)(NSIndexPath *))fetcher cellFiller:(void (^)(__kindof UITableViewCell * _Nonnull, NSIndexPath * _Nonnull))filler dataReloader:(void (^)(BOOL))reloader result:(void (^)(void))result {
     if (self = [super init]) {
         _dataSource = [YJGroupDataSource dataSourceWithIdentifierFetcher:^NSString * _Nonnull(NSIndexPath * _Nonnull indexPath) {
             return fetcher(indexPath);
@@ -43,8 +55,17 @@
     NSMutableArray *layouterGroupData = [NSMutableArray arrayWithCapacity:0];
     NSMutableArray *cellGroupData = [NSMutableArray arrayWithCapacity:0];
     for (int i = 0; i <= 3; i++) {
-        [layouterGroupData addObject:@{@"name":[NSString stringWithFormat:@"layouter%d", i], @"on":@(i % 2)}];
-        [cellGroupData addObject:@{@"name":[NSString stringWithFormat:@"usercell%d", i], @"on":@((i + 1) % 2)}];
+        TmpDataModel *layoutModel = [TmpDataModel new];
+        layoutModel.modelId = i;
+        layoutModel.name = [NSString stringWithFormat:@"layouter%d", i];
+        layoutModel.isOn = i % 2;
+        [layouterGroupData addObject:layoutModel];
+        
+        TmpDataModel *cellModel = [TmpDataModel new];
+        cellModel.modelId = i + 10;
+        cellModel.name = [NSString stringWithFormat:@"usercell%d", i];
+        cellModel.isOn = (i +1) % 2;
+        [cellGroupData addObject:cellModel];
     }
     
     self.allDatas = @[[self generalGroupModel:@"layouter生成的cell" records:layouterGroupData], 
@@ -61,8 +82,8 @@
 }
 
 - (void)updateDataSource {
-    YJFilter layoutFilter = self.allDatas.firstObject.groupRecords.yj_filter.filterKeypath(@"on");
-    YJFilter cellFilter = self.allDatas.lastObject.groupRecords.yj_filter.filterKeypath(@"on");
+    YJFilter layoutFilter = self.allDatas.firstObject.groupRecords.yj_filter.filterKeypath(@"isOn");
+    YJFilter cellFilter = self.allDatas.lastObject.groupRecords.yj_filter.filterKeypath(@"isOn");
     NSArray *layoutOn = layoutFilter(@1);
     NSArray *layoutOff = layoutFilter(@0);
     NSArray *cellOn = cellFilter(@1);
@@ -90,12 +111,36 @@
         case 2: [self.dataSource loadDatas:self.offlineDatas]; break;
         default: break;
     }
-    if (self.reloader) self.reloader();
+    if (self.reloader) self.reloader(self.isSelectionMode);
+}
+
+- (void)onSelectionChange:(BOOL)canSelect {
+    self.isSelectionMode = canSelect;
+    if (!canSelect) [self.selectedIds removeAllObjects];
+    if (self.reloader) self.reloader(self.isSelectionMode);
+}
+
+- (void)onSelectAll:(BOOL)isAll {
+    if (!isAll) [self.selectedIds removeAllObjects];
+    else {
+        for (TmpDataModel *tmp in [self.dataSource groupDataAtSection:0].groupRecords) {
+            [self.selectedIds addObject:@(tmp.modelId)];
+        }
+    }
+    if (self.reloader) self.reloader(self.isSelectionMode);
 }
 
 - (void)doSthAtIndexPath:(NSIndexPath *)indexPath callback:(void (NS_NOESCAPE^)(NSString * _Nonnull))callback {
-    NSDictionary *data = [self.dataSource dataAtIndexPath:indexPath];
-    !callback ?: callback(data[@"name"]);
+    TmpDataModel *model = [self.dataSource dataAtIndexPath:indexPath];
+    if (self.isSelectionMode && !indexPath.section) {
+        if ([self.selectedIds containsObject:@(model.modelId)]) {
+            [self.selectedIds removeObject:@(model.modelId)];
+        } else {
+            [self.selectedIds addObject:@(model.modelId)];
+        }
+        if (self.reloader) self.reloader(self.isSelectionMode);
+    }
+    !callback ?: callback(model.name);
 }
 
 - (TabDataViewModel *)tabTitleDataSource {
@@ -111,6 +156,11 @@
     }
     return _tabTitleDataSource;
 }
+
+- (NSMutableArray *)selectedIds {
+    if (!_selectedIds) _selectedIds = [NSMutableArray arrayWithCapacity:0];
+    return _selectedIds;
+}
 @end
 
 @implementation ViewModel (ComponentType)
@@ -125,6 +175,7 @@
 - (YJComponentType)componentTypeForScene:(NSInteger)scene indexPath:(nonnull NSIndexPath *)indexPath {
     switch (scene) {
         case CellComponentBackgroundImage:
+        case CellComponentSelection:
         case CellComponentHeadImage:
         case CellComponentDetailImage:  return YJComponentTypeImage;
         case CellComponentTitle:        return YJComponentTypeLabel;
@@ -153,6 +204,15 @@
         maker.edges.insets(UIEdgeInsetsZero);
     }];
     [descriptions addObject:backgroundDescription];
+    
+    // selectionImage
+    YJLayoutItem *selectionItem = [YJLayoutItem new];
+    [selectionItem bindView:provider(CellComponentSelection) withType:[self componentTypeForScene:CellComponentSelection indexPath:indexPath] scene:CellComponentSelection];
+    YJLayoutItemConstraintDescription *selectoinDescription = [selectionItem makeItemDescription:^(id<YJLayoutConstraintAttributeDelegate>  _Nonnull maker) {
+        maker.leading.yj_offset(32.f);
+        maker.centerY.yj_offset(-5.f);
+    }];
+    [descriptions addObject:selectoinDescription];
     
     // headImage
     YJLayoutItem *headImageItem = [YJLayoutItem new];
@@ -193,17 +253,22 @@
     return descriptions;
 }
 
-- (UIOffset)offsetForScene:(NSInteger)scene indexPath:(NSIndexPath *)indexPath {
-    switch (scene) {
-        case CellComponentHeadImage: {
-            id<YJGroupModelProtocol> groupModel = [self.dataSource groupDataAtSection:indexPath.section];
-            NSInteger countInSection = groupModel.groupRecords.count;
-            // 只有1行
-            if (countInSection == 1 || indexPath.row == countInSection - 1) return UIOffsetMake(NSNotFound, -5.f);
-        } break;
-        default: break;
-    }
-    return UIOffsetMake(NSNotFound, 0.f);
+- (NSArray<YJLayoutItemConstraintDescription *> *)layoutUpdateDescriptionsAtIndexPath:(NSIndexPath *)indexPath fetcher:(YJLayoutItem * _Nonnull (NS_NOESCAPE^)(NSInteger scene))fetcher {
+    id<YJGroupModelProtocol> groupModel = [self.dataSource groupDataAtSection:indexPath.section];
+    NSInteger countInSection = groupModel.groupRecords.count;
+    // 只有1行
+    BOOL shouldOffset = (countInSection == 1 || indexPath.row == countInSection - 1);
+    YJLayoutItem *selectionItem = fetcher(CellComponentSelection);
+    YJLayoutItemConstraintDescription *selectionDescription = [selectionItem updateItemDescription:^(id<YJLayoutConstraintAttributeDelegate>  _Nonnull maker) {
+        maker.centerY.yj_offset(shouldOffset ? -5.f : 0.f);
+    }];
+    
+    YJLayoutItem *headImageItem = fetcher(CellComponentHeadImage);
+    YJLayoutItemConstraintDescription *headImageDescription = [headImageItem makeItemDescription:^(id<YJLayoutConstraintAttributeDelegate>  _Nonnull maker) {
+        maker.leading.yj_offset(self.isSelectionMode ? 75.f : 32.f);
+        maker.centerY.yj_offset(shouldOffset ? -5.f : 0.f);
+    }];
+    return @[selectionDescription, headImageDescription];
 }
 @end
 
@@ -237,9 +302,9 @@
 
 /// MARK: cell
 - (NSString *)textForScene:(NSInteger)scene purpose:(YJTextPurpose)purpose indexPath:(NSIndexPath *)indexPath {
-    NSDictionary *entity = [self.dataSource dataAtIndexPath:indexPath];
+    TmpDataModel *model = [self.dataSource dataAtIndexPath:indexPath];
     switch (scene) {
-        case CellComponentTitle: return entity[@"name"];
+        case CellComponentTitle: return model.name;
         default: return nil;
     }
 }
@@ -272,6 +337,10 @@
             // 中间的行
             return @"img_bg_cell_list_middle";
         }
+        case CellComponentSelection: {
+            TmpDataModel *model = [self.dataSource dataAtIndexPath:indexPath];
+            return [self.selectedIds containsObject:@(model.modelId)] ? @"icon_check_solid_blue_28" : @"icon_radio_hollow_28";
+        }
         case CellComponentHeadImage:       return @"icon_group_39";
         case CellComponentDetailImage:     return @"icon_sharp_right_gray";
         default:break;
@@ -302,19 +371,25 @@
 }
 
 - (BOOL)ponForScene:(NSInteger)scene purpose:(YJPoNPurpose)purpose indexPath:(NSIndexPath *)indexPath {
-    do {
-        if (purpose != YJPoNPurposeSelected) break;
-        if (scene != CellComponentMarkBtn) break;
-        NSDictionary *entity = [self.dataSource dataAtIndexPath:indexPath];
-        return [entity[@"on"] boolValue];
-    } while (0);
-    return NO;
+    switch (purpose) {
+        case YJPoNPurposeDisplay: return scene == CellComponentSelection && self.isSelectionMode;
+        case YJPoNPurposeSelected: {
+            TmpDataModel *model = [self.dataSource dataAtIndexPath:indexPath];
+            switch (scene) {
+                case CellComponentMarkBtn:      return model.isOn;
+                case CellComponentSelection:    return [self.selectedIds containsObject:@(model.modelId)];
+                default: return NO;
+            }
+        }
+        default: return NO;
+    }
 }
 
 /// MARK: update
 - (BOOL)shouldUpdateImageForScene:(NSInteger)scene indexPath:(nonnull NSIndexPath *)indexPath {
     // 背景图是可变的
     switch (scene) {
+        case CellComponentSelection:
         case CellComponentBackgroundImage: return YES;
         default: return NO;
     }
@@ -341,7 +416,7 @@ static NSString *const tabTitle[] = {
 };
 
 - (YJComponentType)componentTypeForScene:(NSInteger)scene {
-    return tabComponentTypeForScene((YJTabScene)scene);
+    return yj_componentTypeForTabScene((YJTabScene)scene);
 }
 
 - (NSString *)textForScene:(NSInteger)scene purpose:(YJTextPurpose)purpose state:(UIControlState)state {
@@ -361,3 +436,34 @@ static NSString *const tabTitle[] = {
 }
 @end
 
+#import "YJMaskViewScenes.h"
+@interface MaskSingleViewModel ()
+@property (nonatomic) ViewModel *syncViewModel;
+@end
+@implementation MaskSingleViewModel
++ (instancetype)viewModelWithSync:(ViewModel *)viewModel {
+    return [[MaskSingleViewModel alloc] initWithSync:viewModel];
+}
+
+- (instancetype)initWithSync:(ViewModel *)viewModel {
+    if (self = [super init]) {
+        _syncViewModel = viewModel;
+    }
+    return self;
+}
+
+- (YJComponentType)componentTypeForScene:(NSInteger)scene {
+    if (scene <= YJMaskTopSceneRightBarButton) return yj_componentTypeForTopMaskScene((YJMaskTopScene)scene);
+    if (scene >= YJMaskBottomDualSceneLine) return yj_componentTypeForDualBottomMaskScene((YJMaskBottomDualScene)scene);
+    return yj_componentTypeForSingleBottomMaskScene((YJMaskBottomSingleScene)scene);
+}
+
+- (NSString *)textForScene:(NSInteger)scene purpose:(YJTextPurpose)purpose {
+    return @(self.syncViewModel.selectedIds.count).stringValue;
+}
+
+- (BOOL)ponForScene:(NSInteger)scene purpose:(YJPoNPurpose)purpose {
+    if (purpose != YJPoNPurposeSelected) return NO;
+    return self.syncViewModel.selectedIds.count > 0;
+}
+@end

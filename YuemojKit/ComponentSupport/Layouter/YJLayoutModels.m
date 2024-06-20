@@ -6,34 +6,74 @@
 //
 
 #import "YJLayoutModels.h"
-
 @implementation YJLayoutAnchor
-+ (instancetype)anchorWithAttribute:(YJLayoutAttribute)anchor owner:(id)owner {
-    return [[self alloc] initWithAttribute:anchor owner:owner];
++ (instancetype)anchorWithAttribute:(YJLayoutAttribute)attribute owner:(id)owner {
+    return [[self alloc] initWithAttribute:attribute owner:owner];
 }
 
-- (instancetype)initWithAttribute:(YJLayoutAttribute)anchor owner:(id)owner {
+- (instancetype)initWithAttribute:(YJLayoutAttribute)attribute owner:(id)owner {
     if (self = [super init]) {
-        self.layoutAttribute = anchor;
+        self.layoutAttribute = attribute;
         self.owner = owner;
     }
     return self;
 }
 @end
 
-@interface YJLayoutAnchor (Handler)<YJLayoutAnchorProtocol> @end
+@interface YJLayoutAnchor (Attribute) <YJLayoutConstraintAttributeDelegate>
+@end
+@implementation YJLayoutAnchor (Attribute)
+- (id<YJLayoutAnchorProtocol>)top {
+    return ((id<YJLayoutConstraintAttributeDelegate>)self.owner).top;
+}
+
+- (id<YJLayoutAnchorProtocol>)bottom {
+    return ((id<YJLayoutConstraintAttributeDelegate>)self.owner).bottom;
+}
+
+- (id<YJLayoutAnchorProtocol>)leading {
+    return ((id<YJLayoutConstraintAttributeDelegate>)self.owner).leading;
+}
+
+- (id<YJLayoutAnchorProtocol>)trailing {
+    return ((id<YJLayoutConstraintAttributeDelegate>)self.owner).trailing;
+}
+
+- (id<YJLayoutAnchorProtocol>)centerX {
+    return ((id<YJLayoutConstraintAttributeDelegate>)self.owner).centerX;
+}
+
+- (id<YJLayoutAnchorProtocol>)centerY {
+    return ((id<YJLayoutConstraintAttributeDelegate>)self.owner).centerY;
+}
+
+- (id<YJLayoutAnchorProtocol>)center {
+    return ((id<YJLayoutConstraintAttributeDelegate>)self.owner).center;
+}
+
+- (id<YJLayoutAnchorProtocol>)width {
+    return ((id<YJLayoutConstraintAttributeDelegate>)self.owner).width;
+}
+
+- (id<YJLayoutAnchorProtocol>)height {
+    return ((id<YJLayoutConstraintAttributeDelegate>)self.owner).height;
+}
+@end
+
+@interface YJLayoutAnchor (Protocol)<YJLayoutAnchorProtocol>
+@end
 
 @interface YJLayoutConstraintMaker : NSObject<YJLayoutConstraintAttributeDelegate>
-@property (nonatomic) id<YJLayoutAnchorProtocol> top;
-@property (nonatomic) id<YJLayoutAnchorProtocol> bottom;
-@property (nonatomic) id<YJLayoutAnchorProtocol> leading;
-@property (nonatomic) id<YJLayoutAnchorProtocol> trailing;
-@property (nonatomic) id<YJLayoutAnchorProtocol> centerX;
-@property (nonatomic) id<YJLayoutAnchorProtocol> centerY;
-@property (nonatomic) id<YJLayoutAnchorProtocol> center;
+@property (nonatomic) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> top;
+@property (nonatomic) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> bottom;
+@property (nonatomic) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> leading;
+@property (nonatomic) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> trailing;
+@property (nonatomic) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> centerX;
+@property (nonatomic) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> centerY;
+@property (nonatomic) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> center;
+@property (nonatomic) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> width;
+@property (nonatomic) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> height;
 @property (nonatomic) id<YJLayoutAnchorProtocol> edgeInset;
-@property (nonatomic) id<YJLayoutAnchorProtocol> width;
-@property (nonatomic) id<YJLayoutAnchorProtocol> height;
 
 @property (nonatomic) NSMutableArray<YJLayoutRelatedItem *> *relatedItems;
 
@@ -101,49 +141,49 @@
     return _relatedItems;
 }
 
-- (id<YJLayoutAnchorProtocol>)top {
+- (id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate>)top {
     if (!_top) {
         _top = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeTop owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeTop];
     }
     return _top;
 }
-- (id<YJLayoutAnchorProtocol>)bottom {
+- (id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate>)bottom {
     if (!_bottom) {
         _bottom = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeBottom owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeBottom];
     }
     return _bottom;
 }
-- (id<YJLayoutAnchorProtocol>)leading {
+- (id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate>)leading {
     if (!_leading) {
         _leading = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeLeading owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeLeading];
     }
     return _leading;
 }
-- (id<YJLayoutAnchorProtocol>)trailing {
+- (id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate>)trailing {
     if (!_trailing) {
         _trailing = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeTrailing owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeTrailing];
     }
     return _trailing;
 }
-- (id<YJLayoutAnchorProtocol>)centerX {
+- (id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate>)centerX {
     if (!_centerX) {
         _centerX = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeCenterX owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeCenterX];
     }
     return _centerX;
 }
-- (id<YJLayoutAnchorProtocol>)centerY {
+- (id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate>)centerY {
     if (!_centerY) {
         _centerY = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeCenterY owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeCenterY];
     }
     return _centerY;
 }
-- (id<YJLayoutAnchorProtocol>)center {
+- (id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate>)center {
     if (!_center) {
         _center = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeCenter owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeCenter];
@@ -157,14 +197,14 @@
     }
     return _edgeInset;
 }
-- (id<YJLayoutAnchorProtocol>)width {
+- (id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate>)width {
     if (!_width) {
         _width = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeWidth owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeWidth];
     }
     return _width;
 }
-- (id<YJLayoutAnchorProtocol>)height {
+- (id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate>)height {
     if (!_height) {
         _height = [YJLayoutAnchor<YJLayoutConstraintMaker *> anchorWithAttribute:YJLayoutAttributeHeight owner:self];
         [self addItemConstraintWithAttribute:YJLayoutAttributeHeight];
@@ -173,7 +213,7 @@
 }
 @end
 
-@implementation YJLayoutAnchor (Handler)
+@implementation YJLayoutAnchor (Protocol)
 - (id<YJLayoutAnchorProtocol>(^)(id))lessThanOrEqualTo {
     return ^(id anchor) {
         YJLayoutRelation relation = YJLayoutRelationLessThanOrEqualTo;
@@ -314,6 +354,10 @@
     description.firstItem = self;
     description.relatedItems = maker.relatedItems;
     return description;
+}
+
+- (YJLayoutItemConstraintDescription *)updateItemDescription:(void (NS_NOESCAPE^)(id<YJLayoutConstraintAttributeDelegate> _Nonnull))make {
+    return [self makeItemDescription:make];
 }
 @end
 

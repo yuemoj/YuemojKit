@@ -8,14 +8,22 @@
 #import "ViewController.h"
 #import "ViewModel.h"
 #import "TableViewCell.h"
+
 #import "YJTabView.h"
 #import "YJTabLayoutViewModel.h"
+
+#import "YJTopBottomMaskViewManager.h"
+#import "YJMaskTopLayoutViewModel.h"
+#import "YJMaskBottomSingleOperationLayoutViewModel.h"
+#import "YJMaskBottomDualOperationsLayoutViewModel.h"
 
 #import "Masonry.h"
 #import "UIKit+Yuemoj.h"
 #import "YJLayouterProtocol.h"
 #import "YJDataFillerProtocol.h"
 #import "YJEventBuilderProtocol.h"
+
+#define k_status_height         UIApplication.sharedApplication.windows.firstObject.windowScene.statusBarManager.statusBarFrame.size.height
 
 @interface ViewController ()<UITableViewDelegate>
 @property (nonatomic) ViewModel *viewModel;
@@ -27,6 +35,14 @@
 @property (nonatomic) UILabel *idLabel;
 
 @property (nonatomic) UITableView *tableView;
+
+@property (nonatomic) YJTopBottomMaskViewManager *singleMaskViewManager;
+@property (nonatomic) YJTopBottomMaskViewManager *dualMaskViewManager;
+@property (nonatomic) YJMaskTopLayoutViewModel *topLayoutViewModel;
+@property (nonatomic) YJMaskBottomSingleOperationLayoutViewModel *singleBottomMaskLayoutViewModel;
+@property (nonatomic) YJMaskBottomDualOperationsLayoutViewModel *dualBottomMaskLayoutViewModel;
+
+@property (nonatomic) MaskSingleViewModel *maskSingleViewModel;
 
 @property (nonatomic) BOOL shouldLinkage;
 @end
@@ -41,6 +57,10 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.lightGrayColor;
     
+    UIBarButtonItem *singleItem = [[UIBarButtonItem alloc] initWithTitle:@"SingleMask" style:UIBarButtonItemStylePlain target:self action:@selector(onSingleMask:)];
+    UIBarButtonItem *dualItem = [[UIBarButtonItem alloc] initWithTitle:@"DualMask" style:UIBarButtonItemStylePlain target:self action:@selector(onDualMask:)];
+    self.navigationItem.rightBarButtonItems = @[singleItem, dualItem];
+    
     [self privateLayout];
     [self privateRegister];
     
@@ -54,10 +74,52 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
     
 }
 
+- (void)onSingleMask:(UIBarButtonItem *)sender {
+    if (!self.singleMaskViewManager) [self loadSingleOperationMaskView];
+    [self.singleMaskViewManager showOnViewController:self];
+    self.singleMaskViewManager.bottomMaskView.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
+        filler.fillText(self.maskSingleViewModel, YJTextPurposeText, @(YJMaskBottomSingleSceneCount), nil);
+    });
+    [self onTableViewTransform:YES];
+    [self.viewModel onSelectionChange:YES];
+}
+
+- (void)reloadDataOnSingleMaskView {
+    if (self.singleMaskViewManager.isDisplayed) {
+        self.singleMaskViewManager.topMaskView.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
+            filler.fillPoN(self.maskSingleViewModel, YJPoNPurposeSelected, @(YJMaskTopSceneRightBarButton), nil);
+        });
+        self.singleMaskViewManager.bottomMaskView.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
+            filler.fillText(self.maskSingleViewModel, YJTextPurposeText, @(YJMaskBottomSingleSceneCount), nil);
+        });
+    }
+    
+    if (self.dualMaskViewManager.isDisplayed) {
+        self.dualMaskViewManager.topMaskView.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
+            filler.fillPoN(self.maskSingleViewModel, YJPoNPurposeSelected, @(YJMaskTopSceneRightBarButton), nil);
+        });
+    }
+}
+
+- (void)onDualMask:(UIBarButtonItem *)sender {
+    if (!self.dualMaskViewManager) [self loadDualOperationMaskView];
+    [self.dualMaskViewManager showOnViewController:self];
+    [self.viewModel onSelectionChange:YES];
+    [self onTableViewTransform:YES];
+}
+
+- (void)onTableViewTransform:(BOOL)shouldDisplayMaskView {
+    [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.bottom.offset(shouldDisplayMaskView ? -96.f : 0.f);
+    }];
+    [UIView animateWithDuration:.25f animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
 #pragma mark- ** Protocols **
 #pragma mark UITableViewDelegate
 - (void)fillCell:(__kindof UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
-//    cell.contentView.backgroundColor = UIColor.clearColor; [UIColor colorWithWhite:1.f alpha:0.f];
     cell.backgroundColor = [UIColor colorWithWhite:1.f alpha:0.f];
     if (!indexPath.section) {
         cell.contentView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
@@ -65,6 +127,7 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
                 switch (scene) {
                         // 可预先设置各控件的固定样式
                     case CellComponentBackgroundImage:
+                    case CellComponentSelection:
                     case CellComponentHeadImage:
                     case CellComponentDetailImage:      return UIImageView.new;
                     case CellComponentTitle:            return UILabel.new;
@@ -72,18 +135,20 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
                     default: break;
                 }
                 return UIView.new;
-            });
+            }).layoutUpdateAtIndexPath(self.viewModel, indexPath);
         });
     }
     
+    // Note: 自定义的Cell CenterY的调整自己需要额外实现, 不能通过layouter.layoutUpdateAtIndexPath()来处理
     cell.contentView.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
-        filler.fillImageNameAtIndexPath(self.viewModel, YJImagePurposeForeground, indexPath, @(CellComponentHeadImage), @(CellComponentBackgroundImage), @(CellComponentDetailImage), nil)
+        filler.fillImageNameAtIndexPath(self.viewModel, YJImagePurposeForeground, indexPath, @(CellComponentSelection), @(CellComponentHeadImage), @(CellComponentBackgroundImage), @(CellComponentDetailImage), nil)
         .fillImageNameForStateAtIndexPath(self.viewModel, YJImagePurposeForeground, UIControlStateSelected, indexPath, @(CellComponentMarkBtn), nil)
         .fillImageNameForStateAtIndexPath(self.viewModel, YJImagePurposeForeground, UIControlStateNormal, indexPath, @(CellComponentMarkBtn), nil)
         .fillTextAtIndexPath(self.viewModel, YJTextPurposeText, indexPath, @(CellComponentTitle), nil)
         .fillFontAtIndexPath(self.viewModel, indexPath, @(CellComponentTitle), nil)
         .fillColorAtIndexPath(self.viewModel, YJColorPurposeText, indexPath, @(CellComponentTitle), nil)
-        .fillPoNAtIndexPath(self.viewModel, indexPath, YJPoNPurposeSelected, @(CellComponentMarkBtn), nil);
+        .fillPoNAtIndexPath(self.viewModel, indexPath, YJPoNPurposeSelected, @(CellComponentMarkBtn), @(CellComponentSelection), nil)
+        .fillPoNAtIndexPath(self.viewModel, indexPath, YJPoNPurposeDisplay, @(CellComponentSelection), nil);
     });
     
     cell.contentView.yj_eventBuild.buildEvent(^(id<YJEventBuilderProtocol>  _Nonnull builder) {
@@ -108,6 +173,12 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
         .fillColorInSection(self.viewModel, YJColorPurposeText, section, nil);
     });
     return view;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.viewModel doSthAtIndexPath:indexPath callback:^(NSString * _Nonnull obj) {
+            
+    }];
 }
 
 #pragma mark -Getters
@@ -248,7 +319,7 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
         layouter.layout(tabLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {
             if (scene == YJTabSceneIndicator) {
                 UIView *indicatorView = UIView.new;
-                indicatorView.backgroundColor = [UIColor colorWithWhite:.2f alpha:1.f];;
+                indicatorView.backgroundColor = [UIColor colorWithWhite:.2f alpha:1.f];
                 indicatorView.layer.cornerRadius = 10.f;
                 return indicatorView;
             } else if (scene >= YJTabSceneFirstSplit && scene < YJTabSceneFirstTabBtn) {
@@ -289,6 +360,176 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
     self.backgroundTabView.yj_eventBuild.eventTrigger(YJComponentTypeButton, YJTabSceneFirstTabBtn);
 }
 
+- (void)loadSingleOperationMaskView {
+    self.singleMaskViewManager = [YJTopBottomMaskViewManager new];
+    self.singleMaskViewManager.topMaskHeight = k_status_height + 44.f;
+    self.singleMaskViewManager.topMaskView.backgroundColor = [UIColor colorWithWhite:.8f alpha:1.f];
+    self.singleMaskViewManager.topMaskView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
+        layouter.layout(self.topLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {
+            switch (scene) {
+                case YJMaskTopSceneClose: {
+                    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    [closeBtn setImage:[UIImage imageNamed:@"icon_close"] forState:UIControlStateNormal];
+                    [closeBtn setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+                    return closeBtn;
+                }
+                case YJMaskTopSceneTitle: {
+                    UILabel *titleLabel = [UILabel new];
+                    titleLabel.font = [UIFont systemFontOfSize:18.f weight:UIFontWeightSemibold];
+                    titleLabel.textColor = UIColor.darkTextColor;
+                    titleLabel.text = @"单操作";
+                    return titleLabel;
+                }
+                case YJMaskTopSceneRightBarButton: {
+                    UIButton *rightBarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    rightBarBtn.titleLabel.font = [UIFont systemFontOfSize:18.f weight:UIFontWeightMedium];
+                    [rightBarBtn setTitle:@"全选" forState:UIControlStateNormal];
+                    [rightBarBtn setTitle:@"取消全选" forState:UIControlStateSelected];
+                    [rightBarBtn setTitleColor:UIColor.cyanColor forState:UIControlStateNormal];
+                    [rightBarBtn setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+                    return rightBarBtn;
+                }
+                default: return nil;
+            }
+        });
+    });
+    
+    __weak typeof(self) weakself = self;
+    self.singleMaskViewManager.topMaskView.yj_eventBuild.buildEvent(^(id<YJEventBuilderProtocol>  _Nonnull builder) {
+        builder.addActionForControlEvents(self.topLayoutViewModel, UIControlEventPrimaryActionTriggered, ^BOOL(id owner, __kindof UIControl *sender, NSInteger scene) {
+            if (scene == YJMaskTopSceneClose) {
+                [weakself.singleMaskViewManager removeFromMaskingViewController];
+                [weakself onTableViewTransform:NO];
+                [weakself.viewModel onSelectionChange:NO];
+            } else if (scene == YJMaskTopSceneRightBarButton) {
+                sender.selected = !sender.isSelected;
+                [weakself.viewModel onSelectAll:sender.isSelected];
+            }
+            return YES;
+        }, @(YJMaskTopSceneClose), @(YJMaskTopSceneRightBarButton), nil);
+    });
+    
+    self.singleMaskViewManager.bottomMaskHeight = 96.f;
+    self.singleMaskViewManager.bottomMaskView.backgroundColor = [UIColor colorWithWhite:.8f alpha:1.f];
+    self.singleMaskViewManager.bottomMaskView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
+        layouter.layout(self.singleBottomMaskLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {
+            switch (scene) {
+                case YJMaskBottomSingleSceneLine: {
+                    UIView *line = [UIView new];
+                    line.backgroundColor = UIColor.lightGrayColor;
+                    return line;
+                }
+                case YJMaskBottomSingleSceneHint: {
+                    UILabel *selectedTextLabel = [UILabel new];
+                    selectedTextLabel.font = [UIFont systemFontOfSize:16.f];
+                    selectedTextLabel.text = @"已选:";
+                    selectedTextLabel.textColor = UIColor.darkTextColor;
+                    return selectedTextLabel;
+                }
+                case YJMaskBottomSingleSceneCount: {
+                    UILabel *countLabel = [UILabel new];
+                    countLabel.font = [UIFont systemFontOfSize:16.f];
+                    countLabel.textColor = UIColor.darkGrayColor;
+                    countLabel.text = @"10";
+                    return countLabel;
+                }
+                case YJMaskBottomSingleSceneOperation: {
+                    UIButton *operateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    operateBtn.titleLabel.font = [UIFont systemFontOfSize:17.f];
+                    [operateBtn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+                    [operateBtn setTitle:@"确定" forState:UIControlStateNormal];
+                    operateBtn.backgroundColor = [UIColor colorWithWhite:.2f alpha:1.f];
+                    operateBtn.layer.cornerRadius = 10.f;
+                    operateBtn.layer.masksToBounds = YES;
+                    return operateBtn;
+                }
+                default: return nil;
+            }
+        });
+    });
+}
+
+- (void)loadDualOperationMaskView {
+    self.dualMaskViewManager = [YJTopBottomMaskViewManager new];
+    self.dualMaskViewManager.topMaskHeight = k_status_height + 44.f;
+    self.dualMaskViewManager.topMaskView.backgroundColor = [UIColor colorWithWhite:.8f alpha:1.f];
+    self.dualMaskViewManager.topMaskView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
+        layouter.layout(self.topLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {
+            switch (scene) {
+                case YJMaskTopSceneClose: {
+                    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    [closeBtn setImage:[UIImage imageNamed:@"icon_close"] forState:UIControlStateNormal];
+                    [closeBtn setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+                    return closeBtn;
+                }
+                case YJMaskTopSceneTitle: {
+                    UILabel *titleLabel = [UILabel new];
+                    titleLabel.font = [UIFont systemFontOfSize:18.f weight:UIFontWeightSemibold];
+                    titleLabel.textColor = UIColor.darkTextColor;
+                    titleLabel.text = @"双操作";
+                    return titleLabel;
+                }
+                case YJMaskTopSceneRightBarButton: {
+                    UIButton *rightBarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    rightBarBtn.titleLabel.font = [UIFont systemFontOfSize:18.f weight:UIFontWeightMedium];
+                    [rightBarBtn setTitle:@"全选" forState:UIControlStateNormal];
+                    [rightBarBtn setTitle:@"取消全选" forState:UIControlStateSelected];
+                    [rightBarBtn setTitleColor:UIColor.cyanColor forState:UIControlStateNormal];
+                    [rightBarBtn setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+                    return rightBarBtn;
+                }
+                default: return nil;
+            }
+        });
+    });
+    
+    __weak typeof(self) weakself = self;
+    self.dualMaskViewManager.topMaskView.yj_eventBuild.buildEvent(^(id<YJEventBuilderProtocol>  _Nonnull builder) {
+        builder.addActionForControlEvents(self.topLayoutViewModel, UIControlEventPrimaryActionTriggered, ^BOOL(id owner, __kindof UIControl *sender, NSInteger scene) {
+            if (scene == YJMaskTopSceneClose) {
+            [weakself.dualMaskViewManager removeFromMaskingViewController];
+            [weakself onTableViewTransform:NO];
+                    [weakself.viewModel onSelectionChange:NO];
+            } else if (scene == YJMaskTopSceneRightBarButton) {
+                sender.selected = !sender.isSelected;
+                [weakself.viewModel onSelectAll:sender.isSelected];
+            }
+            return YES;
+        }, @(YJMaskTopSceneClose), @(YJMaskTopSceneRightBarButton), nil);
+    });
+    
+    self.dualMaskViewManager.bottomMaskHeight = 96.f;
+    self.dualMaskViewManager.bottomMaskView.backgroundColor = [UIColor colorWithWhite:.8f alpha:1.f];
+    self.dualMaskViewManager.bottomMaskView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
+        layouter.layout(self.dualBottomMaskLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {
+            switch (scene) {
+                case YJMaskBottomDualSceneLine: {
+                    UIView *line = [UIView new];
+                    line.backgroundColor = UIColor.lightGrayColor;
+                    return line;
+                }
+                case YJMaskBottomDualSceneLeftOperation: {
+                    UIButton *operateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    operateBtn.titleLabel.font = [UIFont systemFontOfSize:17.f];
+                    [operateBtn setTitleColor:UIColor.redColor forState:UIControlStateNormal];
+                    [operateBtn setTitle:@"左" forState:UIControlStateNormal];
+                    [operateBtn setImage:[UIImage imageNamed:@"icon_close_solid_red"] forState:UIControlStateNormal];
+                    return operateBtn;
+                }
+                case YJMaskBottomDualSceneRightOperation: {
+                    UIButton *operateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    operateBtn.titleLabel.font = [UIFont systemFontOfSize:17.f];
+                    [operateBtn setTitleColor:UIColor.blueColor forState:UIControlStateNormal];
+                    [operateBtn setTitle:@"右" forState:UIControlStateNormal];
+                    [operateBtn setImage:[UIImage imageNamed:@"icon_check_solid_blue_32"] forState:UIControlStateNormal];
+                    return operateBtn;
+                }
+                default: return nil;
+            }
+        });
+    });
+}
+
 #pragma mark -Initial
 - (void)privateInitialData {
     __weak typeof(self) weakself = self;
@@ -298,8 +539,9 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
         return indexPath.section ? DemoUserCellIdentifier : DemoLayoutCellIdentifier;
     } cellFiller:^(__kindof UITableViewCell * _Nonnull cell, NSIndexPath * _Nonnull indexPath) {
         [weakself fillCell:cell indexPath:indexPath];
-    } dataReloader:^{
+    } dataReloader:^(BOOL isSelection){
         [weakself.tableView reloadData];
+        if (isSelection) [weakself reloadDataOnSingleMaskView];
     } result:^{
         
     }];
@@ -316,6 +558,7 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
 #pragma mark -Register
 - (void)privateRegister {
     [self.tableView registerClass:UITableViewHeaderFooterView.class forHeaderFooterViewReuseIdentifier:DemoHeaderIdentifier];
+    // Note: 用两种Cell是为了YJLayouter 和 自定义Cell布局对比, 以及兼容演示
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:DemoLayoutCellIdentifier];
     [self.tableView registerClass:TableViewCell.class forCellReuseIdentifier:DemoUserCellIdentifier];
 }
@@ -324,6 +567,39 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
 
 
 #pragma mark- ** Lazy Loading **
+- (YJMaskTopLayoutViewModel *)topLayoutViewModel {
+    if (!_topLayoutViewModel) {
+        _topLayoutViewModel = [YJMaskTopLayoutViewModel new];
+        _topLayoutViewModel.leading = 20.f;
+        _topLayoutViewModel.trailing = -20.f;
+        _topLayoutViewModel.centerYOffset = k_status_height * .5f;
+    }
+    return _topLayoutViewModel;
+}
+
+- (YJMaskBottomSingleOperationLayoutViewModel *)singleBottomMaskLayoutViewModel {
+    if (!_singleBottomMaskLayoutViewModel) {
+        _singleBottomMaskLayoutViewModel = [YJMaskBottomSingleOperationLayoutViewModel new];
+        _singleBottomMaskLayoutViewModel.leading = 20.f;
+        _singleBottomMaskLayoutViewModel.trailing = -20.f;
+        _singleBottomMaskLayoutViewModel.centerYOffset = -10.f;
+        _singleBottomMaskLayoutViewModel.operateBtnSize = CGSizeMake(114.f, 44.f);
+    }
+    return _singleBottomMaskLayoutViewModel;
+}
 
 
+- (YJMaskBottomDualOperationsLayoutViewModel *)dualBottomMaskLayoutViewModel {
+    if (!_dualBottomMaskLayoutViewModel) {
+        _dualBottomMaskLayoutViewModel = [YJMaskBottomDualOperationsLayoutViewModel new];
+        
+    }
+    return _dualBottomMaskLayoutViewModel;
+}
+
+- (MaskSingleViewModel *)maskSingleViewModel {
+    if (!_maskSingleViewModel) _maskSingleViewModel = [MaskSingleViewModel viewModelWithSync:self.viewModel];
+    return _maskSingleViewModel;
+}
 @end
+

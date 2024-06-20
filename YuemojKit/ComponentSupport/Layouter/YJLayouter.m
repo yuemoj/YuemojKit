@@ -12,16 +12,16 @@
 #import "YJLayoutDelegate.h"
 
 @interface YJLayouter ()
-@property (nonatomic, weak) id<YJLayoutDelegate, YJLayoutOffsetDelegate> delegate;
+@property (nonatomic, weak) id<YJLayoutDelegate, YJLayoutUpdateDelegate> delegate;
 @property (nonatomic, getter=isLayouted) BOOL layouted;
 @end
 
 @implementation YJLayouter
-+ (instancetype)layouterWithDelegate:(id<YJLayoutDelegate, YJLayoutOffsetDelegate>)delegate {
++ (instancetype)layouterWithDelegate:(id<YJLayoutDelegate, YJLayoutUpdateDelegate>)delegate {
     return [[self alloc] initWithDelegate:delegate];
 }
 
-- (instancetype)initWithDelegate:(id<YJLayoutDelegate, YJLayoutOffsetDelegate>)delegate {
+- (instancetype)initWithDelegate:(id<YJLayoutDelegate, YJLayoutUpdateDelegate>)delegate {
     if (self = [super init]) {
         _delegate = delegate;
     }
@@ -33,15 +33,14 @@
 }
 
 - (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutDataSource> _Nonnull, __kindof UIView * _Nonnull (NS_NOESCAPE^ _Nonnull)(NSInteger)))layout {
-//- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutDataSource> _Nonnull))layout {
     return ^(id<YJLayoutDataSource> dataSource, __kindof UIView * _Nonnull (^provider)(NSInteger)) {
         YJProtocolAssert(dataSource, @protocol(YJLayoutDataSource));
         YJSelectorAssert(dataSource, @selector(layoutDescriptionsWithProvider:));
         YJProtocolAssert(self.delegate, @protocol(YJLayoutDelegate));
         YJSelectorAssert(self.delegate, @selector(layoutWithItemDescriptions:));
-        [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:^BOOL(int scene){return NO;} action:^(int scene) {
-            [(id<YJLayoutDelegate>)self.delegate layoutWithItemDescriptions:[dataSource layoutDescriptionsWithProvider:provider]];
-        }];
+//        [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:^BOOL(int scene){return NO;} action:^(int scene) {
+            if (!self.isLayouted) [(id<YJLayoutDelegate>)self.delegate layoutWithItemDescriptions:[dataSource layoutDescriptionsWithProvider:provider]];
+//        }];
         return self;
     };
 }
@@ -52,9 +51,9 @@
         YJSelectorAssert(dataSource, @selector(layoutDescriptionsInSection:provider:));
         YJProtocolAssert(self.delegate, @protocol(YJLayoutDelegate));
         YJSelectorAssert(self.delegate, @selector(layoutWithItemDescriptions:));
-        [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:^BOOL(int scene){return NO;} action:^(int scene) {
-            [(id<YJLayoutDelegate>)self.delegate layoutWithItemDescriptions:[dataSource layoutDescriptionsInSection:section provider:provider]];
-        }];
+//        [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:^BOOL(int scene){return NO;} action:^(int scene) {
+            if (!self.isLayouted) [(id<YJLayoutDelegate>)self.delegate layoutWithItemDescriptions:[dataSource layoutDescriptionsInSection:section provider:provider]];
+//        }];
         return self;
     };
 }
@@ -65,101 +64,155 @@
         YJSelectorAssert(dataSource, @selector(layoutDescriptionsAtIndexPath:provider:));
         YJProtocolAssert(self.delegate, @protocol(YJLayoutDelegate));
         YJSelectorAssert(self.delegate, @selector(layoutWithItemDescriptions:));
-        [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:^BOOL(int scene){return NO;} action:^(int scene) {
-            [(id<YJLayoutDelegate>)self.delegate layoutWithItemDescriptions:[dataSource layoutDescriptionsAtIndexPath:indexPath provider:provider]];
+//        [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:^BOOL(int scene){return NO;} action:^(int scene) {
+        if (!self.isLayouted) [(id<YJLayoutDelegate>)self.delegate layoutWithItemDescriptions:[dataSource layoutDescriptionsAtIndexPath:indexPath provider:provider]];
+//        }];
+        return self;
+    };
+}
+
+- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutUpdateDataSource,YJComponentDataSource> _Nonnull))layoutUpdate {
+    return ^(id<YJLayoutUpdateDataSource, YJComponentDataSource> dataSource) {
+        YJProtocolAssert(dataSource, @protocol(YJLayoutUpdateDataSource));
+        YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
+        YJSelectorAssert(dataSource, @selector(layoutUpdateDescriptionsWithFetcher:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJProtocolAssert(self.delegate, @protocol(YJLayoutUpdateDelegate));
+        YJSelectorAssert(self.delegate, @selector(layoutUpdateWithItemDescriptions:));
+        YJSelectorAssert(self.delegate, @selector(layoutItemForIdentifier:));
+        NSArray<YJLayoutItemConstraintDescription *> *descriptions = [dataSource layoutUpdateDescriptionsWithFetcher:^YJLayoutItem * _Nonnull(NSInteger scene) {
+            YJComponentType type = [dataSource componentTypeForScene:scene];
+            return [self.delegate layoutItemForIdentifier:yj_componentIdentifier(type, scene)];
         }];
+        [self.delegate layoutUpdateWithItemDescriptions:descriptions];
         return self;
     };
 }
 
-- (id<YJLayouterProtocol> _Nonnull (^)(id<YJLayoutOffsetDataSource, YJComponentDataSource> _Nonnull, NSNumber * _Nullable, ...))layoutOffset {
-    return ^(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSNumber * _Nullable firstScene, ...) {
-        YJProtocolAssert(dataSource, @protocol(YJLayoutOffsetDataSource));
-        YJSelectorAssert(dataSource, @selector(offsetForScene:));
+- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutUpdateDataSource,YJComponentDataSource> _Nonnull, NSInteger))layoutUpdateInSection {
+    return ^(id<YJLayoutUpdateDataSource, YJComponentDataSource> dataSource, NSInteger section) {
+        YJProtocolAssert(dataSource, @protocol(YJLayoutUpdateDataSource));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
-        YJProtocolAssert(self.delegate, @protocol(YJLayoutOffsetDelegate));
-        YJSelectorAssert(self.delegate, @selector(layoutComponent:forScene:withOffset:));
-        BOOL(^update)(int) = ^BOOL(int nextScene) {
-            if ([dataSource conformsToProtocol:@protocol(YJLayoutShouldUpdateDataSource)] && [dataSource respondsToSelector:@selector(shouldUpdateOffsetForScene:)]) {
-                return [(id<YJLayoutShouldUpdateDataSource>)dataSource shouldUpdateOffsetForScene:nextScene];
-            }
-            return YES;
-        };
-        void(^action)(int) = ^(int nextScene) {
-            UIOffset offset = [dataSource offsetForScene:nextScene];
-            YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            [(id<YJLayoutOffsetDelegate>)self.delegate layoutComponent:type forScene:nextScene withOffset:offset];
-        };
-        if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
-        } else {
-            va_list args;
-            va_start(args, firstScene);
-            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:firstScene args:args shouldUpdate:update action:action];
-        }
+        YJSelectorAssert(dataSource, @selector(layoutUpdateDescriptionsInSection:fetcher:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:inSection:));
+        YJProtocolAssert(self.delegate, @protocol(YJLayoutUpdateDelegate));
+        YJSelectorAssert(self.delegate, @selector(layoutUpdateWithItemDescriptions:));
+        YJSelectorAssert(self.delegate, @selector(layoutItemForIdentifier:));
+        NSArray<YJLayoutItemConstraintDescription *> *descriptions = [dataSource layoutUpdateDescriptionsInSection:section fetcher:^YJLayoutItem * _Nonnull(NSInteger scene) {
+            YJComponentType type = [dataSource componentTypeForScene:scene inSection:section];
+            return [self.delegate layoutItemForIdentifier:yj_componentIdentifier(type, scene)];
+        }];
+        [self.delegate layoutUpdateWithItemDescriptions:descriptions];
         return self;
     };
 }
 
-- (id<YJLayouterProtocol> _Nonnull (^)(id<YJLayoutOffsetDataSource, YJComponentDataSource> _Nonnull, NSInteger, NSNumber * _Nullable, ...))layoutOffsetInSection {
-    return ^(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSInteger section, NSNumber * _Nullable firstScene, ...) {
-        YJProtocolAssert(dataSource, @protocol(YJLayoutOffsetDataSource));
-        YJSelectorAssert(dataSource, @selector(offsetForScene:inSection:));
+- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutUpdateDataSource,YJComponentDataSource> _Nonnull, NSIndexPath * _Nonnull))layoutUpdateAtIndexPath {
+    return ^(id<YJLayoutUpdateDataSource, YJComponentDataSource> dataSource, NSIndexPath *indexPath) {
+        YJProtocolAssert(dataSource, @protocol(YJLayoutUpdateDataSource));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
-        YJProtocolAssert(self.delegate, @protocol(YJLayoutOffsetDelegate));
-        YJSelectorAssert(self.delegate, @selector(layoutComponent:forScene:withOffset:));
-        BOOL(^update)(int) = ^BOOL(int nextScene) {
-            if ([dataSource conformsToProtocol:@protocol(YJLayoutShouldUpdateDataSource)] && [dataSource respondsToSelector:@selector(shouldUpdateOffsetForScene:)]) {
-                return [(id<YJLayoutShouldUpdateDataSource>)dataSource shouldUpdateOffsetForScene:nextScene];
-            }
-            return YES;
-        };
-        void(^action)(int) = ^(int nextScene) {
-            UIOffset offset = [dataSource offsetForScene:nextScene inSection:section];
-            YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            [(id<YJLayoutOffsetDelegate>)self.delegate layoutComponent:type forScene:nextScene withOffset:offset];
-        };
-        if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
-        } else {
-            va_list args;
-            va_start(args, firstScene);
-            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:firstScene args:args shouldUpdate:update action:action];
-        }
+        YJSelectorAssert(dataSource, @selector(layoutUpdateDescriptionsAtIndexPath:fetcher:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:indexPath:));
+        YJProtocolAssert(self.delegate, @protocol(YJLayoutUpdateDelegate));
+        YJSelectorAssert(self.delegate, @selector(layoutUpdateWithItemDescriptions:));
+        YJSelectorAssert(self.delegate, @selector(layoutItemForIdentifier:));
+        NSArray<YJLayoutItemConstraintDescription *> *descriptions = [dataSource layoutUpdateDescriptionsAtIndexPath:indexPath fetcher:^YJLayoutItem * _Nonnull(NSInteger scene) {
+            YJComponentType type = [dataSource componentTypeForScene:scene indexPath:indexPath];
+            return [self.delegate layoutItemForIdentifier:yj_componentIdentifier(type, scene)];
+        }];
+        [self.delegate layoutUpdateWithItemDescriptions:descriptions];
         return self;
     };
 }
-
-- (id<YJLayouterProtocol> _Nonnull (^)(id<YJLayoutOffsetDataSource, YJComponentDataSource> _Nonnull, NSIndexPath * _Nonnull, NSNumber * _Nullable, ...))layoutOffsetAtIndexPath {
-    return ^(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSIndexPath * _Nonnull indexPath, NSNumber * _Nullable firstScene, ...) {
-        YJProtocolAssert(dataSource, @protocol(YJLayoutOffsetDataSource));
-        YJSelectorAssert(dataSource, @selector(offsetForScene:indexPath:));
-        YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
-        YJProtocolAssert(self.delegate, @protocol(YJLayoutOffsetDelegate));
-        YJSelectorAssert(self.delegate, @selector(layoutComponent:forScene:withOffset:));
-        BOOL(^update)(int) = ^BOOL(int nextScene) {
-            if ([dataSource conformsToProtocol:@protocol(YJLayoutShouldUpdateDataSource)] && [dataSource respondsToSelector:@selector(shouldUpdateOffsetForScene:)]) {
-                return [(id<YJLayoutShouldUpdateDataSource>)dataSource shouldUpdateOffsetForScene:nextScene];
-            }
-            return YES;
-        };
-        void(^action)(int) = ^(int nextScene) {
-            UIOffset offset = [dataSource offsetForScene:nextScene indexPath:indexPath];
-            YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            [(id<YJLayoutOffsetDelegate>)self.delegate layoutComponent:type forScene:nextScene withOffset:offset];
-        };
-        if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
-        } else {
-            va_list args;
-            va_start(args, firstScene);
-            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:firstScene args:args shouldUpdate:update action:action];
-        }
-        return self;
-    };
-}
+//
+//- (id<YJLayouterProtocol> _Nonnull (^)(id<YJLayoutOffsetDataSource, YJComponentDataSource> _Nonnull, NSNumber * _Nullable, ...))layoutOffset {
+//    return ^(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSNumber * _Nullable firstScene, ...) {
+//        YJProtocolAssert(dataSource, @protocol(YJLayoutUpdateDataSource));
+//        YJSelectorAssert(dataSource, @selector(layoutUpdateDescriptionsWithFetcher:));
+//        YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
+//        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+//        YJProtocolAssert(self.delegate, @protocol(YJLayoutUpdateDelegate));
+//        YJSelectorAssert(self.delegate, @selector(layoutUpdateWithItemDescriptions:));
+//        BOOL(^update)(int) = ^BOOL(int nextScene) {
+////            if ([dataSource conformsToProtocol:@protocol(YJLayoutShouldUpdateDataSource)] && [dataSource respondsToSelector:@selector(shouldUpdateOffsetForScene:)]) {
+////                return [(id<YJLayoutShouldUpdateDataSource>)dataSource shouldUpdateOffsetForScene:nextScene];
+////            }
+//            return YES;
+//        };
+//        void(^action)(int) = ^(int nextScene) {
+//            UIOffset offset = [dataSource offsetForScene:nextScene];
+//            YJComponentType type = [dataSource componentTypeForScene:nextScene];
+//            [(id<YJLayoutOffsetDelegate>)self.delegate layoutComponent:type forScene:nextScene withOffset:offset];
+//        };
+//        if (firstScene == nil) {
+//            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+//        } else {
+//            va_list args;
+//            va_start(args, firstScene);
+//            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:firstScene args:args shouldUpdate:update action:action];
+//        }
+//        return self;
+//    };
+//}
+//
+//- (id<YJLayouterProtocol> _Nonnull (^)(id<YJLayoutOffsetDataSource, YJComponentDataSource> _Nonnull, NSInteger, NSNumber * _Nullable, ...))layoutOffsetInSection {
+//    return ^(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSInteger section, NSNumber * _Nullable firstScene, ...) {
+//        YJProtocolAssert(dataSource, @protocol(YJLayoutOffsetDataSource));
+//        YJSelectorAssert(dataSource, @selector(offsetForScene:inSection:));
+//        YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
+//        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+//        YJProtocolAssert(self.delegate, @protocol(YJLayoutOffsetDelegate));
+//        YJSelectorAssert(self.delegate, @selector(layoutComponent:forScene:withOffset:));
+//        BOOL(^update)(int) = ^BOOL(int nextScene) {
+//            if ([dataSource conformsToProtocol:@protocol(YJLayoutShouldUpdateDataSource)] && [dataSource respondsToSelector:@selector(shouldUpdateOffsetForScene:)]) {
+//                return [(id<YJLayoutShouldUpdateDataSource>)dataSource shouldUpdateOffsetForScene:nextScene];
+//            }
+//            return YES;
+//        };
+//        void(^action)(int) = ^(int nextScene) {
+//            UIOffset offset = [dataSource offsetForScene:nextScene inSection:section];
+//            YJComponentType type = [dataSource componentTypeForScene:nextScene];
+//            [(id<YJLayoutOffsetDelegate>)self.delegate layoutComponent:type forScene:nextScene withOffset:offset];
+//        };
+//        if (firstScene == nil) {
+//            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+//        } else {
+//            va_list args;
+//            va_start(args, firstScene);
+//            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:firstScene args:args shouldUpdate:update action:action];
+//        }
+//        return self;
+//    };
+//}
+//
+//- (id<YJLayouterProtocol> _Nonnull (^)(id<YJLayoutOffsetDataSource, YJComponentDataSource> _Nonnull, NSIndexPath * _Nonnull, NSNumber * _Nullable, ...))layoutOffsetAtIndexPath {
+//    return ^(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSIndexPath * _Nonnull indexPath, NSNumber * _Nullable firstScene, ...) {
+//        YJProtocolAssert(dataSource, @protocol(YJLayoutOffsetDataSource));
+//        YJSelectorAssert(dataSource, @selector(offsetForScene:indexPath:));
+//        YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
+//        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+//        YJProtocolAssert(self.delegate, @protocol(YJLayoutOffsetDelegate));
+//        YJSelectorAssert(self.delegate, @selector(layoutComponent:forScene:withOffset:));
+//        BOOL(^update)(int) = ^BOOL(int nextScene) {
+//            if ([dataSource conformsToProtocol:@protocol(YJLayoutShouldUpdateDataSource)] && [dataSource respondsToSelector:@selector(shouldUpdateOffsetForScene:)]) {
+//                return [(id<YJLayoutShouldUpdateDataSource>)dataSource shouldUpdateOffsetForScene:nextScene];
+//            }
+//            return YES;
+//        };
+//        void(^action)(int) = ^(int nextScene) {
+//            UIOffset offset = [dataSource offsetForScene:nextScene indexPath:indexPath];
+//            YJComponentType type = [dataSource componentTypeForScene:nextScene];
+//            [(id<YJLayoutOffsetDelegate>)self.delegate layoutComponent:type forScene:nextScene withOffset:offset];
+//        };
+//        if (firstScene == nil) {
+//            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+//        } else {
+//            va_list args;
+//            va_start(args, firstScene);
+//            [YJComponentWrapper componentDidLoaded:self.isLayouted forScene:firstScene args:args shouldUpdate:update action:action];
+//        }
+//        return self;
+//    };
+//}
 @end
 

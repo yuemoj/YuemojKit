@@ -34,6 +34,7 @@ typedef NS_ENUM(int, YJLayoutRelation) {
     YJLayoutRelationInsets
 };
 
+@protocol YJLayoutConstraintAttributeDelegate;
 @interface YJLayoutAnchor<OwnerType> : NSObject
 @property (nonatomic, weak) OwnerType owner;
 @property (nonatomic) YJLayoutAttribute layoutAttribute;
@@ -65,6 +66,7 @@ typedef NS_ENUM(int, YJLayoutRelation) {
 //- (NSInteger)itemIdentifier;
 
 - (nullable YJLayoutItemConstraintDescription *)makeItemDescription:(void(NS_NOESCAPE^)(id<YJLayoutConstraintAttributeDelegate> maker))make;
+- (nullable YJLayoutItemConstraintDescription *)updateItemDescription:(void(NS_NOESCAPE^)(id<YJLayoutConstraintAttributeDelegate> maker))make;
 @end
 
 @interface YJLayoutItemConstraint : NSObject
@@ -106,16 +108,17 @@ typedef NS_ENUM(int, YJLayoutRelation) {
 @end
 
 @protocol YJLayoutConstraintAttributeDelegate <NSObject>
-@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> top;
-@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> bottom;
-@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> leading;
-@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> trailing;
-@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> centerX;
-@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> centerY;
-@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> center;
+@optional
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> top;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> bottom;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> leading;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> trailing;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> centerX;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> centerY;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> center;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> width;
+@property (nonatomic, readonly) id<YJLayoutAnchorProtocol, YJLayoutConstraintAttributeDelegate> height;
 @property (nonatomic, readonly) id<YJLayoutAnchorProtocol> edges;
-@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> width;
-@property (nonatomic, readonly) id<YJLayoutAnchorProtocol> height;
 @end
 
 NS_ASSUME_NONNULL_END

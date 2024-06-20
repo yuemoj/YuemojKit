@@ -83,10 +83,10 @@
     self.contentView.yj_extra.viewForIdentifier = ^__kindof UIView * _Nonnull(YJComponentType type, NSInteger scene) {
         switch (scene) {
             case 0: return self.backgroundImageView;
-            case 1: return self.headImageView;
-            case 2: return self.titleLabel;
-            case 3: return self.markBtn;
-            case 4: return self.detailImageView;
+            case 2: return self.headImageView;
+            case 3: return self.titleLabel;
+            case 4: return self.markBtn;
+            case 5: return self.detailImageView;
             default: break;
         }
         return nil;

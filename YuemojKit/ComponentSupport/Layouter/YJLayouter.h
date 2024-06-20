@@ -9,10 +9,10 @@
 #import "YJLayouterProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@protocol YJLayoutDelegate, YJLayoutOffsetDelegate;
+@protocol YJLayoutDelegate, YJLayoutUpdateDelegate;
 @interface YJLayouter : NSObject<YJLayouterProtocol>
-+ (instancetype)layouterWithDelegate:(id<YJLayoutDelegate, YJLayoutOffsetDelegate>)delegate;
-- (instancetype)initWithDelegate:(id<YJLayoutDelegate, YJLayoutOffsetDelegate>)delegate NS_DESIGNATED_INITIALIZER;
++ (instancetype)layouterWithDelegate:(id<YJLayoutDelegate, YJLayoutUpdateDelegate>)delegate;
+- (instancetype)initWithDelegate:(id<YJLayoutDelegate, YJLayoutUpdateDelegate>)delegate NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;
 - (void)didLayout;
 @end

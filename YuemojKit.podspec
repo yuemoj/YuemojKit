@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YuemojKit'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'A decoupling framework for UI layout, data sources, and event responses'
 
 # This description is used to generate tags and improve search results.
@@ -21,10 +21,11 @@ Pod::Spec.new do |s|
   YuemojKit
   1.处理控件与数据模型的耦合, 提供控件事件的回调处理; 
   2.支持Layout定制, 避免重复创建大量类似布局的cell;
-  3.TableView和CollectionView的DataSource通用处理
-  4.数据库SQL语句对象化构建
-  5.生产者消费者工厂
-  6.JSON排序构建
+  3.自定义TabView, MaskView演示实现.
+  4.TableView和CollectionView的DataSource通用处理
+  5.数据库SQL语句对象化构建
+  6.生产者消费者工厂
+  7.JSON排序构建
                        DESC
 
   s.homepage         = 'https://github.com/yuemoj/YuemojKit'
@@ -110,7 +111,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'ComponentGallery' do |ss|
-    ss.source_files = 'YuemojKit/ComponentGallery/*.{h,m}'
+    ss.source_files = 'YuemojKit/ComponentGallery/**/*.{h,m}'
 
     ss.dependency 'YuemojKit/ComponentSupport'
   end

@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "YJComponentDataSource.h"
 #import "YJLayoutDataSource.h"
-#import "YJDataFillDataSource.h"
+//#import "YJDataFillDataSource.h"
 
 typedef NS_ENUM (int, YJTabViewIndicatorStyle) {
     YJTabViewIndicatorStyleNone,
@@ -18,7 +18,7 @@ typedef NS_ENUM (int, YJTabViewIndicatorStyle) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YJTabLayoutViewModel : NSObject<YJComponentDataSource, YJLayoutDataSource, YJDataFillTextDataSource, YJDataFillColorDataSource>
+@interface YJTabLayoutViewModel : NSObject<YJComponentDataSource, YJLayoutDataSource>
 @property (nonatomic) NSInteger tabCount;
 @property (nonatomic) YJTabViewIndicatorStyle indicatorStyle;
 @property (nonatomic) BOOL shouldSplit;

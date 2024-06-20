@@ -8,7 +8,8 @@ target 'YuemojKitDemo' do
   # Pods for YuemojKit
   pod 'Masonry', '~>1.1.0'
   pod 'PinYin4Objc', '~> 1.1.1'
-  pod 'YuemojKit', '~>1.0.1' #:path => '../'
+#  pod 'YuemojKit', :path => '../'
+  pod 'YuemojKit', '~>1.0.2'
 end
 
 #post_install do |installer|

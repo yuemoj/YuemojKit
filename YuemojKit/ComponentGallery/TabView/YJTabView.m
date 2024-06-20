@@ -17,7 +17,6 @@
     YJComponentType type = (YJComponentType)yj_componentType(component.yj_extra.jTag);
     if (type != YJComponentTypeButton) return;
     if (((UIButton *)component).selected) return;
-//    ((UIButton *)component).selected = YES;
     [self tabButtonTransform:component];
     [self indicatorTransformToTabButton:component];
     self.selectedScene = yj_componentScene(component.yj_extra.jTag);
@@ -25,7 +24,6 @@
 
 - (void)tabButtonTransform:(UIButton *)sender {
     UIButton *lastTabBtn = self.yj_extra.viewForIdentifier(YJComponentTypeButton, self.selectedScene);
-//    lastTabBtn.selected = NO;
     [self layoutIfNeeded];
     
     if (self.transformScale > 0.f) {

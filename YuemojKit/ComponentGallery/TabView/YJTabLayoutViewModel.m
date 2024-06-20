@@ -14,7 +14,7 @@
 
 @implementation YJTabLayoutViewModel (ComponentType)
 - (YJComponentType)componentTypeForScene:(NSInteger)scene {
-    return tabComponentTypeForScene((YJTabScene)scene);
+    return yj_componentTypeForTabScene((YJTabScene)scene);
 }
 @end
 

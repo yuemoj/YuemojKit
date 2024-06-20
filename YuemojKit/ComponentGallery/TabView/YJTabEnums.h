@@ -18,7 +18,7 @@ typedef NS_ENUM (int, YJTabScene) {
     // ...
 };
 
-static inline YJComponentType tabComponentTypeForScene(YJTabScene scene) {
+static inline YJComponentType yj_componentTypeForTabScene(YJTabScene scene) {
     return scene >= YJTabSceneFirstTabBtn ? YJComponentTypeButton : YJComponentTypeView;
 }
 
