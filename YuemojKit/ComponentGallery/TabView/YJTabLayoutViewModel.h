@@ -2,7 +2,7 @@
 //  YJTabLayoutViewModel.h
 //  YuemojKit
 //
-//  Created by HYT200841559 on 2024/5/31.
+//  Created by Yuemoj on 2024/5/31.
 //
 
 #import <Foundation/Foundation.h>

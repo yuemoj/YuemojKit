@@ -1,6 +1,6 @@
 //
 //  YJOrderJSON.h
-//  NetworkSaleSDK
+//  YuemojKit
 //
 //  Created by Yuemoj on 2023/3/30.
 //
