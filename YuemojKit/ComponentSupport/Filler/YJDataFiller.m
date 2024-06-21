@@ -1129,8 +1129,8 @@
     };
 }
 
-- (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillPoNDataSource, YJComponentDataSource> _Nonnull, NSIndexPath * _Nonnull, YJPoNPurpose, NSNumber * _Nullable, ...))fillPoNAtIndexPath {
-    return ^(id<YJDataFillPoNDataSource, YJComponentDataSource> _Nonnull dataSource, NSIndexPath * _Nonnull indexPath, YJPoNPurpose purpose, NSNumber * _Nullable firstScene, ...) {
+- (id<YJDataFillerProtocol> _Nonnull (^)(id<YJDataFillPoNDataSource, YJComponentDataSource> _Nonnull, YJPoNPurpose, NSIndexPath * _Nonnull, NSNumber * _Nullable, ...))fillPoNAtIndexPath {
+    return ^(id<YJDataFillPoNDataSource, YJComponentDataSource> _Nonnull dataSource, YJPoNPurpose purpose, NSIndexPath * _Nonnull indexPath, NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(dataSource, @protocol(YJDataFillPoNDataSource));
         YJSelectorAssert(dataSource, @selector(ponForScene:purpose:indexPath:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));

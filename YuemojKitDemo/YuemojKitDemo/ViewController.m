@@ -147,8 +147,8 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
         .fillTextAtIndexPath(self.viewModel, YJTextPurposeText, indexPath, @(CellComponentTitle), nil)
         .fillFontAtIndexPath(self.viewModel, indexPath, @(CellComponentTitle), nil)
         .fillColorAtIndexPath(self.viewModel, YJColorPurposeText, indexPath, @(CellComponentTitle), nil)
-        .fillPoNAtIndexPath(self.viewModel, indexPath, YJPoNPurposeSelected, @(CellComponentMarkBtn), @(CellComponentSelection), nil)
-        .fillPoNAtIndexPath(self.viewModel, indexPath, YJPoNPurposeDisplay, @(CellComponentSelection), nil);
+        .fillPoNAtIndexPath(self.viewModel, YJPoNPurposeSelected, indexPath, @(CellComponentMarkBtn), @(CellComponentSelection), nil)
+        .fillPoNAtIndexPath(self.viewModel, YJPoNPurposeDisplay, indexPath, @(CellComponentSelection), nil);
     });
     
     cell.contentView.yj_eventBuild.buildEvent(^(id<YJEventBuilderProtocol>  _Nonnull builder) {

@@ -104,7 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// MARK: fillPoNInSection
 @property (nonatomic, readonly, copy) id<YJDataFillerProtocol>(^fillPoNInSection)(id<YJDataFillPoNDataSource, YJComponentDataSource>, YJPoNPurpose, NSInteger, NSNumber * _Nullable firstScene, ...);
 /// MARK: fillPoNAtIndexPath
-@property (nonatomic, readonly, copy) id<YJDataFillerProtocol>(^fillPoNAtIndexPath)(id<YJDataFillPoNDataSource, YJComponentDataSource>, NSIndexPath *, YJPoNPurpose, NSNumber * _Nullable firstScene, ...);
+@property (nonatomic, readonly, copy) id<YJDataFillerProtocol>(^fillPoNAtIndexPath)(id<YJDataFillPoNDataSource, YJComponentDataSource>, YJPoNPurpose, NSIndexPath *, NSNumber * _Nullable firstScene, ...);
 
 @end
 
