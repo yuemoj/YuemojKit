@@ -12,7 +12,7 @@
 #import "YJTabView.h"
 #import "YJTabLayoutViewModel.h"
 
-#import "YJTopBottomMaskViewManager.h"
+#import "YJMaskTopBottomViewManager.h"
 #import "YJMaskTopLayoutViewModel.h"
 #import "YJMaskBottomSingleOperationLayoutViewModel.h"
 #import "YJMaskBottomDualOperationsLayoutViewModel.h"
@@ -590,13 +590,14 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
     [self.actionTabViewController.view layoutIfNeeded];
     for (int i = 0; i <= 2; i++) {
         UIButton *tmpBtn = self.actionTabViewController.actionView.yj_extra.viewForIdentifier(YJComponentTypeButton, YJActionTabSceneFirstBtn+i);
-        CGSize imgSize = tmpBtn.imageView.yj_frame.size;
-        [tmpBtn.titleLabel sizeToFit];
-        CGSize titleSize = tmpBtn.titleLabel.yj_frame.size;
-        // 图片向右上偏移
-        tmpBtn.imageEdgeInsets = UIEdgeInsetsMake(-titleSize.height, 0.f, 0.f, -titleSize.width);
-        // label向左下偏移
-        tmpBtn.titleEdgeInsets = UIEdgeInsetsMake(0.f, -imgSize.width, -imgSize.height-14.f, 0.f);
+        tmpBtn.yj_arrange.rearrange(YJButtonArrangeStyleTopImageBottomTitle);
+//        CGSize imgSize = tmpBtn.imageView.yj_frame.size;
+//        [tmpBtn.titleLabel sizeToFit];
+//        CGSize titleSize = tmpBtn.titleLabel.yj_frame.size;
+//        // 图片向右上偏移
+//        tmpBtn.imageEdgeInsets = UIEdgeInsetsMake(-titleSize.height, 0.f, 0.f, -titleSize.width);
+//        // label向左下偏移
+//        tmpBtn.titleEdgeInsets = UIEdgeInsetsMake(0.f, -imgSize.width, -imgSize.height-14.f, 0.f);
     }
 }
 
