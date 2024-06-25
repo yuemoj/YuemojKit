@@ -6,7 +6,7 @@
 //
 
 #import "YJTabLayoutViewModel.h"
-#import "YJTabEnums.h"
+#import "YJTabViewScenes.h"
 
 @implementation YJTabLayoutViewModel
 

@@ -1,12 +1,12 @@
 //
-//  YJTabEnums.h
+//  YJTabViewScenes.h
 //  YuemojKit
 //
 //  Created by Yuemoj on 2024/5/31.
 //
 
-#ifndef YJTabTitleEnums_h
-#define YJTabTitleEnums_h
+#ifndef YJTabViewScenes_h
+#define YJTabViewScenes_h
 
 #import "YuemojCoreTypes.h"
 
@@ -22,4 +22,4 @@ static inline YJComponentType yj_componentTypeForTabScene(YJTabScene scene) {
     return scene >= YJTabSceneFirstTabBtn ? YJComponentTypeButton : YJComponentTypeView;
 }
 
-#endif /* YJTabTitleEnums_h */
+#endif /* YJTabViewScenes_h */

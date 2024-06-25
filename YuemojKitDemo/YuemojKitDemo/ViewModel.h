@@ -9,7 +9,7 @@
 #import "YJComponentDataSource.h"
 #import "YJDataFillDataSource.h"
 #import "YJLayoutDataSource.h"
-#import "YJTabEnums.h"
+#import "YJTabViewScenes.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

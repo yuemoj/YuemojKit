@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "YJComponentDataSource.h"
 #import "YJLayoutDataSource.h"
+#import "YJActionViewScenes.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,17 +20,4 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGFloat splitHeight;
 @end
 
-typedef NS_ENUM(int, YJActionSheetScene) {
-    YJActionSheetSceneDrag,
-    YJActionSheetSceneFirstSplit,
-    // ...
-    YJActionSheetSceneFirstBtn = 10,
-    // ...
-};
-
-static inline YJComponentType yj_componentTypeForActionSheetScene(YJActionSheetScene scene) {
-    if (scene == YJActionSheetSceneDrag) return YJComponentTypeImage;
-    if (scene >= YJActionSheetSceneFirstSplit) return YJComponentTypeView;
-    return YJComponentTypeButton;
-}
 NS_ASSUME_NONNULL_END

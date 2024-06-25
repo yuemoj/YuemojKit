@@ -6,7 +6,7 @@
 //
 
 #import "YJTabView.h"
-#import "YJTabEnums.h"
+#import "YJTabViewScenes.h"
 #import "UIKit+Yuemoj.h"
 @interface YJTabView ()
 @property (nonatomic) NSInteger selectedScene;

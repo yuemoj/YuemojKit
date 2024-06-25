@@ -569,9 +569,8 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
     self.actionTabViewController = [[YJActionViewController alloc] initWithNibName:nil bundle:nil];
     self.actionTabViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     self.actionTabViewController.actionView.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"img_bg_alert"].CGImage);
-    __weak typeof(self) weakself = self;
     self.actionTabViewController.actionView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
-        layouter.layout(weakself.actionTabLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {
+        layouter.layout(self.actionTabLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {
             if (scene == YJActionTabSceneDrag) {
                 UIImageView *dragImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_drag"]];
                 return dragImageView;
@@ -605,9 +604,8 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
     self.actionSheetViewController = [[YJActionViewController alloc] initWithNibName:nil bundle:nil];
     self.actionSheetViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     self.actionSheetViewController.actionView.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"img_bg_alert"].CGImage);
-    __weak typeof(self) weakself = self;
     self.actionSheetViewController.actionView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
-        layouter.layout(weakself.actionSheetLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {
+        layouter.layout(self.actionSheetLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {
             if (scene == YJActionSheetSceneDrag) {
                 UIImageView *dragImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_drag"]];
                 return dragImageView;
