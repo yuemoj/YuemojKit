@@ -5,15 +5,15 @@
 //  Created by Yuemoj on 2023/4/25.
 //
 
-#import "YJTopBottomMaskViewManager.h"
+#import "YJMaskTopBottomViewManager.h"
 #import "UIKit+Yuemoj.h"
 #import "Masonry.h"
 
-@interface YJTopBottomMaskViewManager ()
+@interface YJMaskTopBottomViewManager ()
 @property (nonatomic) BOOL displayed;
 @end
 
-@implementation YJTopBottomMaskViewManager
+@implementation YJMaskTopBottomViewManager
 - (void)showOnViewController:(__kindof UIViewController *)viewController {
     UIViewController *parentViewController = viewController.tabBarController ?: (viewController.parentViewController ?: viewController);    
     [parentViewController.view addSubview:self.topMaskView];

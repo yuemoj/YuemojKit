@@ -43,8 +43,8 @@
 @property (nonatomic) YJActionTabLayoutViewModel *actionTabLayoutViewModel;
 @property (nonatomic) YJActionSheetLayoutViewModel *actionSheetLayoutViewModel;
 
-@property (nonatomic) YJTopBottomMaskViewManager *singleMaskViewManager;
-@property (nonatomic) YJTopBottomMaskViewManager *dualMaskViewManager;
+@property (nonatomic) YJMaskTopBottomViewManager *singleMaskViewManager;
+@property (nonatomic) YJMaskTopBottomViewManager *dualMaskViewManager;
 @property (nonatomic) YJMaskTopLayoutViewModel *topLayoutViewModel;
 @property (nonatomic) YJMaskBottomSingleOperationLayoutViewModel *singleBottomMaskLayoutViewModel;
 @property (nonatomic) YJMaskBottomDualOperationsLayoutViewModel *dualBottomMaskLayoutViewModel;
@@ -396,7 +396,7 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
 }
 
 - (void)loadSingleOperationMaskView {
-    self.singleMaskViewManager = [YJTopBottomMaskViewManager new];
+    self.singleMaskViewManager = [YJMaskTopBottomViewManager new];
     self.singleMaskViewManager.topMaskHeight = k_status_height + 44.f;
     self.singleMaskViewManager.topMaskView.backgroundColor = [UIColor colorWithWhite:.8f alpha:1.f];
     self.singleMaskViewManager.topMaskView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
@@ -485,7 +485,7 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
 }
 
 - (void)loadDualOperationMaskView {
-    self.dualMaskViewManager = [YJTopBottomMaskViewManager new];
+    self.dualMaskViewManager = [YJMaskTopBottomViewManager new];
     self.dualMaskViewManager.topMaskHeight = k_status_height + 44.f;
     self.dualMaskViewManager.topMaskView.backgroundColor = [UIColor colorWithWhite:.8f alpha:1.f];
     self.dualMaskViewManager.topMaskView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {

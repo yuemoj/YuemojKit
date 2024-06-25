@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YuemojKit'
-  s.version          = '1.0.4'
+  s.version          = '1.0.5'
   s.summary          = 'A decoupling framework for UI layout, data sources, and event responses'
 
 # This description is used to generate tags and improve search results.

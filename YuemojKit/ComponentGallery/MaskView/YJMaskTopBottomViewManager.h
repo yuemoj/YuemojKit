@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 /// 操作按钮默认红色, 其他色在colorForState:scene:中配置
-@interface YJTopBottomMaskViewManager : NSObject
+@interface YJMaskTopBottomViewManager : NSObject
 @property (nonatomic) UIView *topMaskView;
 @property (nonatomic) UIView *bottomMaskView;
 @property (nonatomic) CGFloat topMaskHeight;
