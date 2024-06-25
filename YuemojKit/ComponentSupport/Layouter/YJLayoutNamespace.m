@@ -62,7 +62,7 @@
                 MASConstraint *constraint = [self getFirstItemConstraintFromMaker:make relatedItem:tmpRelatedItem];
                 NSAssert(constraint, @"fatal: invalid constraint!");
                 MASConstraint * (^relation)(id) = [self getItemRelationForConstraint:constraint relatedItem:tmpRelatedItem];
-                if (relation) [self relationSecondItemView:tmpRelatedItem.secondItem.view relatedItem:tmpRelatedItem using:relation];
+                if (relation) [self relationSecondItem:tmpRelatedItem using:relation];
                 // maker.edge.equalTo(item).insets(edge) 场景的最终处理
                 if (tmpRelatedItem.constraint.relation == YJLayoutRelationInsets)
                     constraint.insets(tmpRelatedItem.constraint.edgeInsets);
@@ -135,7 +135,10 @@
 }
 
 /// eg: maker.leading.equalTo(👉🏻item👈🏻)  or  maker.leading.equalTo(👉🏻item.leading👈🏻)
-- (void)relationSecondItemView:(__kindof UIView *)secondItemView relatedItem:(YJLayoutRelatedItem *)relatedItem using:(MASConstraint * (^)(id))relation {
+
+- (void)relationSecondItem:(YJLayoutRelatedItem *)relatedItem using:(MASConstraint * (^)(id))relation {
+//- (void)relationSecondItemView:(__kindof UIView *)secondItemView relatedItem:(YJLayoutRelatedItem *)relatedItem using:(MASConstraint * (^)(id))relation {
+    UIView *secondItemView = relatedItem.secondItem.view;
     switch (relatedItem.constraint.secondItemAttribute) {
         case YJLayoutAttributeSame:         relation(secondItemView);              break;
         case YJLayoutAttributeTop:          relation(secondItemView.mas_top);      break;

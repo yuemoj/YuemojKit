@@ -1,8 +1,8 @@
 //
 //  YJMaskViewScenes.h
-//  NetworkSalesController
+//  YuemojKit
 //
-//  Created by HYT200841559 on 2023/5/1.
+//  Created by Yuemoj on 2023/5/1.
 //
 
 #ifndef YJMaskViewScenes_h

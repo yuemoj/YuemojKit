@@ -50,3 +50,14 @@ typedef NS_ENUM(int, CellComponent) {
 + (instancetype)new NS_UNAVAILABLE;
 @end
 NS_ASSUME_NONNULL_END
+
+
+#import "YJActionTabLayoutViewModel.h"
+#import "YJActionSheetLayoutViewModel.h"
+NS_ASSUME_NONNULL_BEGIN
+@interface ActionTabViewModel : NSObject <YJComponentDataSource>
+@end
+
+@interface ActionSheetViewModel : NSObject <YJComponentDataSource>
+@end
+NS_ASSUME_NONNULL_END

@@ -17,6 +17,8 @@
 #import "YJMaskBottomSingleOperationLayoutViewModel.h"
 #import "YJMaskBottomDualOperationsLayoutViewModel.h"
 
+#import "YJActionViewController.h"
+
 #import "Masonry.h"
 #import "UIKit+Yuemoj.h"
 #import "YJLayouterProtocol.h"
@@ -36,6 +38,11 @@
 
 @property (nonatomic) UITableView *tableView;
 
+@property (nonatomic) YJActionViewController *actionTabViewController;
+@property (nonatomic) YJActionViewController *actionSheetViewController;
+@property (nonatomic) YJActionTabLayoutViewModel *actionTabLayoutViewModel;
+@property (nonatomic) YJActionSheetLayoutViewModel *actionSheetLayoutViewModel;
+
 @property (nonatomic) YJTopBottomMaskViewManager *singleMaskViewManager;
 @property (nonatomic) YJTopBottomMaskViewManager *dualMaskViewManager;
 @property (nonatomic) YJMaskTopLayoutViewModel *topLayoutViewModel;
@@ -43,6 +50,8 @@
 @property (nonatomic) YJMaskBottomDualOperationsLayoutViewModel *dualBottomMaskLayoutViewModel;
 
 @property (nonatomic) MaskSingleViewModel *maskSingleViewModel;
+@property (nonatomic) ActionTabViewModel *actionTabViewModel;
+@property (nonatomic) ActionSheetViewModel *actionSheetViewModel;
 
 @property (nonatomic) BOOL shouldLinkage;
 @end
@@ -60,7 +69,7 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
     UIBarButtonItem *singleItem = [[UIBarButtonItem alloc] initWithTitle:@"SingleMask" style:UIBarButtonItemStylePlain target:self action:@selector(onSingleMask:)];
     UIBarButtonItem *dualItem = [[UIBarButtonItem alloc] initWithTitle:@"DualMask" style:UIBarButtonItemStylePlain target:self action:@selector(onDualMask:)];
     self.navigationItem.rightBarButtonItems = @[singleItem, dualItem];
-    
+        
     [self privateLayout];
     [self privateRegister];
     
@@ -70,8 +79,24 @@ static NSString * const DemoHeaderIdentifier        = @"com.yuemoj.demo.view.sec
 }
 
 #pragma mark- ** User Operations **
-- (void)onEdit:(UIButton *)sender {
-    
+static NSString * const tabTitles[] = {
+    @"bind", @"unbind", @"group"
+};
+static NSString * const tabImages[] = {
+    @"icon_device_bind", @"icon_device_unbind", @"icon_group_create"
+};
+static NSString * const sheetTitles[] = {
+    @"first action", @"second action"
+};
+
+- (void)onTabAction:(UIButton *)sender {
+    if (!self.actionTabViewController) [self loadActionTabViewController];
+    [self.actionTabViewController presentOnViewController:self];
+}
+
+- (void)onSheetAction:(UIButton *)sender {
+    if (!self.actionSheetViewController) [self loadActionSheetViewControlelr];
+    [self.actionSheetViewController presentOnViewController:self];
 }
 
 - (void)onSingleMask:(UIBarButtonItem *)sender {
@@ -201,13 +226,23 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
         make.leading.trailing.offset(0.f);
     }];
     
-    UIButton *editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [editBtn setImage:[UIImage imageNamed:@"icon_edit"] forState:UIControlStateNormal];
-    [editBtn addTarget:self action:@selector(onEdit:) forControlEvents:UIControlEventPrimaryActionTriggered];
-    [_headerView addSubview:editBtn];
-    [editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    UIButton *actionSheetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [editBtn setImage:[UIImage imageNamed:@"icon_edit"] forState:UIControlStateNormal];
+    [actionSheetBtn setTitle:@"sheet" forState:UIControlStateNormal];
+    [actionSheetBtn addTarget:self action:@selector(onSheetAction:) forControlEvents:UIControlEventPrimaryActionTriggered];
+    [_headerView addSubview:actionSheetBtn];
+    [actionSheetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.offset(kVerticalMargin);
         make.trailing.offset(-kHorizontalMargin);
+    }];
+    
+    UIButton *actionTabBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [actionTabBtn setTitle:@"tab" forState:UIControlStateNormal];
+    [actionTabBtn addTarget:self action:@selector(onTabAction:) forControlEvents:UIControlEventPrimaryActionTriggered];
+    [_headerView addSubview:actionTabBtn];
+    [actionTabBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(actionSheetBtn);
+        make.trailing.equalTo(actionSheetBtn.mas_leading).offset(-10.f);
     }];
     
     _nameLabel = [UILabel new];
@@ -223,7 +258,7 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.offset(16.f);
         make.leading.offset(24.f);
-        make.trailing.lessThanOrEqualTo(editBtn.mas_leading).offset(-kHorizontalSpace);
+        make.trailing.lessThanOrEqualTo(actionTabBtn.mas_leading).offset(-kHorizontalSpace);
     }];
     
     _underlineTabView = YJTabView.new;
@@ -530,6 +565,67 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
     });
 }
 
+- (void)loadActionTabViewController {
+    self.actionTabViewController = [[YJActionViewController alloc] initWithNibName:nil bundle:nil];
+    self.actionTabViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    self.actionTabViewController.actionView.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"img_bg_alert"].CGImage);
+    __weak typeof(self) weakself = self;
+    self.actionTabViewController.actionView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
+        layouter.layout(weakself.actionTabLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {
+            if (scene == YJActionTabSceneDrag) {
+                UIImageView *dragImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_drag"]];
+                return dragImageView;
+            }
+            if (scene >= YJActionTabScenePlaceholder) {
+                UIView *view = [UIView new];
+                return view;
+            }
+            NSInteger index = scene - YJActionTabSceneFirstBtn;
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setImage:[UIImage imageNamed:tabImages[index]] forState:UIControlStateNormal];
+            [btn setTitle:tabTitles[index] forState:UIControlStateNormal];
+            [btn setTitleColor:UIColor.darkTextColor forState:UIControlStateNormal];
+            return btn;
+        });
+    });
+    [self.actionTabViewController.view layoutIfNeeded];
+    for (int i = 0; i <= 2; i++) {
+        UIButton *tmpBtn = self.actionTabViewController.actionView.yj_extra.viewForIdentifier(YJComponentTypeButton, YJActionTabSceneFirstBtn+i);
+        CGSize imgSize = tmpBtn.imageView.yj_frame.size;
+        [tmpBtn.titleLabel sizeToFit];
+        CGSize titleSize = tmpBtn.titleLabel.yj_frame.size;
+        // 图片向右上偏移
+        tmpBtn.imageEdgeInsets = UIEdgeInsetsMake(-titleSize.height, 0.f, 0.f, -titleSize.width);
+        // label向左下偏移
+        tmpBtn.titleEdgeInsets = UIEdgeInsetsMake(0.f, -imgSize.width, -imgSize.height-14.f, 0.f);
+    }
+}
+
+- (void)loadActionSheetViewControlelr {
+    self.actionSheetViewController = [[YJActionViewController alloc] initWithNibName:nil bundle:nil];
+    self.actionSheetViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    self.actionSheetViewController.actionView.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"img_bg_alert"].CGImage);
+    __weak typeof(self) weakself = self;
+    self.actionSheetViewController.actionView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
+        layouter.layout(weakself.actionSheetLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {
+            if (scene == YJActionSheetSceneDrag) {
+                UIImageView *dragImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_drag"]];
+                return dragImageView;
+            }
+            if (scene >= YJActionSheetSceneFirstBtn) {
+                NSInteger index = scene - YJActionSheetSceneFirstBtn;
+                UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                [btn setTitle:sheetTitles[index] forState:UIControlStateNormal];
+                [btn setTitleColor:UIColor.darkTextColor forState:UIControlStateNormal];
+                return btn;
+            }
+            UIView *line = [UIView new];
+            line.backgroundColor = UIColor.lightGrayColor;
+            return line;
+        });
+    });
+}
+
 #pragma mark -Initial
 - (void)privateInitialData {
     __weak typeof(self) weakself = self;
@@ -600,6 +696,39 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
 - (MaskSingleViewModel *)maskSingleViewModel {
     if (!_maskSingleViewModel) _maskSingleViewModel = [MaskSingleViewModel viewModelWithSync:self.viewModel];
     return _maskSingleViewModel;
+}
+
+- (YJActionTabLayoutViewModel *)actionTabLayoutViewModel {
+    if (!_actionTabLayoutViewModel) {
+        _actionTabLayoutViewModel = [YJActionTabLayoutViewModel new];
+        _actionTabLayoutViewModel.padding = UIEdgeInsetsMake(12.f, kHorizontalMargin, 46.f, kHorizontalMargin);
+        _actionTabLayoutViewModel.actionCount = 3;
+        _actionTabLayoutViewModel.actionSize = CGSizeMake(97.f, 97.f);
+        _actionTabLayoutViewModel.actionTopMargin = 40.f;
+    }
+    return _actionTabLayoutViewModel;
+}
+
+- (YJActionSheetLayoutViewModel *)actionSheetLayoutViewModel {
+    if (!_actionSheetLayoutViewModel) {
+        _actionSheetLayoutViewModel = [YJActionSheetLayoutViewModel new];
+        _actionSheetLayoutViewModel.padding = UIEdgeInsetsMake(12.f, kHorizontalMargin *2.f, 46.f, kHorizontalMargin * 2.f);
+        _actionSheetLayoutViewModel.actionCount = 2;
+        _actionSheetLayoutViewModel.actionTopMargin = 40.f;
+        _actionSheetLayoutViewModel.actionHeight = 50.f;
+        _actionSheetLayoutViewModel.splitHeight = 1.f;
+    }
+    return _actionSheetLayoutViewModel;
+}
+
+- (ActionTabViewModel *)actionTabViewModel {
+    if (!_actionTabViewModel) _actionTabViewModel = [ActionTabViewModel new];
+    return _actionTabViewModel;
+}
+
+- (ActionSheetViewModel *)actionSheetViewModel {
+    if (!_actionSheetViewModel) _actionSheetViewModel = [ActionSheetViewModel new];
+    return _actionSheetViewModel;
 }
 @end
 

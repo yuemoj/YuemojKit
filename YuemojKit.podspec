@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YuemojKit'
-  s.version          = '1.0.3'
+  s.version          = '1.0.4'
   s.summary          = 'A decoupling framework for UI layout, data sources, and event responses'
 
 # This description is used to generate tags and improve search results.
@@ -32,8 +32,8 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Yuemoj' => 'yj_745@163.com' }
-  s.source           = { :git => 'https://github.com/yuemoj/YuemojKit.git', :tag => s.version.to_s }
-  # s.source           = { :path => 'YuemojKit'}
+  # s.source           = { :git => 'https://github.com/yuemoj/YuemojKit.git', :tag => s.version.to_s }
+  s.source           = { :path => 'YuemojKit'}
   s.resource         = 'YuemojKit.codesnippet.zip'
   s.platform         = :ios, '11.0'
   s.ios.deployment_target = '11.0'

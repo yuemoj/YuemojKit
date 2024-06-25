@@ -1,8 +1,8 @@
 //
 //  YJMultiSelectMaskView.m
-//  NetworkSalesController
+//  YuemojKit
 //
-//  Created by HYT200841559 on 2023/4/25.
+//  Created by Yuemoj on 2023/4/25.
 //
 
 #import "YJTopBottomMaskViewManager.h"

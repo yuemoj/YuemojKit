@@ -467,3 +467,15 @@ static NSString *const tabTitle[] = {
     return self.syncViewModel.selectedIds.count > 0;
 }
 @end
+
+@implementation ActionTabViewModel
+- (YJComponentType)componentTypeForScene:(NSInteger)scene {
+    return yj_componentTypeForActionTabScene((YJActionTabScene)scene);
+}
+@end
+
+@implementation ActionSheetViewModel
+- (YJComponentType)componentTypeForScene:(NSInteger)scene {
+    return yj_componentTypeForActionSheetScene((YJActionSheetScene)scene);
+}
+@end
