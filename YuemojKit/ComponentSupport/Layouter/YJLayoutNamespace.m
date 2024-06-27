@@ -82,6 +82,7 @@
 - (void)processComponentFetcher {
     __weak typeof(self) weakself = self;
     ((UIView *)self.owner).yj_extra.viewForIdentifier = ^__kindof UIView * _Nonnull(YJComponentType type, NSInteger scene) {
+        if (type == YJComponentTypeContainer) return weakself.owner;
         return weakself.layoutItems[@(yj_componentIdentifier(type, scene))].view;
     };
 }

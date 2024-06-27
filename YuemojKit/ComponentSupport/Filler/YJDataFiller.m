@@ -48,7 +48,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *text = [dataSource textForScene:nextScene purpose:purpose];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -77,7 +76,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *text = [dataSource textForScene:nextScene purpose:purpose inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -106,7 +104,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *text = [dataSource textForScene:nextScene purpose:purpose indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -135,7 +132,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *text = [dataSource textForScene:nextScene purpose:purpose state:state];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
@@ -195,7 +191,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *text = [dataSource textForScene:nextScene purpose:purpose state:state indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
@@ -224,7 +219,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSAttributedString *attributeString = [dataSource attributeTextForScene:nextScene purpose:purpose];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributedText:attributeString forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -253,7 +247,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSAttributedString *attributeString = [dataSource attributeTextForScene:nextScene purpose:purpose inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributedText:attributeString forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -282,7 +275,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSAttributedString *attributeString = [dataSource attributeTextForScene:nextScene purpose:purpose indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributedText:attributeString forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -311,7 +303,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSAttributedString *attributeString = [dataSource attributeTextForScene:nextScene purpose:purpose state:state];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributeText:attributeString forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
@@ -340,7 +331,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSAttributedString *attributeString = [dataSource attributeTextForScene:nextScene purpose:purpose state:state inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributeText:attributeString forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
@@ -369,7 +359,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSAttributedString *attributeString = [dataSource attributeTextForScene:nextScene purpose:purpose state:state indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withAttributeText:attributeString forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
@@ -434,7 +423,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIFont *font = [dataSource fontForScene:nextScene];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withFont:font];
         };
         if (firstScene == nil) {
@@ -466,7 +454,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIFont *font = [dataSource fontForScene:nextScene inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withFont:font];
         };
         if (firstScene == nil) {
@@ -498,7 +485,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIFont *font = [dataSource fontForScene:nextScene indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withFont:font];
         };
         if (firstScene == nil) {
@@ -529,7 +515,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIColor *color = [dataSource colorForScene:nextScene purpose:purpose];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -560,7 +545,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIColor *color = [dataSource colorForScene:nextScene purpose:purpose inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -590,7 +574,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIColor *color = [dataSource colorForScene:nextScene purpose:purpose indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -620,7 +603,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIColor *color = [dataSource colorForScene:nextScene purpose:purpose state:state];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
@@ -650,7 +632,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIColor *color = [dataSource colorForScene:nextScene purpose:purpose inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
@@ -680,7 +661,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIColor *color = [dataSource colorForScene:nextScene purpose:purpose state:state indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
@@ -712,7 +692,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *imageName = [dataSource imageNameForScene:nextScene purpose:purpose];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -743,7 +722,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *imageName = [dataSource imageNameForScene:nextScene purpose:purpose inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -774,7 +752,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *imageName = [dataSource imageNameForScene:nextScene purpose:purpose indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -805,7 +782,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *imageName = [dataSource imageNameForScene:nextScene purpose:purpose state:state];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
@@ -836,7 +812,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *imageName = [dataSource imageNameForScene:nextScene purpose:purpose state:state inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
@@ -867,7 +842,6 @@
         void(^action)(int) = ^(int nextScene) {
             NSString *imageName = [dataSource imageNameForScene:nextScene purpose:purpose state:state indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
@@ -898,7 +872,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIImage *image = [dataSource imageForScene:nextScene purpose:purpose];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -929,7 +902,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIImage *image = [dataSource imageForScene:nextScene purpose:purpose inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -960,7 +932,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIImage *image = [dataSource imageForScene:nextScene purpose:purpose indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -990,7 +961,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIImage *image = [dataSource imageForScene:nextScene purpose:purpose state:state];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) return;
             [(id<YJDataFillImageDelegate>)self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
@@ -1021,7 +991,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIImage *image = [dataSource imageForScene:nextScene purpose:purpose state:state inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
@@ -1052,7 +1021,6 @@
         void(^action)(int) = ^(int nextScene) {
             UIImage *image = [dataSource imageForScene:nextScene purpose:purpose state:state indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
@@ -1084,7 +1052,6 @@
         void(^action)(int) = ^(int nextScene) {
             BOOL pon = [dataSource ponForScene:nextScene purpose:purpose];
             YJComponentType type = [dataSource componentTypeForScene:nextScene];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withPoN:pon forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -1115,7 +1082,6 @@
         void(^action)(int) = ^(int nextScene) {
             BOOL pon = [dataSource ponForScene:nextScene purpose:purpose inSection:section];
             YJComponentType type = [dataSource componentTypeForScene:nextScene inSection:section];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withPoN:pon forPurpose:purpose];
         };
         if (firstScene == nil) {
@@ -1146,7 +1112,6 @@
         void(^action)(int) = ^(int nextScene) {
             BOOL pon = [dataSource ponForScene:nextScene purpose:purpose indexPath:indexPath];
             YJComponentType type = [dataSource componentTypeForScene:nextScene indexPath:indexPath];
-            if (type == YJComponentTypeCustom) return;
             [self.delegate fillComponent:type scene:nextScene withPoN:pon forPurpose:purpose];
         };
         if (firstScene == nil) {
