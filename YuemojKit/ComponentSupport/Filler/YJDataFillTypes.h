@@ -28,6 +28,7 @@ typedef NS_ENUM(int, YJPoNPurpose) {
     YJPoNPurposeDisplay,     // 可见状态
     YJPoNPurposeSelected,    // 选中状态
     YJPoNPurposeEnabled,     // 可用状态
+    YJPoNPurposeSecure
 };
 
 #endif /* YJDataFillTypes_h */

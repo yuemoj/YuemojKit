@@ -209,6 +209,11 @@
             }
             // other
         } break;
+        case YJPoNPurposeSecure: {
+            if ([component respondsToSelector:@selector(setSecureTextEntry:)]) {
+                component.secureTextEntry = pon;
+            }
+        } break;
         default: break;
     }
 }
