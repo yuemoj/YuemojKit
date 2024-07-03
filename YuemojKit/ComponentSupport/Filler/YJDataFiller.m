@@ -51,7 +51,7 @@
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -79,7 +79,7 @@
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -107,7 +107,7 @@
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -135,7 +135,7 @@
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -166,7 +166,7 @@
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -194,7 +194,7 @@
             [self.delegate fillComponent:type scene:nextScene withText:text forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -222,7 +222,7 @@
             [self.delegate fillComponent:type scene:nextScene withAttributedText:attributeString forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -250,7 +250,7 @@
             [self.delegate fillComponent:type scene:nextScene withAttributedText:attributeString forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -278,7 +278,7 @@
             [self.delegate fillComponent:type scene:nextScene withAttributedText:attributeString forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -306,7 +306,7 @@
             [self.delegate fillComponent:type scene:nextScene withAttributeText:attributeString forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -334,7 +334,7 @@
             [self.delegate fillComponent:type scene:nextScene withAttributeText:attributeString forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -362,7 +362,7 @@
             [self.delegate fillComponent:type scene:nextScene withAttributeText:attributeString forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -394,7 +394,7 @@
         };
         
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -426,7 +426,7 @@
             [self.delegate fillComponent:type scene:nextScene withFont:font];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -457,7 +457,7 @@
             [self.delegate fillComponent:type scene:nextScene withFont:font];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -488,7 +488,7 @@
             [self.delegate fillComponent:type scene:nextScene withFont:font];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -518,7 +518,7 @@
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -548,7 +548,7 @@
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -577,7 +577,7 @@
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -606,7 +606,7 @@
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -635,7 +635,7 @@
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -664,7 +664,7 @@
             [self.delegate fillComponent:type scene:nextScene withColor:color forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -695,7 +695,7 @@
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -725,7 +725,7 @@
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -755,7 +755,7 @@
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -785,7 +785,7 @@
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -815,7 +815,7 @@
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -845,7 +845,7 @@
             [self.delegate fillComponent:type scene:nextScene withImageName:imageName forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -875,7 +875,7 @@
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -905,7 +905,7 @@
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -935,7 +935,7 @@
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -964,7 +964,7 @@
             [(id<YJDataFillImageDelegate>)self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -994,7 +994,7 @@
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -1024,7 +1024,7 @@
             [self.delegate fillComponent:type scene:nextScene withImage:image forPurpose:purpose state:state];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -1055,7 +1055,7 @@
             [self.delegate fillComponent:type scene:nextScene withPoN:pon forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -1085,7 +1085,7 @@
             [self.delegate fillComponent:type scene:nextScene withPoN:pon forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -1115,7 +1115,7 @@
             [self.delegate fillComponent:type scene:nextScene withPoN:pon forPurpose:purpose];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:kYJDefaultPlaceHolderScene shouldUpdate:update action:action];
+            [YJComponentWrapper componentDidLoaded:self.isFilled forScene:YJDefaultComponentScene shouldUpdate:update action:action];
         } else {
             va_list args;
             va_start(args, firstScene);

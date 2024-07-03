@@ -188,7 +188,8 @@
 @implementation ViewModel (Layout)
 - (NSArray<YJLayoutItemConstraintDescription *> *)layoutDescriptionsInSection:(NSInteger)section provider:(__kindof UIView * _Nonnull (NS_NOESCAPE^)(NSInteger))provider {
     YJLayoutItem *titleItem = [YJLayoutItem new];
-    [titleItem bindView:provider(0) withType:[self componentTypeForScene:0 inSection:section]];
+//    [titleItem bindView:provider(0) withType:[self componentTypeForScene:0 inSection:section]];
+    [titleItem bindView:provider(YJDefaultComponentScene)];
     YJLayoutItemConstraintDescription *titleDescription = [titleItem makeItemDescription:^(id<YJLayoutConstraintAttributeDelegate>  _Nonnull maker) {
         maker.edges.insets(UIEdgeInsetsMake(10.f, 16.f, 10.f, 0.f));
     }];

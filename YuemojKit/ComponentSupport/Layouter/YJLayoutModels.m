@@ -296,8 +296,12 @@
 @interface YJLayoutItem ()
 @end
 @implementation YJLayoutItem
+- (void)bindView:(__kindof UIView *)view {
+    [self bindView:view withType:YJComponentTypeView];
+}
+
 - (void)bindView:(__kindof UIView *)view withType:(YJComponentType)type {
-    [self bindView:view withType:type scene:kYJDefaultPlaceHolderScene];
+    [self bindView:view withType:type scene:YJDefaultComponentScene];
 }
 
 - (void)bindView:(__kindof UIView *)view withType:(YJComponentType)type scene:(NSInteger)scene {

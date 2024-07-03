@@ -36,21 +36,19 @@
     self.builded = YES;
 }
 
-- (id<YJEventBuilderProtocol>  _Nonnull (^)(id<YJComponentDataSource> _Nonnull, __kindof UIGestureRecognizer * _Nonnull (^ _Nonnull)(id _Nonnull, SEL _Nonnull), BOOL (^ _Nonnull)(id _Nonnull, __kindof UIView * _Nonnull, NSInteger), NSNumber * _Nullable, ...))addActionForGestureRecognizer {
-    return ^(id<YJComponentDataSource,YJComponentDataSource> dataSource, __kindof UIGestureRecognizer *(^gestureBuilder)(id, SEL), BOOL (^action)(id, __kindof UIView * _Nonnull, NSInteger), NSNumber * _Nullable firstScene, ...) {
-        YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+- (id<YJEventBuilderProtocol>  _Nonnull (^)(YJComponentType(NS_NOESCAPE ^fetcher)(NSInteger), __kindof UIGestureRecognizer * _Nonnull (^ _Nonnull)(id _Nonnull, SEL _Nonnull), BOOL (^ _Nonnull)(id _Nonnull, __kindof UIView * _Nonnull, NSInteger), NSNumber * _Nullable, ...))addActionForGestureRecognizer {
+    return ^(YJComponentType(^fetcher)(NSInteger), __kindof UIGestureRecognizer *(^gestureBuilder)(id, SEL), BOOL (^action)(id, __kindof UIView * _Nonnull, NSInteger), NSNumber * _Nullable firstScene, ...) {
         YJProtocolAssert(self.delegate, @protocol(YJEventBuildGestureDelegate));
         YJSelectorAssert(self.delegate, @selector(buildComponent:forScene:withGestureRecognizer:action:));
         void(^build)(int) = ^(int nextScene) {
-            YJComponentType type = [dataSource componentTypeForScene:nextScene];
+            YJComponentType type = fetcher ? fetcher(nextScene) : YJComponentTypeContainer;
             [self.delegate buildComponent:type forScene:nextScene withGestureRecognizer:gestureBuilder action:^BOOL(__kindof UIView * _Nonnull view, NSInteger scene) {
                 if (!action) return NO;
                 return action(self.delegate, view, scene);
             }];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isBuilded forScene:kYJDefaultPlaceHolderScene shouldUpdate:nil action:build];
+            [YJComponentWrapper componentDidLoaded:self.isBuilded forScene:YJDefaultComponentScene shouldUpdate:nil action:build];
         } else {
             va_list args;
             va_start(args, firstScene);
@@ -60,21 +58,19 @@
     };
 }
 
-- (id<YJEventBuilderProtocol>  _Nonnull (^)(id<YJComponentDataSource> _Nonnull, UIControlEvents, BOOL (^ _Nonnull)(id _Nonnull, __kindof UIControl * _Nonnull, NSInteger), NSNumber * _Nullable, ...))addActionForControlEvents {
+- (id<YJEventBuilderProtocol>  _Nonnull (^)(UIControlEvents, YJComponentType(NS_NOESCAPE ^fetcher)(NSInteger), BOOL (^ _Nonnull)(id _Nonnull, __kindof UIControl * _Nonnull, NSInteger), NSNumber * _Nullable, ...))addActionForControlEvents {
     YJProtocolAssert(self.delegate, @protocol(YJEventBuildDelegate));
     YJSelectorAssert(self.delegate, @selector(buildComponent:forScene:controlEvents:action:));
-    return ^(id<YJComponentDataSource> _Nonnull dataSource, UIControlEvents controlEvents, BOOL (^action)(id owner, __kindof UIControl * _Nonnull, NSInteger), NSNumber * _Nullable firstScene, ...) {
-        YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+    return ^(UIControlEvents controlEvents, YJComponentType(^fetcher)(NSInteger), BOOL (^action)(id owner, __kindof UIControl * _Nonnull, NSInteger), NSNumber * _Nullable firstScene, ...) {
         void(^build)(int) = ^(int nextScene) {
-            YJComponentType type = [dataSource componentTypeForScene:nextScene];
+            YJComponentType type = fetcher ? fetcher(nextScene) : YJComponentTypeContainer;
             [self.delegate buildComponent:type forScene:nextScene controlEvents:controlEvents action:^BOOL(__kindof UIControl * _Nonnull sender, NSInteger scene) {
                 if (!action) return NO;
                 return action(self.delegate, sender, scene);
             }];
         };
         if (firstScene == nil) {
-            [YJComponentWrapper componentDidLoaded:self.isBuilded forScene:kYJDefaultPlaceHolderScene shouldUpdate:nil action:build];
+            [YJComponentWrapper componentDidLoaded:self.isBuilded forScene:YJDefaultComponentScene shouldUpdate:nil action:build];
         } else {
             va_list args;
             va_start(args, firstScene);

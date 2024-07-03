@@ -177,7 +177,9 @@ static NSString * const sheetTitles[] = {
     });
     
     cell.contentView.yj_eventBuild.buildEvent(^(id<YJEventBuilderProtocol>  _Nonnull builder) {
-        builder.addActionForControlEvents(self.viewModel, UIControlEventPrimaryActionTriggered, ^BOOL(id owner, UIButton *sender, NSInteger scene) {
+        builder.addActionForControlEvents(UIControlEventPrimaryActionTriggered, ^(NSInteger scene) {
+            return [self.viewModel componentTypeForScene:scene indexPath:indexPath];
+        }, ^BOOL(id owner, __kindof UIControl *sender, NSInteger scene) {
             sender.selected = !sender.selected;
             return YES;
         }, @(CellComponentMarkBtn), nil);
@@ -327,7 +329,9 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
     // Tab button 事件响应注册
     __weak typeof(self) weakself = self;
     self.underlineTabView.yj_eventBuild.buildEvent(^(id<YJEventBuilderProtocol>  _Nonnull builder) {
-        builder.addActionForControlEvents(self.viewModel.tabTitleDataSource, UIControlEventPrimaryActionTriggered, ^BOOL(id owner, __kindof UIControl *sender, NSInteger scene) {
+        builder.addActionForControlEvents(UIControlEventPrimaryActionTriggered, ^(NSInteger scene) {
+            return YJComponentTypeButton;
+        }, ^BOOL(id owner, __kindof UIControl *sender, NSInteger scene) {
             if (sender.selected) return NO;
             [weakself.viewModel onTabChoose:(YJTabScene)scene];
             weakself.underlineTabView.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
@@ -377,7 +381,9 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
     // Tab button 事件响应注册
     __weak typeof(self) weakself = self;
     self.backgroundTabView.yj_eventBuild.buildEvent(^(id<YJEventBuilderProtocol>  _Nonnull builder) {
-        builder.addActionForControlEvents(self.viewModel.tabTitleDataSource, UIControlEventPrimaryActionTriggered, ^BOOL(id owner, __kindof UIControl *sender, NSInteger scene) {
+        builder.addActionForControlEvents(UIControlEventPrimaryActionTriggered, ^(NSInteger scene) {
+            return [self.viewModel.tabTitleDataSource componentTypeForScene:scene];
+        }, ^BOOL(id owner, __kindof UIControl *sender, NSInteger scene) {
             if (sender.selected) return NO;
             [weakself.viewModel onTabChoose:(YJTabScene)scene];
             weakself.backgroundTabView.yj_dataFill.fillComponent(^(id<YJDataFillerProtocol>  _Nonnull filler) {
@@ -431,7 +437,9 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
     
     __weak typeof(self) weakself = self;
     self.singleMaskViewManager.topMaskView.yj_eventBuild.buildEvent(^(id<YJEventBuilderProtocol>  _Nonnull builder) {
-        builder.addActionForControlEvents(self.topLayoutViewModel, UIControlEventPrimaryActionTriggered, ^BOOL(id owner, __kindof UIControl *sender, NSInteger scene) {
+        builder.addActionForControlEvents(UIControlEventPrimaryActionTriggered, ^(NSInteger scene) {
+            return YJComponentTypeButton;
+        }, ^BOOL(id owner, __kindof UIControl *sender, NSInteger scene) {
             if (scene == YJMaskTopSceneClose) {
                 [weakself.singleMaskViewManager removeFromMaskingViewController];
                 [weakself onTableViewTransform:NO];
@@ -520,7 +528,9 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
     
     __weak typeof(self) weakself = self;
     self.dualMaskViewManager.topMaskView.yj_eventBuild.buildEvent(^(id<YJEventBuilderProtocol>  _Nonnull builder) {
-        builder.addActionForControlEvents(self.topLayoutViewModel, UIControlEventPrimaryActionTriggered, ^BOOL(id owner, __kindof UIControl *sender, NSInteger scene) {
+        builder.addActionForControlEvents(UIControlEventPrimaryActionTriggered, ^(NSInteger scene) {
+            return YJComponentTypeButton;
+        }, ^BOOL(id owner, __kindof UIControl *sender, NSInteger scene) {
             if (scene == YJMaskTopSceneClose) {
             [weakself.dualMaskViewManager removeFromMaskingViewController];
             [weakself onTableViewTransform:NO];

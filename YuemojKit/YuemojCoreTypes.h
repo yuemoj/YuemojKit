@@ -8,8 +8,8 @@
 #ifndef YuemojCoreTypes_h
 #define YuemojCoreTypes_h
 
-static NSInteger const kSceneSuper = -1;
-static NSInteger const kYJDefaultPlaceHolderScene = 0;
+static NSInteger const YJDefaultContainerScene = 99;
+static NSInteger const YJDefaultComponentScene = 0;
 
 typedef NS_OPTIONS(int, YJComponentType) {
     YJComponentTypeView     = 0x0,

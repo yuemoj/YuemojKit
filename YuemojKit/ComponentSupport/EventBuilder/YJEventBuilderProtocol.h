@@ -8,14 +8,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "YuemojMacros.h"
+#import "YuemojCoreTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+//typedef YJComponentType(^YJComponentTypeFetcher)(NSInteger scene);
 @protocol YJComponentDataSource;
 @protocol YJEventBuilderProtocol <NSObject>
 @optional
-@property (nonatomic, copy, readonly) id<YJEventBuilderProtocol>(^addActionForGestureRecognizer)(id<YJComponentDataSource> dataSource, __kindof UIGestureRecognizer *(^maker)(id, SEL), BOOL(^handler)(id owner, __kindof UIView *, NSInteger), NSNumber * _Nullable firstScene, ...);
-@property (nonatomic, copy, readonly) id<YJEventBuilderProtocol>(^addActionForControlEvents)(id<YJComponentDataSource> dataSource, UIControlEvents, BOOL(^)(id owner, __kindof UIControl*, NSInteger), NSNumber * _Nullable firstScene, ...);
+//@property (nonatomic, copy, readonly) id<YJEventBuilderProtocol>(^addActionForGestureRecognizer)(id<YJComponentDataSource> dataSource, __kindof UIGestureRecognizer *(^maker)(id, SEL), BOOL(^handler)(id owner, __kindof UIView *, NSInteger), NSNumber * _Nullable firstScene, ...);
+@property (nonatomic, copy, readonly) id<YJEventBuilderProtocol>(^addActionForGestureRecognizer)(YJComponentType(NS_NOESCAPE ^fetcher)(NSInteger), __kindof UIGestureRecognizer *(^maker)(id, SEL), BOOL(^handler)(id owner, __kindof UIView *, NSInteger), NSNumber * _Nullable firstScene, ...);
+@property (nonatomic, copy, readonly) id<YJEventBuilderProtocol>(^addActionForControlEvents)(UIControlEvents, YJComponentType(NS_NOESCAPE ^fetcher)(NSInteger), BOOL(^)(id owner, __kindof UIControl*, NSInteger), NSNumber * _Nullable firstScene, ...);
 @end
 
 @protocol YJEventBuildAbility <NSObject>

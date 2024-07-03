@@ -14,5 +14,4 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)componentDidLoaded:(BOOL)isLoaded forScene:(int)scene shouldUpdate:(BOOL(NS_NOESCAPE ^_Nullable)(int))update action:(void (^)(int nextScene))action;
 @end
 
-//FOUNDATION_EXPORT int const kYJDefaultPlaceHolderScene;
 NS_ASSUME_NONNULL_END

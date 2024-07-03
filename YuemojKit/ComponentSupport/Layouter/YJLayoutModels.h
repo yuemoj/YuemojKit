@@ -59,6 +59,7 @@ typedef NS_ENUM(int, YJLayoutRelation) {
 @property (nonatomic) YJLayoutAnchor<YJLayoutItem *> *width;
 @property (nonatomic) YJLayoutAnchor<YJLayoutItem *> *height;
 /// 默认非custom
+- (void)bindView:(__kindof UIView *)view;
 - (void)bindView:(__kindof UIView *)view withType:(YJComponentType)type; // 只有一个控件, 不设置scene时, 使用默认的scene
 - (void)bindView:(__kindof UIView *)view withType:(YJComponentType)type scene:(NSInteger)scene;
 - (void)bindView:(__kindof UIView *)view withType:(YJComponentType)type scene:(NSInteger)scene custom:(BOOL)isCustom;
