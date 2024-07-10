@@ -207,6 +207,9 @@
             if ([component respondsToSelector:@selector(setSelected:)]) {
                 component.selected = pon;
             }
+            if ([component respondsToSelector:@selector(setOn:)]) {
+                component.on = pon;
+            }
             // other
         } break;
         case YJPoNPurposeSecure: {

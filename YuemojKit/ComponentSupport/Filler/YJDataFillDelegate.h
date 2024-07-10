@@ -92,6 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, getter=isHidden) BOOL hidden;
 @property (nonatomic, getter=isEnabled) BOOL enabled;
 @property (nonatomic, getter=isSelected) BOOL selected;
+@property (nonatomic, getter=isOn) BOOL on;
 @property (nonatomic, getter=isSecureTextEntry) BOOL secureTextEntry;
 
 @end
