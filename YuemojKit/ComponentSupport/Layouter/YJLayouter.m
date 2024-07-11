@@ -65,9 +65,9 @@
     };
 }
 
-- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutDataSource,YJComponentDataSource> _Nonnull))layoutUpdate {
-    return ^(id<YJLayoutDataSource, YJComponentDataSource> dataSource) {
-        YJProtocolAssert(dataSource, @protocol(YJLayoutDataSource));
+- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutUpdateDataSource,YJComponentDataSource> _Nonnull))layoutUpdate {
+    return ^(id<YJLayoutUpdateDataSource, YJComponentDataSource> dataSource) {
+        YJProtocolAssert(dataSource, @protocol(YJLayoutUpdateDataSource));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
         YJSelectorAssert(dataSource, @selector(layoutUpdateDescriptionsWithFetcher:));
         YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
@@ -83,9 +83,9 @@
     };
 }
 
-- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutDataSource,YJComponentDataSource> _Nonnull, NSInteger))layoutUpdateInSection {
-    return ^(id<YJLayoutDataSource, YJComponentDataSource> dataSource, NSInteger section) {
-        YJProtocolAssert(dataSource, @protocol(YJLayoutDataSource));
+- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutUpdateDataSource,YJComponentDataSource> _Nonnull, NSInteger))layoutUpdateInSection {
+    return ^(id<YJLayoutUpdateDataSource, YJComponentDataSource> dataSource, NSInteger section) {
+        YJProtocolAssert(dataSource, @protocol(YJLayoutUpdateDataSource));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
         YJSelectorAssert(dataSource, @selector(layoutUpdateDescriptionsInSection:fetcher:));
         YJSelectorAssert(dataSource, @selector(componentTypeForScene:inSection:));
@@ -101,9 +101,9 @@
     };
 }
 
-- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutDataSource,YJComponentDataSource> _Nonnull, NSIndexPath * _Nonnull))layoutUpdateAtIndexPath {
-    return ^(id<YJLayoutDataSource, YJComponentDataSource> dataSource, NSIndexPath *indexPath) {
-        YJProtocolAssert(dataSource, @protocol(YJLayoutDataSource));
+- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutUpdateDataSource,YJComponentDataSource> _Nonnull, NSIndexPath * _Nonnull))layoutUpdateAtIndexPath {
+    return ^(id<YJLayoutUpdateDataSource, YJComponentDataSource> dataSource, NSIndexPath *indexPath) {
+        YJProtocolAssert(dataSource, @protocol(YJLayoutUpdateDataSource));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
         YJSelectorAssert(dataSource, @selector(layoutUpdateDescriptionsAtIndexPath:fetcher:));
         YJSelectorAssert(dataSource, @selector(componentTypeForScene:indexPath:));

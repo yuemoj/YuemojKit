@@ -10,16 +10,16 @@
 #import "YuemojMacros.h"
 NS_ASSUME_NONNULL_BEGIN
 @class YJLayoutItem;
-@protocol YJLayoutDataSource, YJComponentDataSource;
+@protocol YJLayoutDataSource, YJLayoutUpdateDataSource, YJComponentDataSource;
 @protocol YJLayouterProtocol <NSObject>
 @optional
 @property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layout)(id<YJLayoutDataSource> dataSource, __kindof UIView *(NS_NOESCAPE^)(NSInteger scene));
 @property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutInSection)(id<YJLayoutDataSource> dataSource, NSInteger section, __kindof UIView *(NS_NOESCAPE^)(NSInteger scene));
 @property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutAtIndexPath)(id<YJLayoutDataSource> dataSource, NSIndexPath *indexPath, __kindof UIView *(NS_NOESCAPE^)(NSInteger scene));
 
-@property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutUpdate)(id<YJLayoutDataSource, YJComponentDataSource> dataSource);
-@property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutUpdateInSection)(id<YJLayoutDataSource, YJComponentDataSource> dataSource, NSInteger section);
-@property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutUpdateAtIndexPath)(id<YJLayoutDataSource, YJComponentDataSource> dataSource, NSIndexPath *indexPath);
+@property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutUpdate)(id<YJLayoutUpdateDataSource, YJComponentDataSource> dataSource);
+@property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutUpdateInSection)(id<YJLayoutUpdateDataSource, YJComponentDataSource> dataSource, NSInteger section);
+@property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutUpdateAtIndexPath)(id<YJLayoutUpdateDataSource, YJComponentDataSource> dataSource, NSIndexPath *indexPath);
 
 
 //@property (nonatomic, readonly, copy) id<YJLayouterProtocol>(^layoutOffset)(id<YJLayoutOffsetDataSource, YJComponentDataSource> dataSource, NSNumber * _Nullable firstScene, ...);
