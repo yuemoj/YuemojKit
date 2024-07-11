@@ -12,16 +12,16 @@
 #import "YJLayoutDelegate.h"
 
 @interface YJLayouter ()
-@property (nonatomic, weak) id<YJLayoutDelegate, YJLayoutUpdateDelegate> delegate;
+@property (nonatomic, weak) id<YJLayoutDelegate> delegate;
 @property (nonatomic, getter=isLayouted) BOOL layouted;
 @end
 
 @implementation YJLayouter
-+ (instancetype)layouterWithDelegate:(id<YJLayoutDelegate, YJLayoutUpdateDelegate>)delegate {
++ (instancetype)layouterWithDelegate:(id<YJLayoutDelegate>)delegate {
     return [[self alloc] initWithDelegate:delegate];
 }
 
-- (instancetype)initWithDelegate:(id<YJLayoutDelegate, YJLayoutUpdateDelegate>)delegate {
+- (instancetype)initWithDelegate:(id<YJLayoutDelegate>)delegate {
     if (self = [super init]) {
         _delegate = delegate;
     }
@@ -65,13 +65,13 @@
     };
 }
 
-- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutUpdateDataSource,YJComponentDataSource> _Nonnull))layoutUpdate {
-    return ^(id<YJLayoutUpdateDataSource, YJComponentDataSource> dataSource) {
-        YJProtocolAssert(dataSource, @protocol(YJLayoutUpdateDataSource));
+- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutDataSource,YJComponentDataSource> _Nonnull))layoutUpdate {
+    return ^(id<YJLayoutDataSource, YJComponentDataSource> dataSource) {
+        YJProtocolAssert(dataSource, @protocol(YJLayoutDataSource));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
         YJSelectorAssert(dataSource, @selector(layoutUpdateDescriptionsWithFetcher:));
         YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
-        YJProtocolAssert(self.delegate, @protocol(YJLayoutUpdateDelegate));
+        YJProtocolAssert(self.delegate, @protocol(YJLayoutDelegate));
         YJSelectorAssert(self.delegate, @selector(layoutUpdateWithItemDescriptions:));
         YJSelectorAssert(self.delegate, @selector(layoutItemForIdentifier:));
         NSArray<YJLayoutItemConstraintDescription *> *descriptions = [dataSource layoutUpdateDescriptionsWithFetcher:^YJLayoutItem * _Nonnull(NSInteger scene) {
@@ -83,13 +83,13 @@
     };
 }
 
-- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutUpdateDataSource,YJComponentDataSource> _Nonnull, NSInteger))layoutUpdateInSection {
-    return ^(id<YJLayoutUpdateDataSource, YJComponentDataSource> dataSource, NSInteger section) {
-        YJProtocolAssert(dataSource, @protocol(YJLayoutUpdateDataSource));
+- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutDataSource,YJComponentDataSource> _Nonnull, NSInteger))layoutUpdateInSection {
+    return ^(id<YJLayoutDataSource, YJComponentDataSource> dataSource, NSInteger section) {
+        YJProtocolAssert(dataSource, @protocol(YJLayoutDataSource));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
         YJSelectorAssert(dataSource, @selector(layoutUpdateDescriptionsInSection:fetcher:));
         YJSelectorAssert(dataSource, @selector(componentTypeForScene:inSection:));
-        YJProtocolAssert(self.delegate, @protocol(YJLayoutUpdateDelegate));
+        YJProtocolAssert(self.delegate, @protocol(YJLayoutDelegate));
         YJSelectorAssert(self.delegate, @selector(layoutUpdateWithItemDescriptions:));
         YJSelectorAssert(self.delegate, @selector(layoutItemForIdentifier:));
         NSArray<YJLayoutItemConstraintDescription *> *descriptions = [dataSource layoutUpdateDescriptionsInSection:section fetcher:^YJLayoutItem * _Nonnull(NSInteger scene) {
@@ -101,13 +101,13 @@
     };
 }
 
-- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutUpdateDataSource,YJComponentDataSource> _Nonnull, NSIndexPath * _Nonnull))layoutUpdateAtIndexPath {
-    return ^(id<YJLayoutUpdateDataSource, YJComponentDataSource> dataSource, NSIndexPath *indexPath) {
-        YJProtocolAssert(dataSource, @protocol(YJLayoutUpdateDataSource));
+- (id<YJLayouterProtocol>  _Nonnull (^)(id<YJLayoutDataSource,YJComponentDataSource> _Nonnull, NSIndexPath * _Nonnull))layoutUpdateAtIndexPath {
+    return ^(id<YJLayoutDataSource, YJComponentDataSource> dataSource, NSIndexPath *indexPath) {
+        YJProtocolAssert(dataSource, @protocol(YJLayoutDataSource));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
         YJSelectorAssert(dataSource, @selector(layoutUpdateDescriptionsAtIndexPath:fetcher:));
         YJSelectorAssert(dataSource, @selector(componentTypeForScene:indexPath:));
-        YJProtocolAssert(self.delegate, @protocol(YJLayoutUpdateDelegate));
+        YJProtocolAssert(self.delegate, @protocol(YJLayoutDelegate));
         YJSelectorAssert(self.delegate, @selector(layoutUpdateWithItemDescriptions:));
         YJSelectorAssert(self.delegate, @selector(layoutItemForIdentifier:));
         NSArray<YJLayoutItemConstraintDescription *> *descriptions = [dataSource layoutUpdateDescriptionsAtIndexPath:indexPath fetcher:^YJLayoutItem * _Nonnull(NSInteger scene) {

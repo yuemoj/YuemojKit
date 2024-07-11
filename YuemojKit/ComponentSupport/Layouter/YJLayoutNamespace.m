@@ -26,7 +26,7 @@
 }
 
 - (YJLayouter *)layouter {
-    if (!_layouter) _layouter = [YJLayouter layouterWithDelegate:(id<YJLayoutDelegate, YJLayoutUpdateDelegate>)self];
+    if (!_layouter) _layouter = [YJLayouter layouterWithDelegate:(id<YJLayoutDelegate>)self];
     return _layouter;
 }
 
@@ -38,7 +38,7 @@
 @end
 
 #import "UIKit+Yuemoj.h"
-@interface YJLayoutNamespace (LayoutDelegate)<YJLayoutDelegate, YJLayoutUpdateDelegate>
+@interface YJLayoutNamespace (LayoutDelegate)<YJLayoutDelegate>
 @end
 @implementation YJLayoutNamespace(LayoutDelegate)
 - (id)layoutItemForIdentifier:(NSInteger)identifier {

@@ -14,10 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray<YJLayoutItemConstraintDescription *> *)layoutDescriptionsWithProvider:(__kindof UIView *(NS_NOESCAPE^)(NSInteger scene))provider;
 - (NSArray<YJLayoutItemConstraintDescription *> *)layoutDescriptionsInSection:(NSInteger)section provider:(__kindof UIView *(NS_NOESCAPE^)(NSInteger scene))provider;
 - (NSArray<YJLayoutItemConstraintDescription *> *)layoutDescriptionsAtIndexPath:(NSIndexPath *)indexPath provider:(__kindof UIView *(NS_NOESCAPE^)(NSInteger scene))provider;
-@end
-
-@protocol YJLayoutUpdateDataSource <NSObject>
-@optional
+//@end
+//
+//@protocol YJLayoutUpdateDataSource <NSObject>
+//@optional
 - (NSArray<YJLayoutItemConstraintDescription *> *)layoutUpdateDescriptionsWithFetcher:(YJLayoutItem *(NS_NOESCAPE^)(NSInteger scene))itemFetcher;
 - (NSArray<YJLayoutItemConstraintDescription *> *)layoutUpdateDescriptionsInSection:(NSInteger)section fetcher:(YJLayoutItem *(NS_NOESCAPE^)(NSInteger scene))fetcher;
 - (NSArray<YJLayoutItemConstraintDescription *> *)layoutUpdateDescriptionsAtIndexPath:(NSIndexPath *)indexPath fetcher:(YJLayoutItem *(NS_NOESCAPE^)(NSInteger scene))fetcher;
