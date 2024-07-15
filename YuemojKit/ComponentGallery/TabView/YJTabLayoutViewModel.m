@@ -36,6 +36,8 @@
                 YJLayoutItem *lastItem = itemConstraintDescriptions[i * (self.shouldSplit ? 2 : 1) - 1].firstItem;
                 maker.leading.equalTo(lastItem.trailing).yj_offset(horizontalSpace);
                 if (i == self.tabCount - 1) maker.trailing.yj_offset(0.f);
+                YJLayoutItem *lastBtnItem = itemConstraintDescriptions[i * (self.shouldSplit ? 2 : 1) - 1].firstItem;
+                maker.width.equalTo(lastBtnItem.width);
             }
         }];
         [itemConstraintDescriptions addObject:btnDescription];
@@ -64,11 +66,11 @@
                 case YJTabViewIndicatorStyleUnderline: {
                     maker.centerX.equalTo(firstItem);
                     maker.bottom.equalTo(firstItem).yj_offset(3.f);
-                    maker.width.equalTo(@30.f);
+                    maker.width.yj_offset(self.indicatorWidth);
                     maker.height.equalTo(@3.f);
                 } break;
                 case YJTabViewIndicatorStyleBackground: {
-                    maker.edges.equalTo(firstItem).insets(UIEdgeInsetsMake(-2.f, -5.f, -2.f, -5.f));
+                    maker.edges.equalTo(firstItem).insets(self.indicatorInsets);
                 } break;
                 default: break;
             }

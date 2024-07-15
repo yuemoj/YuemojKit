@@ -22,6 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSInteger tabCount;
 @property (nonatomic) YJTabViewIndicatorStyle indicatorStyle;
 @property (nonatomic) BOOL shouldSplit;
+/// YJTabViewIndicatorStyleUnderline
+@property (nonatomic) CGFloat indicatorWidth;
+/// YJTabViewIndicatorStyleBackground
+@property (nonatomic) UIEdgeInsets indicatorInsets;
 @end
 
 NS_ASSUME_NONNULL_END
