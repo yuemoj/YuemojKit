@@ -30,37 +30,43 @@
     
     YJLayoutItem *lastPlaceholderItem = nil;
     for (int i = 0; i <= self.actionCount - 1; i++) {
-        do {
-            if (!i) break;
+        if (!i) {
             YJLayoutItem *placeholderItem = [YJLayoutItem new];
             YJActionTabScene placeholderScene = YJActionTabScenePlaceholder + i;
             [placeholderItem bindView:provider(placeholderScene) withType:[self componentTypeForScene:placeholderScene] scene:placeholderScene];
             YJLayoutItemConstraintDescription *placeholderDescription = [placeholderItem makeItemDescription:^(id<YJLayoutConstraintAttributeDelegate>  _Nonnull maker) {
                 maker.top.yj_offset(self.actionTopMargin);
-                maker.height.yj_offset(self.actionSize.height);
-                if (!lastPlaceholderItem) {
-                    maker.leading.yj_offset(self.padding.left + self.actionSize.width);
-                } else {
-                    maker.leading.equalTo(lastPlaceholderItem.trailing).yj_offset(self.actionSize.width);
-                    maker.width.equalTo(lastPlaceholderItem);
-                }
+                maker.leading.yj_offset(self.padding.left);
+                maker.height.yj_offset(1.f);
             }];
             [descriptionArray addObject:placeholderDescription];
             lastPlaceholderItem = placeholderItem;
-        } while (0);
+        }
         YJLayoutItem *btnItem = [YJLayoutItem new];
         YJActionTabScene scene = YJActionTabSceneFirstBtn + i;
         [btnItem bindView:provider(scene) withType:[self componentTypeForScene:scene] scene:scene];
         YJLayoutItemConstraintDescription *btnDescription = [btnItem makeItemDescription:^(id<YJLayoutConstraintAttributeDelegate>  _Nonnull maker) {
             maker.top.yj_offset(self.actionTopMargin);
-            maker.leading.equalTo(lastPlaceholderItem ? lastPlaceholderItem.trailing : @(self.padding.left));
+            maker.leading.equalTo(lastPlaceholderItem.trailing);
             maker.bottom.yj_offset(-self.padding.bottom);
-            if (i == self.actionCount - 1) maker.trailing.yj_offset(-self.padding.right);
-            
             maker.width.yj_offset(self.actionSize.width);
             maker.height.yj_offset(self.actionSize.height);
         }];
         [descriptionArray addObject:btnDescription];
+        
+        YJLayoutItem *placeholderItem = [YJLayoutItem new];
+        YJActionTabScene placeholderScene = YJActionTabScenePlaceholder + i + 1;
+        [placeholderItem bindView:provider(placeholderScene) withType:[self componentTypeForScene:placeholderScene] scene:placeholderScene];
+        YJLayoutItemConstraintDescription *placeholderDescription = [placeholderItem makeItemDescription:^(id<YJLayoutConstraintAttributeDelegate>  _Nonnull maker) {
+            maker.top.yj_offset(self.actionTopMargin);
+            maker.leading.equalTo(btnItem.trailing);
+            maker.height.yj_offset(1.f);
+            maker.width.equalTo(lastPlaceholderItem);
+            if (i == self.actionCount - 1) maker.trailing.yj_offset(-self.padding.right);
+        }];
+        [descriptionArray addObject:placeholderDescription];
+        lastPlaceholderItem = placeholderItem;
+        
     }
     return descriptionArray;
 }
