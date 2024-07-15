@@ -533,7 +533,7 @@
         // 不遵循协议 或者不实现dataSource的方法 --> 使用component初始化的默认值
         if (![dataSource conformsToProtocol:@protocol(YJDataFillColorDataSource)] || ![dataSource respondsToSelector:@selector(colorForScene:purpose:inSection:)]) return self;
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:inSection:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillColorDelegate));
         YJSelectorAssert(self.delegate, @selector(fillComponent:scene:withColor:forPurpose:));
         BOOL(^update)(int) = ^BOOL(int nextScene) {
@@ -562,7 +562,7 @@
     return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, NSIndexPath *indexPath, NSNumber * _Nullable firstScene, ...) {
         if (![dataSource conformsToProtocol:@protocol(YJDataFillColorDataSource)] || ![dataSource respondsToSelector:@selector(colorForScene:purpose:indexPath:)]) return self;
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:indexPath:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillColorDelegate));
         YJSelectorAssert(self.delegate, @selector(fillComponent:scene:withColor:forPurpose:));
         BOOL(^update)(int) = ^BOOL(int nextScene) {
@@ -620,7 +620,7 @@
     return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, UIControlState state, NSInteger section, NSNumber * _Nullable firstScene, ...) {
         if (![dataSource conformsToProtocol:@protocol(YJDataFillColorDataSource)] || ![dataSource respondsToSelector:@selector(colorForScene:purpose:state:inSection:)]) return self;
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:inSection:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillColorDelegate));
         YJSelectorAssert(self.delegate, @selector(fillComponent:scene:withColor:forPurpose:state:));
         BOOL(^update)(int) = ^BOOL(int nextScene) {
@@ -649,7 +649,7 @@
     return ^(id<YJDataFillColorDataSource, YJComponentDataSource> dataSource, YJColorPurpose purpose, UIControlState state, NSIndexPath *indexPath, NSNumber * _Nullable firstScene, ...) {
         if (![dataSource conformsToProtocol:@protocol(YJDataFillColorDataSource)] || ![dataSource respondsToSelector:@selector(colorForScene:purpose:state:indexPath:)]) return self;
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:indexPath:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillColorDelegate));
         YJSelectorAssert(self.delegate, @selector(fillComponent:scene:withColor:forPurpose:state:));
         BOOL(^update)(int) = ^BOOL(int nextScene) {
@@ -710,7 +710,7 @@
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageNameForScene:purpose:inSection:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:inSection:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillImageDelegate));
         YJSelectorAssert(self.delegate, @selector(fillComponent:scene:withImageName:forPurpose:));
         BOOL(^update)(int) = ^BOOL(int nextScene) {
@@ -740,7 +740,7 @@
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageNameForScene:purpose:indexPath:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:indexPath:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillImageDelegate));
         YJSelectorAssert(self.delegate, @selector(fillComponent:scene:withImageName:forPurpose:));
         BOOL(^update)(int) = ^BOOL(int nextScene) {
@@ -800,7 +800,7 @@
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageNameForScene:purpose:state:inSection:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:inSection:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillImageDelegate));
         YJSelectorAssert(self.delegate, @selector(fillComponent:scene:withImageName:forPurpose:state:));
         BOOL(^update)(int) = ^BOOL(int nextScene) {
@@ -830,7 +830,7 @@
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageNameForScene:purpose:state:indexPath:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:indexPath:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillImageDelegate));
         YJSelectorAssert(self.delegate, @selector(fillComponent:scene:withImageName:forPurpose:state:));
         BOOL(^update)(int) = ^BOOL(int nextScene) {
@@ -890,7 +890,7 @@
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageForScene:purpose:inSection:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:inSection:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillImageDelegate));
         YJSelectorAssert(self.delegate, @selector(fillComponent:scene:withColor:forPurpose:));
         BOOL(^update)(int) = ^BOOL(int nextScene) {
@@ -920,7 +920,7 @@
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageForScene:purpose:indexPath:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:indexPath:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillImageDelegate));
         YJSelectorAssert(self.delegate, @selector(fillComponent:scene:withImage:forPurpose:));
         BOOL(^update)(int) = ^BOOL(int nextScene) {
@@ -979,7 +979,7 @@
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageForScene:purpose:state:inSection:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:inSection:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillImageDelegate));
         YJSelectorAssert(self.delegate, @selector(fillComponent:scene:withColor:forPurpose:state:));
         BOOL(^update)(int) = ^BOOL(int nextScene) {
@@ -1009,7 +1009,7 @@
         YJProtocolAssert(dataSource, @protocol(YJDataFillImageDataSource));
         YJSelectorAssert(dataSource, @selector(imageForScene:purpose:state:indexPath:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:indexPath:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillImageDelegate));
         YJSelectorAssert(self.delegate, @selector(fillComponent:scene:withImage:forPurpose:state:));
         BOOL(^update)(int) = ^BOOL(int nextScene) {
@@ -1070,7 +1070,7 @@
         YJProtocolAssert(dataSource, @protocol(YJDataFillPoNDataSource));
         YJSelectorAssert(dataSource, @selector(ponForScene:purpose:inSection:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:inSection:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillPoNDelegate));
         YJSelectorAssert(self.delegate, @selector(fillComponent:scene:withPoN:forPurpose:));
         BOOL(^update)(int) = ^BOOL(int nextScene) {
@@ -1100,7 +1100,7 @@
         YJProtocolAssert(dataSource, @protocol(YJDataFillPoNDataSource));
         YJSelectorAssert(dataSource, @selector(ponForScene:purpose:indexPath:));
         YJProtocolAssert(dataSource, @protocol(YJComponentDataSource));
-        YJSelectorAssert(dataSource, @selector(componentTypeForScene:));
+        YJSelectorAssert(dataSource, @selector(componentTypeForScene:indexPath:));
         YJProtocolAssert(self.delegate, @protocol(YJDataFillPoNDelegate));
         YJSelectorAssert(self.delegate, @selector(fillComponent:scene:withPoN:forPurpose:));
         BOOL(^update)(int) = ^BOOL(int nextScene) {

@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol UITableViewDataSource;
 @class UITableViewCell, TabDataViewModel;
-@interface ViewModel : NSObject<YJComponentDataSource ,YJLayoutDataSource, YJDataFillTextDataSource, YJDataFillFontDataSource, YJDataFillColorDataSource, YJDataFillImageDataSource, YJDataFillPoNDataSource, YJDataFillShouldUpdateDataSource>
+@interface ViewModel : NSObject<YJComponentDataSource ,YJLayoutDataSource, YJLayoutUpdateDataSource, YJDataFillTextDataSource, YJDataFillFontDataSource, YJDataFillColorDataSource, YJDataFillImageDataSource, YJDataFillPoNDataSource, YJDataFillShouldUpdateDataSource>
 @property (nonatomic) TabDataViewModel *tabTitleDataSource;
 
 + (instancetype)viewModelWithDataSourceSetter:(void (NS_NOESCAPE^)(id<UITableViewDataSource> _Nonnull))setter
