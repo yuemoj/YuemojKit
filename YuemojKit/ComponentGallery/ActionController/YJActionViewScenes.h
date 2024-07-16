@@ -33,7 +33,7 @@ typedef NS_ENUM(int, YJActionSheetScene) {
 
 static inline YJComponentType yj_componentTypeForActionSheetScene(YJActionSheetScene scene) {
     if (scene == YJActionSheetSceneDrag) return YJComponentTypeImage;
-    if (scene >= YJActionSheetSceneFirstSplit) return YJComponentTypeView;
-    return YJComponentTypeButton;
+    if (scene >= YJActionSheetSceneFirstBtn) return YJComponentTypeButton;
+    return YJComponentTypeView;
 }
 #endif /* YJActionViewScenes_h */
