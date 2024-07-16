@@ -299,9 +299,10 @@ static CGFloat const kHorizontalSpace = 10.f, kVerticalSpace = 10.f;
 
 - (void)loadUnderlineTabView {
     YJTabLayoutViewModel *tabLayoutViewModel = YJTabLayoutViewModel.new;
+    tabLayoutViewModel.tabCount = 3;
     tabLayoutViewModel.shouldSplit = YES;
     tabLayoutViewModel.indicatorStyle = YJTabViewIndicatorStyleUnderline;
-    tabLayoutViewModel.tabCount = 3;
+    tabLayoutViewModel.indicatorWidth = 30.f;
     // TabView 布局
     self.underlineTabView.yj_layout.layoutComponent(^(id<YJLayouterProtocol>  _Nonnull layouter) {
         layouter.layout(tabLayoutViewModel, ^__kindof UIView * _Nonnull(NSInteger scene) {

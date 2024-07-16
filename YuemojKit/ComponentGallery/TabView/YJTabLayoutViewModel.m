@@ -35,10 +35,10 @@
             else {
                 YJLayoutItem *lastItem = itemConstraintDescriptions[i * (self.shouldSplit ? 2 : 1) - 1].firstItem;
                 maker.leading.equalTo(lastItem.trailing).yj_offset(horizontalSpace);
-                if (i == self.tabCount - 1) maker.trailing.yj_offset(0.f);
-                YJLayoutItem *lastBtnItem = itemConstraintDescriptions[i * (self.shouldSplit ? 2 : 1) - 1].firstItem;
+                YJLayoutItem *lastBtnItem = itemConstraintDescriptions[(i - 1) * (self.shouldSplit ? 2 : 1)].firstItem;
                 maker.width.equalTo(lastBtnItem.width);
             }
+            if (i == self.tabCount - 1) maker.trailing.yj_offset(0.f);
         }];
         [itemConstraintDescriptions addObject:btnDescription];
         
