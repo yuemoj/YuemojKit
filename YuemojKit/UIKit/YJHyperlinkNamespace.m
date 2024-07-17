@@ -16,6 +16,13 @@
 @end
 
 @implementation YJHyperlinkNamespace
+- (instancetype)initWithOwner:(id)owner {
+    if (self == [super initWithOwner:owner]) {
+        [self initialTextConfig];
+    }
+    return self;
+}
+
 - (void)initialTextConfig {
     //textStorage(最小)<layoutManager<textContainer
     self.textContainer = [NSTextContainer new];
