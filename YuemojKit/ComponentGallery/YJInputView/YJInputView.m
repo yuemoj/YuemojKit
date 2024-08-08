@@ -84,6 +84,7 @@
     inputTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     inputTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     inputTextField.secureTextEntry = isSecureEntry;
+    inputTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     
     [inputTextField setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
     [inputTextField setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
