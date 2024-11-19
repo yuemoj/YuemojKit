@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIView.h>
 #import "YJComponentDataSource.h"
 
 NS_ASSUME_NONNULL_BEGIN
