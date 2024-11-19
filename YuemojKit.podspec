@@ -114,5 +114,6 @@ Pod::Spec.new do |s|
     ss.source_files = 'YuemojKit/ComponentGallery/**/*.{h,m}'
 
     ss.dependency 'YuemojKit/ComponentSupport'
+    ss.dependency 'YuemojKit/FoundationAbility'
   end
 end
