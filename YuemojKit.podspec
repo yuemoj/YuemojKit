@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Yuemoj' => 'yj_745@163.com' }
   s.source           = { :git => 'https://github.com/yuemoj/YuemojKit.git', :tag => s.version.to_s }
-  # s.source           = { :path => 'YuemojKit'}
+#   s.source           = { :path => 'YuemojKit'}
   s.resource         = 'YuemojKit.codesnippet.zip'
   s.platform         = :ios, '11.0'
   s.ios.deployment_target = '11.0'

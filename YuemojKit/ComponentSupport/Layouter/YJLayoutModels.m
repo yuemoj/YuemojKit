@@ -264,30 +264,34 @@
 
 - (id<YJLayoutAnchorProtocol> _Nonnull (^)(CGFloat))multipliedBy {
     return ^(CGFloat multiplier) {
-        [self.owner setLayoutMultiplier:multiplier];
+        [self.maker setLayoutMultiplier:multiplier];
         return self;
     };
 }
 
 - (id<YJLayoutAnchorProtocol> _Nonnull (^)(UIEdgeInsets))insets {
     return ^(UIEdgeInsets edgeInsets) {
-        [self.owner insets:edgeInsets];
+        [self.maker insets:edgeInsets];
         return self;
     };
 }
 
 - (id<YJLayoutAnchorProtocol> _Nonnull (^)(CGFloat))yj_offset {
     return ^(CGFloat offset) {
-        [self.owner setOffset:offset];
+        [self.maker setOffset:offset];
         return self;
     };
 }
 
 - (id<YJLayoutAnchorProtocol>  _Nonnull (^)(UILayoutPriority))priority {
     return ^(UILayoutPriority p) {
-        [self.owner setPriority:p];
+        [self.maker setPriority:p];
         return self;
     };
+}
+
+- (YJLayoutConstraintMaker *)maker {
+    return self.owner;
 }
 @end
 

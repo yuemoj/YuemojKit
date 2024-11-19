@@ -58,5 +58,5 @@ FOUNDATION_EXPORT const unsigned char YuemojKitVersionString[];
 #import "YJOrderJSON.h"
 #import "YJBoundedBuffer.h"
 
-#endif __has_include
-#endif __YuemojKit__
+#endif //__has_include
+#endif //__YuemojKit__
